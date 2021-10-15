@@ -6,7 +6,7 @@
 /*   By: dohykim <dohykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 17:15:26 by hyson             #+#    #+#             */
-/*   Updated: 2021/10/15 22:43:36 by dohykim          ###   ########.fr       */
+/*   Updated: 2021/10/15 23:35:46 by dohykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,14 +40,20 @@ int		read_file(int argc, char **argv)
 	return (0);
 }
 
+static	t_bool	get_status(t_object_condition *ob, char *line, int id)
+{
+	t_bool	ret;
+
+	ret = ERROR;
+	if (id == AMBIENT)
+		ret = get_ambient(ob, line);
+}
+
 t_bool		parse(char *line, int fd, t_object_condition *ob)
 {
 	char	*tmp;
 	int		id;
-
 	tmp = line;
-	id = 0;
-	ob = 0;
 
 	/*
 	** 구분자별로 모듈 나누기
@@ -60,15 +66,22 @@ t_bool		parse(char *line, int fd, t_object_condition *ob)
 	}
 	while (is_blank(*tmp))
 		++tmp;
-	if (identifier(line) == AMBIENT)
-	// 	get_ambient(ob, , )
-	// else if (identifier(line) == CAMERA)
-	// else if (identifier(line) == LIGHT)
-	// else if (identifier(line) == PLANE)
-	// else if (identifier(line) == SPHERE)
-	// else if (identifier(line) == CYLINDER)
-	//else //
-	if (identifier(line) == ERROR)
+	id = identifier(line);
+	if (!id)
 		e_identifier((void **)&line, fd);
+	else if (id <= 3)
+		tmp = tmp + 2;
+	else
+		tmp = tmp + 3;
+
+	// if (id == AMBIENT)
+	// 	get_ambient(ob, tmp);
+	// else if (id == CAMERA)
+	// else if (id == LIGHT)
+	// else if (id == PLANE)
+	// else if (id == SPHERE)
+	// else if (id == CYLINDER)
+	//else //
+
 	return (SUCCESS);
 }

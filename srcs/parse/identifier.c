@@ -6,7 +6,7 @@
 /*   By: dohykim <dohykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 10:42:21 by hyson             #+#    #+#             */
-/*   Updated: 2021/10/15 22:39:07 by dohykim          ###   ########.fr       */
+/*   Updated: 2021/10/15 22:44:55 by dohykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ int				identifier(char *line)
 	int			i;
 
 	i = 0;
-
 	if (line[i] == 'A' && is_blank(line[i + 1]))
 	{
 		write(1, "a\n", 2);

@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyson <hyson@42student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: dohykim <dohykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 17:53:18 by hyson             #+#    #+#             */
-/*   Updated: 2021/10/12 18:32:07 by hyson            ###   ########.fr       */
+/*   Updated: 2021/10/15 23:30:58 by dohykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minirt.h"
+//#include "minirt.h"
+#include "lib.h"
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {

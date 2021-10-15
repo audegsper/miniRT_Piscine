@@ -6,11 +6,12 @@
 /*   By: hyson <hyson@42student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/03 14:14:26 by hyson             #+#    #+#             */
-/*   Updated: 2021/10/14 13:12:04 by hyson            ###   ########.fr       */
+/*   Updated: 2021/10/15 23:30:53 by hyson            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minirt.h"
+//#include "minirt.h"
+#include "lib.h"
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {

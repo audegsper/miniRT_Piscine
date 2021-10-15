@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyson <hyson@42student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: dohykim <dohykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 17:52:53 by hyson             #+#    #+#             */
-/*   Updated: 2021/10/14 15:01:13 by hyson            ###   ########.fr       */
+/*   Updated: 2021/10/15 23:30:56 by dohykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minirt.h"
+//#include "minirt.h"
+#include "lib.h"
 
 size_t		ft_strlen(char *s)
 {

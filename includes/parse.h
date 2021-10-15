@@ -1,6 +1,7 @@
 #ifndef PARSE_H
 # define PARSE_H
 
+# include <stdlib.h>
 # include <unistd.h>
 # include <stdio.h>
 # include <fcntl.h>
@@ -82,7 +83,7 @@ typedef	struct	s_object_condition
 
 t_bool		parse(char *line, int fd, t_object_condition *ob);
 int			identifier(char *line);
-void		get_ambient(t_object_condition **ob, char *line, int i);
+t_bool		get_ambient(t_object_condition *ob, char *line);
 void		get_camera(t_object_condition **ob);
 void		get_light(t_object_condition **ob);
 void		get_plane(t_object_condition **ob);

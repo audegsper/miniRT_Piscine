@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   dalloc.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyson <hyson@42student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: dohykim <dohykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 17:55:33 by hyson             #+#    #+#             */
-/*   Updated: 2021/10/12 18:31:18 by hyson            ###   ########.fr       */
+/*   Updated: 2021/10/15 23:35:28 by dohykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minirt.h"
+//#include "minirt.h"
+#include "lib.h"
 
 t_bool	dalloc(void **ptr, size_t cnt, size_t n)
 {

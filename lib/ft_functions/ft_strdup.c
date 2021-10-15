@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyson <hyson@42student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: dohykim <dohykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 17:53:41 by hyson             #+#    #+#             */
-/*   Updated: 2021/10/12 18:31:34 by hyson            ###   ########.fr       */
+/*   Updated: 2021/10/15 23:30:59 by dohykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minirt.h"
+//#include "minirt.h"
+#include "lib.h"
 
 char	*ft_strdup(char *s1)
 {

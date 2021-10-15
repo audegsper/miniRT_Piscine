@@ -6,6 +6,8 @@
         "mlx.h": "c",
         "chrono": "c",
         "struct.h": "c",
-        "object.h": "c"
+        "object.h": "c",
+        "stdio.h": "c",
+        "lib.h": "c"
     }
 }

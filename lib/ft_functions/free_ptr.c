@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   free_ptr.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyson <hyson@42student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: dohykim <dohykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 17:56:21 by hyson             #+#    #+#             */
-/*   Updated: 2021/10/12 18:31:25 by hyson            ###   ########.fr       */
+/*   Updated: 2021/10/15 23:19:00 by dohykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minirt.h"
+//#include "minirt.h"
+#include "lib.h"
 
 void	free_ptr(void **ptr)
 {

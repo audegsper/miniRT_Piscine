@@ -13,8 +13,6 @@
 #ifndef STRUCT_H
 # define STRUCT_H
 
-typedef	int		t_bool;
-
 typedef	struct	s_point3		t_point3;
 typedef	struct	s_vec3			t_vec3;
 typedef	struct	s_color			t_color;
@@ -31,6 +29,10 @@ typedef	struct s_light			t_light;
 typedef	struct s_sphere			t_sphere;
 typedef	struct s_plane			t_plane;
 typedef	struct s_cylinder		t_cylinder;
+
+typedef int				t_bool;
+# define FALSE 0
+# define TRUE 1
 
 typedef int				t_object_type;
 # define SP 0
