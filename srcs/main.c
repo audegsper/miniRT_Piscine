@@ -14,8 +14,7 @@
 
 int			main(int argc, char **argv)
 {
-	read_file(argc, argv); // hyson
-	
-	
+	read_file(argc, argv); // hyson	
+
 	return (0);
 }
