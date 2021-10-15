@@ -100,5 +100,6 @@ void		e_file_param(void);
 void		e_file_open(void);
 void		e_file_read(int fd);
 void		e_identifier(void **ptr, int fd);
+void		e_condition_value(void **ptr,int fd);
 
 #endif

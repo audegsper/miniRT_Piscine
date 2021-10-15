@@ -6,7 +6,7 @@
 /*   By: dohykim <dohykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 17:15:26 by hyson             #+#    #+#             */
-/*   Updated: 2021/10/15 23:35:46 by dohykim          ###   ########.fr       */
+/*   Updated: 2021/10/16 00:03:47 by dohykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,22 @@ static	t_bool	get_status(t_object_condition *ob, char *line, int id)
 {
 	t_bool	ret;
 
-	ret = ERROR;
+	ret = FALSE;
 	if (id == AMBIENT)
 		ret = get_ambient(ob, line);
+
+	// 처리해야할 녀석들
+	// else if (id == CAMERA)
+	// 	ret = get_camera(ob, line);
+	// else if (id == LIGHT)
+	// 	ret = get_light(ob, line);
+	// else if (id == SPHERE)
+	// 	ret = get_sphere(ob, line);
+	// else if (id == PLANE)
+	// 	ret = get_plane(ob, line);
+	// else if (id == CYLINDER)
+	// 	ret = get_cylinder(ob, line);
+	return (FALSE);
 }
 
 t_bool		parse(char *line, int fd, t_object_condition *ob)
@@ -73,7 +86,8 @@ t_bool		parse(char *line, int fd, t_object_condition *ob)
 		tmp = tmp + 2;
 	else
 		tmp = tmp + 3;
-
+	if (!get_status(ob, line, id))
+		e_condition_value((void **)(&line), fd);
 	// if (id == AMBIENT)
 	// 	get_ambient(ob, tmp);
 	// else if (id == CAMERA)

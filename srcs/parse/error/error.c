@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyson <hyson@42student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: dohykim <dohykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 22:07:39 by hyson             #+#    #+#             */
-/*   Updated: 2021/10/14 12:36:58 by hyson            ###   ########.fr       */
+/*   Updated: 2021/10/16 00:00:21 by dohykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,16 @@ void e_file_read(int fd)
 }
 
 void	e_identifier(void **ptr, int fd)
+{
+	errno = 79;
+	perror("errno 79");
+	write(STDERR_FILENO, "Error\n", 6);
+	free_ptr(ptr);
+	close(fd);
+	exit(INVALID);
+}
+
+void	e_condition_value(void **ptr,int fd)
 {
 	errno = 79;
 	perror("errno 79");
