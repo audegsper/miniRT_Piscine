@@ -60,6 +60,7 @@ t_bool		parse(char *line, int fd, t_object_condition *ob)
 	// else if (identifier(line) == PLANE)
 	// else if (identifier(line) == SPHERE)
 	// else if (identifier(line) == CYLINDER)
+	//else //
 	if (identifier(line) == ERROR)
 		e_identifier((void **)&line, fd);
 	return (SUCCESS);
