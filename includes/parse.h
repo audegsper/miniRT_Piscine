@@ -69,8 +69,19 @@ int			ft_strncmp(const char *s1, const char *s2, size_t n);
 ** -----------------------------------------------------------------------------
 */
 
-t_bool		parse(char *line, int fd);
+typedef	struct	s_object_condition
+{
+	t_ambient	*a;
+	t_camera	*c;
+	t_light		*l;
+	t_sphere	*sp;
+	t_plane		*pl;
+	t_cylinder	*cy;
+}				t_object_condition;
+
+t_bool		parse(char *line, int fd, t_object_condition *ob);
 int			identifier(char *line);
+
 
 /*
 ** -----------------------------------------------------------------------------
