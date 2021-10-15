@@ -1,0 +1,24 @@
+//** Makefile 컴파일 명령어에 -g 옵션 있는지 확인!! **//
+{
+    "tasks": [
+        {
+            "type": "shell",
+            "label": "C/C++: gcc 활성 파일 빌드",
+            "command": "make re",
+            // ** 실행파일을 열 때 필요한 인자가 있으면 args에 넣기!!**//
+            "args": ["rt/example.rt"],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "디버거에서 생성된 작업입니다."
+        }
+    ],
+    "version": "2.0.0"
+}
