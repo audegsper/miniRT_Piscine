@@ -6,7 +6,7 @@
 /*   By: hyson <hyson@42student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 18:17:39 by hyson             #+#    #+#             */
-/*   Updated: 2021/10/14 20:28:18 by hyson            ###   ########.fr       */
+/*   Updated: 2021/10/15 17:01:01 by hyson            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int			main(int argc, char **argv)
 {
-	read_file(argc, argv); // 현준님 파일
+	read_file(argc, argv); // hyson
 	// mlx_show(); //dohykim
 	return (0);
 }
