@@ -1,20 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   camera.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dohykim <dohykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/12 18:17:39 by hyson             #+#    #+#             */
-/*   Updated: 2021/10/15 22:35:38 by dohykim          ###   ########.fr       */
+/*   Created: 2021/10/15 22:00:08 by hyson             #+#    #+#             */
+/*   Updated: 2021/10/15 22:39:55 by dohykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-int			main(int argc, char **argv)
-{
-	read_file(argc, argv); // hyson
-
-	return (0);
-}
+// void	get_camera(t_object_condition **ob)
+// {}

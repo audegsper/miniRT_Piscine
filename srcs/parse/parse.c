@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyson <hyson@42student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: dohykim <dohykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 17:15:26 by hyson             #+#    #+#             */
-/*   Updated: 2021/10/15 18:50:43 by hyson            ###   ########.fr       */
+/*   Updated: 2021/10/15 22:31:59 by dohykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
-
 
 int		read_file(int argc, char **argv)
 {
@@ -54,7 +53,15 @@ t_bool		parse(char *line, int fd, t_object_condition *ob)
 	** 구분자별로 모듈 나누기
 	** 모듈별로 담아놓을 변수가 다름
 	*/
+	if (!ft_strncmp(tmp, "", ft_strlen(tmp)))
+	{
+		write(1, "blank\n", 6);
+		return (BLANK);
+	}
+	while (is_blank(*tmp))
+		++tmp;
 	// if (identifier(line) == AMBIENT)
+	// 	get_ambient(ob, , )
 	// else if (identifier(line) == CAMERA)
 	// else if (identifier(line) == LIGHT)
 	// else if (identifier(line) == PLANE)

@@ -62,6 +62,7 @@ char		*ft_strdup(char *s1);
 t_bool		dalloc(void **ptr, size_t cnt, size_t n);
 void		free_ptr(void **ptr);
 int			ft_strncmp(const char *s1, const char *s2, size_t n);
+t_bool		is_blank(char c);
 
 /*
 ** -----------------------------------------------------------------------------
@@ -81,7 +82,12 @@ typedef	struct	s_object_condition
 
 t_bool		parse(char *line, int fd, t_object_condition *ob);
 int			identifier(char *line);
-
+void		get_ambient(t_object_condition **ob, char *line, int i);
+void		get_camera(t_object_condition **ob);
+void		get_light(t_object_condition **ob);
+void		get_plane(t_object_condition **ob);
+void		get_sphere(t_object_condition **ob);
+void		get_cylinder(t_object_condition **ob);
 
 /*
 ** -----------------------------------------------------------------------------

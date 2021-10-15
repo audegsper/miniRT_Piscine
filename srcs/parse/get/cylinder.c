@@ -1,20 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   cylinder.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dohykim <dohykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/12 18:17:39 by hyson             #+#    #+#             */
-/*   Updated: 2021/10/15 22:35:38 by dohykim          ###   ########.fr       */
+/*   Created: 2021/10/15 22:00:10 by hyson             #+#    #+#             */
+/*   Updated: 2021/10/15 22:40:48 by dohykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-int			main(int argc, char **argv)
-{
-	read_file(argc, argv); // hyson
+// void	get_cylinder(t_object_condition **ob)
+// {
 
-	return (0);
-}
+// }

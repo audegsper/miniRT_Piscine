@@ -4,6 +4,8 @@
         "parse.h": "c",
         "stdlib.h": "c",
         "mlx.h": "c",
-        "chrono": "c"
+        "chrono": "c",
+        "struct.h": "c",
+        "object.h": "c"
     }
 }

@@ -3,32 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   identifier.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyson <hyson@42student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: dohykim <dohykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 10:42:21 by hyson             #+#    #+#             */
-/*   Updated: 2021/10/14 20:07:11 by hyson            ###   ########.fr       */
+/*   Updated: 2021/10/15 22:39:07 by dohykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
-
-static	t_bool	is_blank(char c)
-{
-	return (c == ' ' || c == '\v' || c == '\t');
-}
 
 int				identifier(char *line)
 {
 	int			i;
 
 	i = 0;
-	if (!ft_strncmp(line, "", ft_strlen(line)))
-	{
-		write(1, "blank\n", 6);
-		return (BLANK);
-	}
-	while (is_blank(line[i]))
-		++i;
+
 	if (line[i] == 'A' && is_blank(line[i + 1]))
 	{
 		write(1, "a\n", 2);
