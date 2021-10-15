@@ -6,7 +6,7 @@
 /*   By: dohykim <dohykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 17:15:26 by hyson             #+#    #+#             */
-/*   Updated: 2021/10/15 22:31:59 by dohykim          ###   ########.fr       */
+/*   Updated: 2021/10/15 22:43:36 by dohykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ t_bool		parse(char *line, int fd, t_object_condition *ob)
 	}
 	while (is_blank(*tmp))
 		++tmp;
-	// if (identifier(line) == AMBIENT)
+	if (identifier(line) == AMBIENT)
 	// 	get_ambient(ob, , )
 	// else if (identifier(line) == CAMERA)
 	// else if (identifier(line) == LIGHT)

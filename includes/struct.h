@@ -77,17 +77,12 @@ struct s_hit_record
 	t_color	albedo;
 };
 
-/*
-struct			s_scene
+struct s_camera
 {
-	t_canvas		canvas;
-	t_camera		camera;
-	t_object		*world;
-	t_object		*light;
-	t_ray			ray;
-	t_hit_record	rec;
+	t_point3 	p;
+	t_vec3		n; //정규화된 방향벡터
+	double		fov;
 };
-*/
 
 struct	s_canvas
 {
@@ -96,12 +91,14 @@ struct	s_canvas
 	double	aspect_ratio; //종횡비
 };
 
-
-struct s_camera
+struct			s_scene
 {
-	t_point3 	p;
-	t_vec3		n; //정규화된 방향벡터
-	double		fov;
+	t_canvas		canvas;
+	t_camera		camera;
+	t_object		*world;
+	t_object		*light;
+	t_ray			ray;
+	t_hit_record	rec;
 };
 
 struct s_ambient
