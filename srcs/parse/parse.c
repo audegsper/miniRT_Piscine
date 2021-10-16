@@ -6,7 +6,7 @@
 /*   By: dohykim <dohykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 17:15:26 by hyson             #+#    #+#             */
-/*   Updated: 2021/10/16 10:42:34 by dohykim          ###   ########.fr       */
+/*   Updated: 2021/10/16 15:47:44 by dohykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ static	t_bool	get_status(t_object_condition *ob, char *line, int id)
 	ret = FALSE;
 	if (id == AMBIENT)
 		ret = get_ambient(ob, line);
-
 	// 처리해야할 녀석들
 	// else if (id == CAMERA)
 	// 	ret = get_camera(ob, line);

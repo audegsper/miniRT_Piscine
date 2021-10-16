@@ -25,6 +25,7 @@ void		get_light(t_object_condition **ob);
 void		get_plane(t_object_condition **ob);
 void		get_sphere(t_object_condition **ob);
 void		get_cylinder(t_object_condition **ob);
+t_bool		check_double(char **s, double *v);
 
 /*
 ** -----------------------------------------------------------------------------

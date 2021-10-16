@@ -59,5 +59,7 @@ t_bool		dalloc(void **ptr, size_t cnt, size_t n);
 void		free_ptr(void **ptr);
 int			ft_strncmp(const char *s1, const char *s2, size_t n);
 t_bool		is_blank(char c);
+t_bool		ft_isdigit(int c);
+t_bool		is_endl(const char *s);
 
 #endif

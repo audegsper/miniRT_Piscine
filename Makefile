@@ -6,7 +6,7 @@
 #    By: dohykim <dohykim@student.42seoul.kr>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/12 17:08:27 by hyson             #+#    #+#              #
-#    Updated: 2021/10/16 10:27:59 by dohykim          ###   ########.fr        #
+#    Updated: 2021/10/16 14:58:03 by dohykim          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,6 +35,7 @@ FTLIB		=	libft.a
 SRC_LIST	=	main.c						\
 			$(D_PARSE)parse.c				\
 			$(D_PARSE)identifier.c			\
+			$(D_PARSE)check_double.c		\
 			$(D_GET)ambient.c				\
 			$(D_GET)camera.c				\
 			$(D_GET)light.c					\
