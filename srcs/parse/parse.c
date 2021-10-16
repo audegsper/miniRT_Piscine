@@ -6,7 +6,7 @@
 /*   By: dohykim <dohykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 17:15:26 by hyson             #+#    #+#             */
-/*   Updated: 2021/10/16 00:10:18 by dohykim          ###   ########.fr       */
+/*   Updated: 2021/10/16 10:42:34 by dohykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ static	t_bool	get_status(t_object_condition *ob, char *line, int id)
 	// 	ret = get_plane(ob, line);
 	// else if (id == CYLINDER)
 	// 	ret = get_cylinder(ob, line);
-	return (FALSE);
+	return (ret);
 }
 
 t_bool		parse(char *line, int fd, t_object_condition *ob)

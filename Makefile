@@ -6,7 +6,7 @@
 #    By: dohykim <dohykim@student.42seoul.kr>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/12 17:08:27 by hyson             #+#    #+#              #
-#    Updated: 2021/10/16 00:02:47 by dohykim          ###   ########.fr        #
+#    Updated: 2021/10/16 10:27:59 by dohykim          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,11 +27,11 @@ RM			= 	rm -f
 NAME		=	miniRT
 HEADER		=	./includes/
 FOLDER		=	./srcs/
-LIBDIR		=	../lib/ft_functions/
-LIBNAME		=	libft.a
 D_PARSE		=	./parse/
 D_ERROR		=	./parse/error/
 D_GET		=	./parse/get/
+D_FT		=	./lib/ft_functions/
+FTLIB		=	libft.a
 SRC_LIST	=	main.c						\
 			$(D_PARSE)parse.c				\
 			$(D_PARSE)identifier.c			\
@@ -43,6 +43,7 @@ SRC_LIST	=	main.c						\
 			$(D_GET)cylinder.c				\
 			$(D_ERROR)error.c
 SRC			=	$(addprefix $(FOLDER), $(SRC_LIST))
+LIBFT		=	$(addprefix $(D_FT), $(FTLIB))
 OBJ			=	$(SRC:.c=.o)
 
 #------------------------------------------------------------------------------#
@@ -50,14 +51,14 @@ OBJ			=	$(SRC:.c=.o)
 #------------------------------------------------------------------------------#
 
 %.o			:	%.c
-				@$(CC) $(CFLAGS) $(CDEBUG) -I $(HEADER) -o $@ -c $<
+				$(CC) $(CFLAGS) $(CDEBUG) -I $(HEADER) -o $@ -c $<
 
 $(NAME)		:	$(LIBFT) $(OBJ)
-				@$(CC) $(LIBFT) $(CFLAGS) $(CDEBUG) -I $(HEADER) -o $(NAME) $(OBJ)
+				$(CC) $(LIBFT) $(CFLAGS) $(CDEBUG) -I $(HEADER) -o $(NAME) $(OBJ)
 
-$(LIBNAME):
-			@$(MAKE) -C $(LIBDIR)
-			@cp $(addprefix $(LIBDIR), $(LIBNAME)) $(LIBNAME)
+$(LIBFT):
+			$(MAKE) -C $(D_FT) all
+
 #------------------------------------------------------------------------------#
 # R U L E
 #------------------------------------------------------------------------------#
@@ -67,11 +68,13 @@ all			: 	$(NAME)
 
 .PHONY		:	clean
 clean		:
-				@$(RM) $(OBJ)
+				$(RM) $(OBJ)
+				$(MAKE) -C $(D_FT) clean
 
 .PHONY		:	fclean
 fclean		: 	clean
-				@$(RM) $(NAME)
+				$(RM) $(NAME)
+				$(MAKE) -C $(D_FT) fclean
 
 .PHONY		:	re
 re			:	fclean all

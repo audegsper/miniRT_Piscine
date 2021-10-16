@@ -34,11 +34,20 @@ typedef int				t_bool;
 # define FALSE 0
 # define TRUE 1
 
+/*
+** -----------------------------------------------------------------------------
+** I D E N T I F I E R
+** -----------------------------------------------------------------------------
+*/
+
 typedef int				t_object_type;
-# define SP 0
-# define LIGHT_POINT 1
-# define PL 2
-# define CY 3
+# define BLANK 0
+# define AMBIENT 1
+# define CAMERA 2
+# define LIGHT 3
+# define SPHERE 4
+# define PLANE 5
+# define CYLINDER 6
 
 
 struct 	s_point3
