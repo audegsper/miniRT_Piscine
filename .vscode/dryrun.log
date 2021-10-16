@@ -1,6 +1,6 @@
 make --dry-run --keep-going --print-directory
 make: Entering directory `/Users/dohykim/Documents/miniRT_Piscine'
-gcc -Wall -Wextra -Werror -fsanitize=address -g -I ./includes/ -o srcs/dohykim.o -c srcs/dohykim.c
-gcc ./lib/ft_functions/libft.a -Wall -Wextra -Werror -fsanitize=address -g -I ./includes/ -o miniRT ./srcs/main.o ./srcs/dohykim.o
 make: Leaving directory `/Users/dohykim/Documents/miniRT_Piscine'
+ 
+make: *** No targets specified and no makefile found.  Stop.
  

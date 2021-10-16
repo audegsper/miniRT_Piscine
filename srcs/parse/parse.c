@@ -6,7 +6,7 @@
 /*   By: dohykim <dohykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 17:15:26 by hyson             #+#    #+#             */
-/*   Updated: 2021/10/16 15:47:44 by dohykim          ###   ########.fr       */
+/*   Updated: 2021/10/16 19:07:06 by dohykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ static	t_bool	get_status(t_object_condition *ob, char *line, int id)
 	ret = FALSE;
 	if (id == AMBIENT)
 		ret = get_ambient(ob, line);
+
 	// 처리해야할 녀석들
 	// else if (id == CAMERA)
 	// 	ret = get_camera(ob, line);
@@ -78,14 +79,14 @@ t_bool		parse(char *line, int fd, t_object_condition *ob)
 	}
 	while (is_blank(*tmp))
 		++tmp;
-	id = identifier(line);
+	id = identifier(tmp);
 	if (!id)
 		e_identifier((void **)&line, fd);
 	else if (id <= 3)
 		tmp = tmp + 2;
 	else
 		tmp = tmp + 3;
-	if (!get_status(ob, line, id))
+	if (!get_status(ob, tmp, id))
 		e_condition_value((void **)(&line), fd);
 	// if (id == AMBIENT)
 	// 	get_ambient(ob, tmp);

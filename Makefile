@@ -6,7 +6,7 @@
 #    By: dohykim <dohykim@student.42seoul.kr>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/12 17:08:27 by hyson             #+#    #+#              #
-#    Updated: 2021/10/16 14:58:03 by dohykim          ###   ########.fr        #
+#    Updated: 2021/10/16 19:03:59 by dohykim          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,17 +32,13 @@ D_ERROR		=	./parse/error/
 D_GET		=	./parse/get/
 D_FT		=	./lib/ft_functions/
 FTLIB		=	libft.a
+MLXDIR		=	./lib/mlx/
+MLXNAME		=	libmlx.a
+LIB_FLAG	=	-L $(MLXDIR) -lmlx -framework OpenGL -framework AppKit
 SRC_LIST	=	main.c						\
-			$(D_PARSE)parse.c				\
-			$(D_PARSE)identifier.c			\
-			$(D_PARSE)check_double.c		\
-			$(D_GET)ambient.c				\
-			$(D_GET)camera.c				\
-			$(D_GET)light.c					\
-			$(D_GET)sphere.c				\
-			$(D_GET)plane.c					\
-			$(D_GET)cylinder.c				\
-			$(D_ERROR)error.c
+				dohykim.c					\
+				test_sphere.c
+
 SRC			=	$(addprefix $(FOLDER), $(SRC_LIST))
 LIBFT		=	$(addprefix $(D_FT), $(FTLIB))
 OBJ			=	$(SRC:.c=.o)
@@ -55,7 +51,7 @@ OBJ			=	$(SRC:.c=.o)
 				$(CC) $(CFLAGS) $(CDEBUG) -I $(HEADER) -o $@ -c $<
 
 $(NAME)		:	$(LIBFT) $(OBJ)
-				$(CC) $(LIBFT) $(CFLAGS) $(CDEBUG) -I $(HEADER) -o $(NAME) $(OBJ)
+				$(CC) $(LIBFT) $(CFLAGS) $(CDEBUG) $(LIB_FLAG) -I $(HEADER) -o $(NAME) $(OBJ)
 
 $(LIBFT):
 			$(MAKE) -C $(D_FT) all

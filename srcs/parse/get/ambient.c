@@ -6,7 +6,7 @@
 /*   By: dohykim <dohykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 21:59:59 by hyson             #+#    #+#             */
-/*   Updated: 2021/10/16 15:53:28 by dohykim          ###   ########.fr       */
+/*   Updated: 2021/10/16 18:05:28 by dohykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ static	t_bool	parse_a(t_object_condition *ob, char *line)
 	ret = TRUE;
 	if (!check_double(&line, &(ob->a->s)))
 		ret = FALSE;
-
 	return (ret);
 }
 

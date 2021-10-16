@@ -6,7 +6,7 @@
 #    By: dohykim <dohykim@student.42seoul.kr>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/12 17:08:27 by hyson             #+#    #+#              #
-#    Updated: 2021/10/16 17:00:56 by dohykim          ###   ########.fr        #
+#    Updated: 2021/10/16 14:58:03 by dohykim          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,8 +33,16 @@ D_GET		=	./parse/get/
 D_FT		=	./lib/ft_functions/
 FTLIB		=	libft.a
 SRC_LIST	=	main.c						\
-				dohykim.c					\
-
+			$(D_PARSE)parse.c				\
+			$(D_PARSE)identifier.c			\
+			$(D_PARSE)check_double.c		\
+			$(D_GET)ambient.c				\
+			$(D_GET)camera.c				\
+			$(D_GET)light.c					\
+			$(D_GET)sphere.c				\
+			$(D_GET)plane.c					\
+			$(D_GET)cylinder.c				\
+			$(D_ERROR)error.c
 SRC			=	$(addprefix $(FOLDER), $(SRC_LIST))
 LIBFT		=	$(addprefix $(D_FT), $(FTLIB))
 OBJ			=	$(SRC:.c=.o)

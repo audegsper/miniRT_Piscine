@@ -1,5 +1,33 @@
 #include "minirt.h"
 
+void	free_img_data(t_img_data *data)
+{
+	int		w;
+
+	w = -1;
+	while ((++w) < data->width)
+		free(data->img[w]);
+	free(data->img);
+	free(data);
+}
+
+int     hit_s_sphere(t_sphere *s, t_ray *r)
+{
+    t_vec3   *oc;
+    double  a;
+    double  b;
+    double  c;
+    double  discriment;
+
+    oc = vec_sub(r->orig, s->p);
+    a = vec_dot(r->dir, r->dir);
+    b = vec_dot(oc, r->dir) * 2.0;
+    c = vec_dot(oc, oc) - s->r * s->r;
+    free(oc);
+    discriment = b * b - 4 * a * c;
+    return ((discriment >= 0) ? TRUE : FALSE);
+}
+
 double	clamp(double x, double min, double max)
 {
 	if (x < min)
@@ -70,15 +98,7 @@ void    free_sphere(t_sphere *s)
     free(s);
 }
 
-t_sphere    *init_sphere(t_point3 *center, double radius)
-{
-    t_sphere    *result;
 
-    result = (t_sphere *)malloc(sizeof(t_sphere));
-    result->p = center;
-    result->r = radius;
-    return (result);
-}
 
 void    free_sky(t_sky *my_sky, int is_origin_free)
 {
@@ -383,22 +403,39 @@ t_img_data		*create_img_data(int width, int height)
 	}
 	return (result);
 }
-
-void show_s_sphere()
+/*
+t_sphere    *init_sphere(t_point3 *center, double radius)
 {
-    double  aspect_ratio;
-    t_img_data  *img;
-    t_sky_info  *info;
-    t_sphere    *s;
+    t_sphere    *result;
 
-    aspect_ratio = 16.0 / 9.0;
-    img = create_img_data(400, (int)(400 / aspect_ratio));
-    info = init_sky_info(2.0 * aspect_ratio, 2.0, 1.0);
-    draw_sky(img, info);
-    s = init_sphere(vec_create(0, 0, -1), 0.5);
-    draw_s_sphere(img, info, s);
-    mlx_show(img, "Simple sphere at Sky");
-    free_sphere(s);
-    free(info);
-    free_img_data(img);
+    result = (t_sphere *)malloc(sizeof(t_sphere));
+    result->p = center;
+    result->r = radius;
+    return (result);
+}
+*/
+void show_s_sphere(t_rt *rt)
+//void show_s_sphere()
+{
+    rt->aspect_ratio = 16.0 / 9.0;
+    rt->img = create_img_data(400, (int)(400 / rt->aspect_ratio));
+    rt->info = init_sky_info(2.0 * rt->aspect_ratio, 2.0, 1.0);
+    draw_sky(rt->img, rt->info);
+    //
+    rt->s = init_sphere(vec_create(0, 0, -1), 0.5);
+    draw_s_sphere(rt->img, rt->info, rt->s);
+    mlx_show(rt->img, "Simple sphere at Sky");
+    free_sphere(rt->s);
+    free(rt->info);
+    free_img_data(rt->img);
+    //
+}
+
+void show_s_sphere2(t_rt *rt)
+{
+    draw_s_sphere(rt->img, rt->info, rt->s);
+    mlx_show(rt->img, "Simple sphere at Sky");
+    free_sphere(rt->s);
+    free(rt->info);
+    free_img_data(rt->img);
 }
