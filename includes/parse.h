@@ -23,9 +23,13 @@ t_bool		get_ambient(t_object_condition *ob, char *line);
 void		get_camera(t_object_condition **ob);
 void		get_light(t_object_condition **ob);
 void		get_plane(t_object_condition **ob);
-void		get_sphere(t_object_condition **ob);
+t_bool		get_sphere(t_object_condition *ob, char *line);
 void		get_cylinder(t_object_condition **ob);
 t_bool		check_double(char **s, double *v);
+t_bool		check_double2(char **s, double *v1, double *v2, double *v3);
+t_bool		check_int(char **s, int *v);
+t_bool		check_int2(char **s, int *v1, int *v2, int *v3);
+t_bool		valid_color(t_color c);
 
 /*
 ** -----------------------------------------------------------------------------

@@ -1,6 +1,6 @@
 make --dry-run --keep-going --print-directory
 make: Entering directory `/Users/dohykim/Documents/miniRT_Piscine'
-make: Leaving directory `/Users/dohykim/Documents/miniRT_Piscine'
+make: `miniRT' is up to date.
  
-make: *** No targets specified and no makefile found.  Stop.
+make: Leaving directory `/Users/dohykim/Documents/miniRT_Piscine'
  

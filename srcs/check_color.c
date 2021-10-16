@@ -1,26 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   check_color.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dohykim <dohykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/12 18:17:39 by hyson             #+#    #+#             */
-/*   Updated: 2021/10/16 21:12:19 by dohykim          ###   ########.fr       */
+/*   Created: 2021/10/16 12:20:10 by hyson             #+#    #+#             */
+/*   Updated: 2021/10/16 21:10:07 by dohykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-int			main(int argc, char **argv)
-//  int		main()
+t_bool	valid_color(t_color c)
 {
-	// t_rt *rt = (t_rt *)malloc(sizeof(t_rt)); //dohykim
-	read_file(argc, argv); // hyson
-	// show_s_sphere(rt); //dohykim
-	// // init_sphere(t_point3}, {double}});
-	// rt->s = init_sphere(vec_create(0, 0, -1), 0.5); //dohykim
-	// show_s_sphere2(rt); //dohykim
-	// free(rt); //dohykim
-	return (0);
+	return ((c.r >= 0.0 && c.r <= 255.0) && (c.g >= 0.0 && c.g <= 255.0) &&
+			(c.b >= 0.0 && c.b <= 255.0));
 }

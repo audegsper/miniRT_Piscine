@@ -1,26 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dohykim <dohykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/12 18:17:39 by hyson             #+#    #+#             */
-/*   Updated: 2021/10/16 21:12:19 by dohykim          ###   ########.fr       */
+/*   Created: 2021/10/12 17:53:18 by hyson             #+#    #+#             */
+/*   Updated: 2021/10/16 22:18:51 by dohykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minirt.h"
+#include "lib.h"
 
-int			main(int argc, char **argv)
-//  int		main()
+void	*ft_memset(void *s, int c, size_t n)
 {
-	// t_rt *rt = (t_rt *)malloc(sizeof(t_rt)); //dohykim
-	read_file(argc, argv); // hyson
-	// show_s_sphere(rt); //dohykim
-	// // init_sphere(t_point3}, {double}});
-	// rt->s = init_sphere(vec_create(0, 0, -1), 0.5); //dohykim
-	// show_s_sphere2(rt); //dohykim
-	// free(rt); //dohykim
-	return (0);
+	size_t	i;
+
+	i = -1;
+	while (++i < n)
+		((unsigned char *)s)[i] = (unsigned char)c;
+	return (s);
 }

@@ -6,7 +6,7 @@
 /*   By: dohykim <dohykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 17:15:26 by hyson             #+#    #+#             */
-/*   Updated: 2021/10/16 19:07:06 by dohykim          ###   ########.fr       */
+/*   Updated: 2021/10/16 22:42:24 by dohykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ int		read_file(int argc, char **argv)
 	int		ret;
 	t_object_condition ob;
 
+	ft_memset((void *)&ob, 0, sizeof(t_object_condition));
 	if (argc != 2)
 		e_file_param();
 	fd = open(argv[1], O_RDONLY);
@@ -46,7 +47,9 @@ static	t_bool	get_status(t_object_condition *ob, char *line, int id)
 
 	ret = FALSE;
 	if (id == AMBIENT)
-		ret = get_ambient(ob, line);
+		ret = get_ambient(ob, line); //아직 이 녀석 미완성. 주변광만 받아옴. rgb받아야하고 주변광과 rgb둘다 유효한지 확인도 해야함
+	else if (id == SPHERE)
+		ret = get_sphere(ob, line);
 
 	// 처리해야할 녀석들
 	// else if (id == CAMERA)

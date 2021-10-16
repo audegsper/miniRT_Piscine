@@ -7,18 +7,19 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 
 # This program built for i386-apple-darwin11.3.0
  
-make: *** No rule to make target `all'.  Stop.
- 
 
-# Make data base, printed on Sat Oct 16 19:04:43 2021
+# Make data base, printed on Sat Oct 16 22:23:32 2021
 
 # Variables
 
- 
 # automatic
 <D = $(patsubst %/,%,$(dir $<))
 # automatic
 ?F = $(notdir $?)
+# makefile (from `Makefile', line 50)
+OBJ = $(SRC:.c=.o)
+# makefile (from `Makefile', line 48)
+SRC = $(addprefix $(FOLDER), $(SRC_LIST))
 # environment
 VSCODE_LOG_NATIVE = false
 # automatic
@@ -31,20 +32,31 @@ VSCODE_LOG_NATIVE = false
 CURDIR := /Users/dohykim/Documents/miniRT_Piscine
 # makefile
 SHELL = /bin/sh
+# makefile (from `Makefile', line 21)
+RM = rm -f
 # environment
 VSCODE_NLS_CONFIG = {"locale":"ko","availableLanguages":{"*":"ko"},"_languagePackId":"3fb69aec03c19a172aefefd7885f5460.ko","_translationsConfigFile":"/Users/dohykim/Library/Application Support/Code/clp/3fb69aec03c19a172aefefd7885f5460.ko/tcf.json","_cacheRoot":"/Users/dohykim/Library/Application Support/Code/clp/3fb69aec03c19a172aefefd7885f5460.ko","_resolvedLanguagePackCoreLocation":"/Users/dohykim/Library/Application Support/Code/clp/3fb69aec03c19a172aefefd7885f5460.ko/7f6ab5485bbc008386c4386d08766667e155244e","_corruptedFile":"/Users/dohykim/Library/Application Support/Code/clp/3fb69aec03c19a172aefefd7885f5460.ko/corrupted.info","_languagePackSupport":true}
 # environment
+ 
 _ = /usr/bin/make
-# makefile
-MAKEFILE_LIST := 
+# makefile (from `Makefile', line 19)
+CFLAGS = -Wall -Wextra -Werror
+# makefile (from `Makefile', line 33)
+D_FT = ./lib/ft_functions/
+# makefile (from `Makefile', line 1)
+MAKEFILE_LIST :=  Makefile
 # environment
 VSCODE_VERBOSE_LOGGING = true
+# makefile (from `Makefile', line 20)
+CDEBUG = -fsanitize=address -g
 # environment
 VSCODE_IPC_HOOK_EXTHOST = /var/folders/x7/czjp3gwn2f9b075d91_y_ks00000gn/T/vscode-ipc-c4f53136-6654-48d4-91e2-89bcedcf516f.sock
 # environment
 VSCODE_CWD = /
 # environment
 PATH = /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/share/dotnet:~/.dotnet/tools:/Library/Frameworks/Mono.framework/Versions/Current/Commands
+# makefile (from `Makefile', line 32)
+D_GET = ./parse/get/
 # environment
 LSCOLORS = Gxfxcxdxbxegedabagacad
 # environment
@@ -61,6 +73,8 @@ SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.ynP49KGxxb/Listeners
 VSCODE_PIPE_LOGGING = true
 # environment
 PWD = /Users/dohykim/Documents/miniRT_Piscine
+# makefile (from `Makefile', line 34)
+FTLIB = libft.a
 # environment
 ORIGINAL_XDG_CURRENT_DESKTOP = undefined
 # environment
@@ -89,16 +103,24 @@ MAKE = $(MAKE_COMMAND)
 MAKECMDGOALS := all
 # environment
 SHLVL = 1
+# makefile (from `Makefile', line 49)
+LIBFT = $(addprefix $(D_FT), $(FTLIB))
+# makefile (from `Makefile', line 18)
+CC = gcc
 # default
 MAKE_VERSION := 3.81
 # environment
 USER = dohykim
 # makefile
-.DEFAULT_GOAL := 
+.DEFAULT_GOAL := miniRT
+# makefile (from `Makefile', line 27)
+NAME = miniRT
 # environment
 LESS = -R
 # automatic
 %D = $(patsubst %/,%,$(dir $%))
+# makefile (from `Makefile', line 29)
+FOLDER = ./srcs/
 # default
 MAKE_COMMAND := /Library/Developer/CommandLineTools/usr/bin/make
 # default
@@ -112,7 +134,6 @@ VSCODE_IPC_HOOK = /Users/dohykim/Library/Application Support/Code/1.60.2-main.so
 # makefile
 MAKEFLAGS = Rrqp
 # environment
- 
 MFLAGS = -Rrqp
 # automatic
 *D = $(patsubst %/,%,$(dir $*))
@@ -126,26 +147,35 @@ XPC_SERVICE_NAME = com.microsoft.VSCode.2600
 __CF_USER_TEXT_ENCODING = 0x1F5:0x3:0x33
 # default
 MAKEFILES := 
+# makefile (from `Makefile', line 30)
+D_PARSE = ./parse/
 # automatic
 <F = $(notdir $<)
 # environment
 PAGER = less
 # environment
 LC_ALL = C
+# makefile (from `Makefile', line 28)
+HEADER = ./includes/
 # automatic
 ^F = $(notdir $^)
+ 
 # default
 SUFFIXES := 
+# makefile (from `Makefile', line 35)
+SRC_LIST = main.c $(D_PARSE)parse.c $(D_PARSE)identifier.c $(D_PARSE)check_double.c $(D_PARSE)check_int.c check_color.c $(D_GET)ambient.c $(D_GET)camera.c $(D_GET)light.c $(D_GET)sphere.c $(D_GET)plane.c $(D_GET)cylinder.c $(D_ERROR)error.c
 # default
 .INCLUDE_DIRS = /usr/local/include
 # environment
 MAKELEVEL := 0
+# makefile (from `Makefile', line 31)
+D_ERROR = ./parse/error/
 # environment
 LANG = C
 # environment
 VSCODE_PID = 705
 # variable set hash-table stats:
-# Load=64/1024=6%, Rehash=0, Collisions=1/85=1%
+# Load=80/1024=8%, Rehash=0, Collisions=3/127=2%
 
 # Pattern-specific Variable Values
 
@@ -153,22 +183,85 @@ VSCODE_PID = 705
 
 # Directories
 
-# . (device 16777220, inode 1164565): 12 files, no impossibilities.
+# srcs/./parse/get (device 16777220, inode 1427489): 14 files, no impossibilities so far.
+# . (device 16777220, inode 1164565): 14 files, no impossibilities.
+# srcs/./parse (device 16777220, inode 1402459): 11 files, no impossibilities so far.
+# srcs/./parse/error (device 16777220, inode 1402458): 4 files, no impossibilities so far.
+# srcs (device 16777220, inode 1402455): 11 files, no impossibilities so far.
 
-# 12 files, no impossibilities in 1 directories.
+# 54 files, no impossibilities in 5 directories.
 
 # Implicit Rules
 
-# No implicit rules.
+%.o: %.c
+#  commands to execute (from `Makefile', line 57):
+	$(CC) $(CFLAGS) $(CDEBUG) -I $(HEADER) -o $@ -c $<
+	
+
+# 1 implicit rules, 0 (0.0%) terminal.
 
 # Files
 
 # Not a target:
-all:
-#  Command-line target.
+srcs/./parse/get/sphere.c:
 #  Implicit rule search has been done.
+#  Last modified 2021-10-16 22:07:06
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+srcs/./parse/get/plane.c:
+#  Implicit rule search has been done.
+#  Last modified 2021-10-15 22:40:24
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+srcs/./parse/check_int.c:
+#  Implicit rule search has been done.
+#  Last modified 2021-10-16 21:17:20
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+all: miniRT
+#  Phony target (prerequisite of .PHONY).
+#  Command-line target.
+#  Implicit rule search has not been done.
 #  File does not exist.
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+srcs/./parse/get/cylinder.o: srcs/./parse/get/cylinder.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `srcs/./parse/get/cylinder'
+#  Last modified 2021-10-16 22:22:40
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 57):
+	$(CC) $(CFLAGS) $(CDEBUG) -I $(HEADER) -o $@ -c $<
+	
+
+.PHONY: all clean fclean re
+#  Implicit rule search has not been done.
+#  Modification time never checked.
 #  File has not been updated.
+
+# Not a target:
+srcs/./parse/error/error.c:
+#  Implicit rule search has been done.
+#  Last modified 2021-10-16 00:13:04
+#  File has been updated.
+#  Successfully updated.
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
@@ -178,25 +271,126 @@ all:
 #  Modification time never checked.
 #  File has not been updated.
 
+miniRT: lib/ft_functions/libft.a srcs/main.o srcs/./parse/parse.o srcs/./parse/identifier.o srcs/./parse/check_double.o srcs/./parse/check_int.o srcs/check_color.o srcs/./parse/get/ambient.o srcs/./parse/get/camera.o srcs/./parse/get/light.o srcs/./parse/get/sphere.o srcs/./parse/get/plane.o srcs/./parse/get/cylinder.o srcs/./parse/error/error.o
+#  Implicit rule search has not been done.
+#  Last modified 2021-10-16 22:22:40
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 60):
+	$(CC) $(LIBFT) $(CFLAGS) $(CDEBUG) -I $(HEADER) -o $(NAME) $(OBJ)
+	
+
 # Not a target:
 Makefile:
-#  A default, MAKEFILES, or -include/sinclude makefile.
 #  Implicit rule search has been done.
-#  File does not exist.
+#  Last modified 2021-10-16 21:33:30
 #  File has been updated.
-#  Failed to be updated.
+#  Successfully updated.
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 # Not a target:
-makefile:
-#  A default, MAKEFILES, or -include/sinclude makefile.
+ 
+srcs/main.c:
 #  Implicit rule search has been done.
-#  File does not exist.
+#  Last modified 2021-10-16 21:12:19
 #  File has been updated.
-#  Failed to be updated.
+#  Successfully updated.
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+srcs/./parse/check_double.o: srcs/./parse/check_double.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `srcs/./parse/check_double'
+#  Last modified 2021-10-16 22:22:39
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 57):
+	$(CC) $(CFLAGS) $(CDEBUG) -I $(HEADER) -o $@ -c $<
+	
+
+# Not a target:
+srcs/./parse/get/cylinder.c:
+#  Implicit rule search has been done.
+#  Last modified 2021-10-15 22:40:48
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+fclean: clean
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  commands to execute (from `Makefile', line 79):
+	$(RM) $(NAME)
+	$(MAKE) -C $(D_FT) fclean
+	
+
+srcs/./parse/parse.o: srcs/./parse/parse.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `srcs/./parse/parse'
+#  Last modified 2021-10-16 22:22:39
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 57):
+	$(CC) $(CFLAGS) $(CDEBUG) -I $(HEADER) -o $@ -c $<
+	
+
+srcs/./parse/get/light.o: srcs/./parse/get/light.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `srcs/./parse/get/light'
+#  Last modified 2021-10-16 22:22:40
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 57):
+	$(CC) $(CFLAGS) $(CDEBUG) -I $(HEADER) -o $@ -c $<
+	
+
+srcs/./parse/get/ambient.o: srcs/./parse/get/ambient.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `srcs/./parse/get/ambient'
+#  Last modified 2021-10-16 22:22:40
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 57):
+	$(CC) $(CFLAGS) $(CDEBUG) -I $(HEADER) -o $@ -c $<
+	
+
+srcs/check_color.o: srcs/check_color.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `srcs/check_color'
+#  Last modified 2021-10-16 22:22:40
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 57):
+	$(CC) $(CFLAGS) $(CDEBUG) -I $(HEADER) -o $@ -c $<
+	
+
+srcs/./parse/identifier.o: srcs/./parse/identifier.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `srcs/./parse/identifier'
+#  Last modified 2021-10-16 22:22:39
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 57):
+	$(CC) $(CFLAGS) $(CDEBUG) -I $(HEADER) -o $@ -c $<
+	
 
 # Not a target:
 .DEFAULT:
@@ -204,30 +398,180 @@ makefile:
 #  Modification time never checked.
 #  File has not been updated.
 
-# Not a target:
-GNUmakefile:
-#  A default, MAKEFILES, or -include/sinclude makefile.
+srcs/./parse/get/camera.o: srcs/./parse/get/camera.c
 #  Implicit rule search has been done.
-#  File does not exist.
- 
+#  Implicit/static pattern stem: `srcs/./parse/get/camera'
+#  Last modified 2021-10-16 22:22:40
 #  File has been updated.
-#  Failed to be updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 57):
+	$(CC) $(CFLAGS) $(CDEBUG) -I $(HEADER) -o $@ -c $<
+	
+
+# Not a target:
+srcs/./parse/check_double.c:
+#  Implicit rule search has been done.
+#  Last modified 2021-10-16 22:22:22
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+lib/ft_functions/libft.a:
+#  Implicit rule search has not been done.
+#  Last modified 2021-10-16 22:22:39
+#  File has been updated.
+#  Successfully updated.
+#  commands to execute (from `Makefile', line 63):
+	$(MAKE) -C $(D_FT) all
+	
+
+re: fclean all
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+
+clean:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  commands to execute (from `Makefile', line 74):
+ 
+	$(RM) $(OBJ)
+	$(MAKE) -C $(D_FT) clean
+	
+
+srcs/./parse/get/sphere.o: srcs/./parse/get/sphere.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `srcs/./parse/get/sphere'
+#  Last modified 2021-10-16 22:22:40
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 57):
+	$(CC) $(CFLAGS) $(CDEBUG) -I $(HEADER) -o $@ -c $<
+	
+
+srcs/./parse/get/plane.o: srcs/./parse/get/plane.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `srcs/./parse/get/plane'
+#  Last modified 2021-10-16 22:22:40
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 57):
+	$(CC) $(CFLAGS) $(CDEBUG) -I $(HEADER) -o $@ -c $<
+	
+
+srcs/./parse/check_int.o: srcs/./parse/check_int.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `srcs/./parse/check_int'
+#  Last modified 2021-10-16 22:22:39
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 57):
+	$(CC) $(CFLAGS) $(CDEBUG) -I $(HEADER) -o $@ -c $<
+	
+
+# Not a target:
+srcs/./parse/parse.c:
+#  Implicit rule search has been done.
+#  Last modified 2021-10-16 22:20:18
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+srcs/./parse/error/error.o: srcs/./parse/error/error.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `srcs/./parse/error/error'
+#  Last modified 2021-10-16 22:22:40
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 57):
+	$(CC) $(CFLAGS) $(CDEBUG) -I $(HEADER) -o $@ -c $<
+	
+
+# Not a target:
+srcs/./parse/get/light.c:
+#  Implicit rule search has been done.
+#  Last modified 2021-10-15 22:40:24
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+srcs/./parse/get/ambient.c:
+#  Implicit rule search has been done.
+#  Last modified 2021-10-16 18:05:28
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+srcs/check_color.c:
+#  Implicit rule search has been done.
+#  Last modified 2021-10-16 21:10:07
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+srcs/./parse/identifier.c:
+#  Implicit rule search has been done.
+#  Last modified 2021-10-16 17:56:16
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+srcs/main.o: srcs/main.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `srcs/main'
+#  Last modified 2021-10-16 22:22:39
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 57):
+	$(CC) $(CFLAGS) $(CDEBUG) -I $(HEADER) -o $@ -c $<
+	
+
+# Not a target:
+srcs/./parse/get/camera.c:
+#  Implicit rule search has been done.
+#  Last modified 2021-10-15 22:39:55
+#  File has been updated.
+#  Successfully updated.
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 # files hash-table stats:
-# Load=6/1024=1%, Rehash=0, Collisions=0/17=0%
+# Load=36/1024=4%, Rehash=0, Collisions=0/113=0%
 # VPATH Search Paths
 
 # No `vpath' search paths.
 
 # No general (`VPATH' variable) search path.
 
-# # of strings in strcache: 0
-# # of strcache buffers: 0
-# strcache size: total = 0 / max = 0 / min = 4096 / avg = 0
-# strcache free: total = 0 / max = 0 / min = 4096 / avg = 0
+# # of strings in strcache: 1
+# # of strcache buffers: 1
+# strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
+# strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
 
-# Finished Make data base on Sat Oct 16 19:04:43 2021
+# Finished Make data base on Sat Oct 16 22:23:32 2021
 
  

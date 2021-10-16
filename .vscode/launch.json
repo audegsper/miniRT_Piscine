@@ -12,7 +12,7 @@
             // ** program에 실행파일명으로 수정할 것!!**//
             "program": "${workspaceFolder}/miniRT",
             // ** 실행파일을 열 때 필요한 인자가 있으면 args에 넣기!!**//
-            "args": ["rt/example2.rt"],
+            "args": ["rt/example.rt"],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
             "environment": [],

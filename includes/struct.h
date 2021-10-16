@@ -57,9 +57,9 @@ struct s_vec3
 
 struct	s_color
 {
-	double		r;
-	double		g;
-	double		b;
+	int		r;
+	int		g;
+	int		b;
 };
 
 struct s_camera
@@ -84,7 +84,7 @@ struct s_light
 
 struct s_sphere
 {
-	t_point3	*p;
+	t_point3	p;
 	double		r;
 	t_color		c;
 };

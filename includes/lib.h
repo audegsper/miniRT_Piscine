@@ -61,5 +61,6 @@ int			ft_strncmp(const char *s1, const char *s2, size_t n);
 t_bool		is_blank(char c);
 t_bool		ft_isdigit(int c);
 t_bool		is_endl(const char *s);
+void		*ft_memset(void *s, int c, size_t n);
 
 #endif
