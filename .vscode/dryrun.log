@@ -1,6 +1,32 @@
 make --dry-run --keep-going --print-directory
 make: Entering directory `/Users/dohykim/Documents/miniRT_Piscine'
-make: `miniRT' is up to date.
+gcc -Wall -Wextra -Werror -fsanitize=address -g -I ./includes/ -o srcs/main.o -c srcs/main.c
  
+gcc -Wall -Wextra -Werror -fsanitize=address -g -I ./includes/ -o srcs/dohykim.o -c srcs/dohykim.c
+gcc -Wall -Wextra -Werror -fsanitize=address -g -I ./includes/ -o srcs/test_sphere.o -c srcs/test_sphere.c
+gcc -Wall -Wextra -Werror -fsanitize=address -g -I ./includes/ -o srcs/./parse/parse.o -c srcs/./parse/parse.c
+ 
+gcc -Wall -Wextra -Werror -fsanitize=address -g -I ./includes/ -o srcs/./parse/identifier.o -c srcs/./parse/identifier.c
+ 
+gcc -Wall -Wextra -Werror -fsanitize=address -g -I ./includes/ -o srcs/./parse/check_double.o -c srcs/./parse/check_double.c
+ 
+gcc -Wall -Wextra -Werror -fsanitize=address -g -I ./includes/ -o srcs/./parse/check_int.o -c srcs/./parse/check_int.c
+ 
+gcc -Wall -Wextra -Werror -fsanitize=address -g -I ./includes/ -o srcs/check_color.o -c srcs/check_color.c
+ 
+gcc -Wall -Wextra -Werror -fsanitize=address -g -I ./includes/ -o srcs/./parse/get/ambient.o -c srcs/./parse/get/ambient.c
+ 
+gcc -Wall -Wextra -Werror -fsanitize=address -g -I ./includes/ -o srcs/./parse/get/camera.o -c srcs/./parse/get/camera.c
+ 
+gcc -Wall -Wextra -Werror -fsanitize=address -g -I ./includes/ -o srcs/./parse/get/light.o -c srcs/./parse/get/light.c
+gcc -Wall -Wextra -Werror -fsanitize=address -g -I ./includes/ -o srcs/./parse/get/sphere.o -c srcs/./parse/get/sphere.c
+ 
+gcc -Wall -Wextra -Werror -fsanitize=address -g -I ./includes/ -o srcs/./parse/get/plane.o -c srcs/./parse/get/plane.c
+ 
+gcc -Wall -Wextra -Werror -fsanitize=address -g -I ./includes/ -o srcs/./parse/get/cylinder.o -c srcs/./parse/get/cylinder.c
+ 
+gcc -Wall -Wextra -Werror -fsanitize=address -g -I ./includes/ -o srcs/./parse/error/error.o -c srcs/./parse/error/error.c
+ 
+gcc ./lib/ft_functions/libft.a -Wall -Wextra -Werror -fsanitize=address -g -L ./lib/mlx/ -lmlx -framework OpenGL -framework AppKit -I ./includes/ -o miniRT ./srcs/main.o ./srcs/dohykim.o ./srcs/test_sphere.o ./srcs/./parse/parse.o ./srcs/./parse/identifier.o ./srcs/./parse/check_double.o ./srcs/./parse/check_int.o ./srcs/check_color.o ./srcs/./parse/get/ambient.o ./srcs/./parse/get/camera.o ./srcs/./parse/get/light.o ./srcs/./parse/get/sphere.o ./srcs/./parse/get/plane.o ./srcs/./parse/get/cylinder.o ./srcs/./parse/error/error.o
 make: Leaving directory `/Users/dohykim/Documents/miniRT_Piscine'
  

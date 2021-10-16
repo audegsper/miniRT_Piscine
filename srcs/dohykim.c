@@ -19,7 +19,7 @@ int     hit_s_sphere(t_sphere *s, t_ray *r)
     double  c;
     double  discriment;
 
-    oc = vec_sub(r->orig, s->p);
+    oc = vec_sub(r->orig, &s->p);
     a = vec_dot(r->dir, r->dir);
     b = vec_dot(oc, r->dir) * 2.0;
     c = vec_dot(oc, oc) - s->r * s->r;
@@ -94,7 +94,7 @@ void        mlx_show(t_img_data *data, char *title)
 
 void    free_sphere(t_sphere *s)
 {
-    free(s->p);
+    free(&s->p);
     free(s);
 }
 

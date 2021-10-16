@@ -5,7 +5,7 @@ t_sphere    *init_sphere(t_point3 *center, double radius)
     t_sphere    *result;
 
     result = (t_sphere *)malloc(sizeof(t_sphere));
-    result->p = center;
+    result->p = *center;
     result->r = radius;
     return (result);
 }
