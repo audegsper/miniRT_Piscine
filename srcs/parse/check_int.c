@@ -6,7 +6,7 @@
 /*   By: dohykim <dohykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/16 12:20:10 by hyson             #+#    #+#             */
-/*   Updated: 2021/10/16 21:17:20 by dohykim          ###   ########.fr       */
+/*   Updated: 2021/10/16 23:56:09 by dohykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ t_bool	check_int2(char **s, int *v1, int *v2, int *v3)
 		++(*s);
 	if (!ft_isdigit(**s) && **s != '-')
 		return (FALSE);
-	if (check_int(s, v1) && **s != ',')
+	if (!check_int(s, v1) && **s != ',')
 		return (FALSE);
 	if (**s != ',')
 		return (FALSE);
