@@ -30,10 +30,6 @@ typedef	struct s_sphere			t_sphere;
 typedef	struct s_plane			t_plane;
 typedef	struct s_cylinder		t_cylinder;
 
-typedef int				t_bool;
-# define FALSE 0
-# define TRUE 1
-
 /*
 ** -----------------------------------------------------------------------------
 ** I D E N T I F I E R

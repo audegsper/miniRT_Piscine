@@ -14,6 +14,8 @@
 */
 
 typedef int				t_bool;
+# define FALSE 0
+# define TRUE 1
 
 /*
 ** -----------------------------------------------------------------------------
@@ -50,7 +52,7 @@ typedef int				t_bool;
 */
 
 int			get_next_line(int fd, char **line);
-size_t			ft_strlen(char *s);
+size_t		ft_strlen(char *s);
 size_t		ft_strlcpy(char *dst, const char *src, size_t dstsize);
 char		*ft_strdup(char *s1);
 t_bool		dalloc(void **ptr, size_t cnt, size_t n);
