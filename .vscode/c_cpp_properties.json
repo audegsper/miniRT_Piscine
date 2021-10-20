@@ -4,7 +4,8 @@
             "name": "Mac",
             "includePath": [
                 "${default}",
-                "${workspaceFolder}/includes"
+                "${workspaceFolder}/includes",
+                "${workspaceFolder}/Make_dohykim"
             ],
             "compilerPath": "/usr/bin/gcc",
             "cStandard": "c11",

@@ -15,7 +15,7 @@
 
 typedef	struct	s_vec3			t_point3;
 typedef	struct	s_vec3			t_vec3;
-typedef	struct	s_color		t_color;
+typedef	struct	s_vec3			t_color3;
 
 typedef	struct s_ambient		t_ambient;
 typedef	struct s_camera			t_camera;
@@ -31,6 +31,11 @@ typedef	struct s_cylinder		t_cylinder;
 ** -----------------------------------------------------------------------------
 */
 
+# define LUMEN 3
+# define EPSILON 0.0001
+# define KSN 64
+# define KS 0.5
+
 typedef int				t_object_type;
 # define BLANK 0
 # define AMBIENT 1
@@ -40,60 +45,70 @@ typedef int				t_object_type;
 # define PLANE 5
 # define CYLINDER 6
 
-/*
-struct 	s_point3
+typedef struct s_rt	t_rt;
+typedef	struct s_object	t_object;
+typedef struct s_ray	t_ray;
+typedef struct s_rec t_rec;
+
+struct s_object
 {
-	double		x;
-	double		y;
-	double		z;
+	int		type;
+	void	*element;
+	void	*next;
 };
-*/
+
+
 struct s_vec3
 {
 	double		x;
 	double		y;
 	double		z;
 };
-
-struct	s_color
+/*
+struct	s_color3
 {
 	int		r;
 	int		g;
 	int		b;
 };
-
+*/
 struct s_camera
 {
-	t_point3 	p;
-	t_vec3		n; //정규화된 방향벡터
+	t_point3 	p; // origin
+	t_vec3		n; //정규화된 방향벡터 direction, lookat;
 	double		fov;
-};
-
-struct s_ambient
-{
-	double		s;
-	t_color		c;
+	t_vec3		w;
+	t_vec3		u;
+	t_vec3		v;
+	t_vec3		vup;
+	double		viewport_h;
+	double		viewport_w;
+	t_vec3		horizontal;
+	t_vec3		vertical;
+	t_point3	llc;
 };
 
 struct s_light
 {
-	t_point3	p;
-	double		bright_ratio;
-	t_color		c;
+	t_point3	p; //origin
+	double		bright_ratio; // aspect
+	t_color3		c; // color
+	t_light		*next;
 };
 
 struct s_sphere
 {
 	t_point3	p;
 	double		r;
-	t_color		c;
+	t_color3		c;
+	t_sphere	*next;
 };
 
 struct s_plane
 {
 	t_point3	p;
 	t_vec3		n; //정규화된 방향벡터
-	t_color		c;
+	t_color3		c;
 };
 
 struct s_cylinder
@@ -102,7 +117,40 @@ struct s_cylinder
 	t_vec3		n; //정규화된 방향벡터
 	double		d; //diameter(직경)
 	double		h;
-	t_color		c;
+	t_color3		c;
+};
+
+struct s_ray
+{
+	t_point3	orig;
+	t_vec3		dir;
+};
+
+struct s_rec
+{
+	t_point3	p;
+	double		t;
+	t_vec3		n;
+	double		t_max;
+	double		t_min;
+	t_bool		front_face;
+	t_color3	albedo;
+};
+
+struct s_rt
+{
+	void		*mlx;
+	void		*win;
+	int			color;
+	int			width;
+	int			height;
+	t_ray		ray;
+	t_rec		rec;
+	t_camera	cam;
+	t_color3	ambient;
+	//t_object	*sphere;
+	t_object	*light;
+	t_object	*object;
 };
 
 #endif

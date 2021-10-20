@@ -1,4 +1,4 @@
-
+/*
 typedef struct		s_ray
 {
 	t_vec3		*orig;
@@ -55,3 +55,4 @@ t_vec3   *vec_sub(t_vec3 *a, t_vec3 *b);
 void show_s_sphere2(t_rt *rt);
 void sphere_here(t_rt *rt);
 t_sphere    *init_sphere(t_point3 *center, double radius);
+*/

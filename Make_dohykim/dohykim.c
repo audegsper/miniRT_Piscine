@@ -421,14 +421,14 @@ void show_s_sphere(t_rt *rt)
     rt->img = create_img_data(400, (int)(400 / rt->aspect_ratio));
     rt->info = init_sky_info(2.0 * rt->aspect_ratio, 2.0, 1.0);
     draw_sky(rt->img, rt->info);
-    //
+    /*
     rt->s = init_sphere(vec_create(0, 0, -1), 0.5);
     draw_s_sphere(rt->img, rt->info, rt->s);
     mlx_show(rt->img, "Simple sphere at Sky");
     free_sphere(rt->s);
     free(rt->info);
     free_img_data(rt->img);
-    //
+    */
 }
 
 void show_s_sphere2(t_rt *rt)

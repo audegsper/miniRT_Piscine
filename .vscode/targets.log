@@ -8,7 +8,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This program built for i386-apple-darwin11.3.0
  
 
-# Make data base, printed on Sun Oct 17 00:07:55 2021
+# Make data base, printed on Wed Oct 20 16:30:34 2021
 
 # Variables
 
@@ -16,21 +16,22 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 <D = $(patsubst %/,%,$(dir $<))
 # automatic
 ?F = $(notdir $?)
-# makefile (from `Makefile', line 54)
+# makefile (from `Makefile', line 64)
 OBJ = $(SRC:.c=.o)
-# makefile (from `Makefile', line 52)
+# makefile (from `Makefile', line 62)
 SRC = $(addprefix $(FOLDER), $(SRC_LIST))
 # environment
 VSCODE_LOG_NATIVE = false
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
+# makefile (from `Makefile', line 37)
+MLXNAME = libmlx.a
 # automatic
 @D = $(patsubst %/,%,$(dir $@))
 # automatic
 @F = $(notdir $@)
 # makefile
- 
-CURDIR := /Users/dohykim/Documents/miniRT_Piscine
+CURDIR := /Users/dohykim/Documents/debug_miniRT/RT_piscine
 # makefile
 SHELL = /bin/sh
 # makefile (from `Makefile', line 21)
@@ -41,7 +42,7 @@ VSCODE_NLS_CONFIG = {"locale":"ko","availableLanguages":{"*":"ko"},"_languagePac
 _ = /usr/bin/make
 # makefile (from `Makefile', line 19)
 CFLAGS = -Wall -Wextra -Werror
-# makefile (from `Makefile', line 33)
+# makefile (from `Makefile', line 34)
 D_FT = ./lib/ft_functions/
 # makefile (from `Makefile', line 1)
 MAKEFILE_LIST :=  Makefile
@@ -50,15 +51,17 @@ VSCODE_VERBOSE_LOGGING = true
 # makefile (from `Makefile', line 20)
 CDEBUG = -fsanitize=address -g
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /var/folders/x7/czjp3gwn2f9b075d91_y_ks00000gn/T/vscode-ipc-c4f53136-6654-48d4-91e2-89bcedcf516f.sock
+VSCODE_IPC_HOOK_EXTHOST = /var/folders/x7/czjp3gwn2f9b075d91_y_ks00000gn/T/vscode-ipc-62db58a8-054f-49a7-81ce-f102ce9f0a12.sock
 # environment
 VSCODE_CWD = /
 # environment
 PATH = /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/share/dotnet:~/.dotnet/tools:/Library/Frameworks/Mono.framework/Versions/Current/Commands
-# makefile (from `Makefile', line 32)
+# makefile (from `Makefile', line 33)
 D_GET = ./parse/get/
 # environment
 LSCOLORS = Gxfxcxdxbxegedabagacad
+# makefile (from `Makefile', line 30)
+D_OBJECT = ./object/
 # environment
 VSCODE_LOG_STACK = false
 # environment
@@ -72,8 +75,8 @@ SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.ynP49KGxxb/Listeners
 # environment
 VSCODE_PIPE_LOGGING = true
 # environment
-PWD = /Users/dohykim/Documents/miniRT_Piscine
-# makefile (from `Makefile', line 34)
+PWD = /Users/dohykim/Documents/debug_miniRT/RT_piscine
+# makefile (from `Makefile', line 35)
 FTLIB = libft.a
 # environment
 ORIGINAL_XDG_CURRENT_DESKTOP = undefined
@@ -103,7 +106,7 @@ MAKE = $(MAKE_COMMAND)
 MAKECMDGOALS := all
 # environment
 SHLVL = 1
-# makefile (from `Makefile', line 53)
+# makefile (from `Makefile', line 63)
 LIBFT = $(addprefix $(D_FT), $(FTLIB))
 # makefile (from `Makefile', line 18)
 CC = gcc
@@ -113,7 +116,7 @@ MAKE_VERSION := 3.81
 USER = dohykim
 # makefile
 .DEFAULT_GOAL := miniRT
-# makefile (from `Makefile', line 36)
+# makefile (from `Makefile', line 38)
 LIB_FLAG = -L $(MLXDIR) -lmlx -framework OpenGL -framework AppKit
 # makefile (from `Makefile', line 27)
 NAME = miniRT
@@ -143,7 +146,7 @@ MFLAGS = -Rrqp
 XPC_SERVICE_NAME = com.microsoft.VSCode.2600
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
-# makefile (from `Makefile', line 35)
+# makefile (from `Makefile', line 36)
 MLXDIR = ./lib/mlx/
 # automatic
 +F = $(notdir $+)
@@ -151,7 +154,7 @@ MLXDIR = ./lib/mlx/
 __CF_USER_TEXT_ENCODING = 0x1F5:0x3:0x33
 # default
 MAKEFILES := 
-# makefile (from `Makefile', line 30)
+# makefile (from `Makefile', line 31)
 D_PARSE = ./parse/
 # automatic
 <F = $(notdir $<)
@@ -162,24 +165,24 @@ LC_ALL = C
 # makefile (from `Makefile', line 28)
 HEADER = ./includes/
 # automatic
- 
 ^F = $(notdir $^)
 # default
 SUFFIXES := 
-# makefile (from `Makefile', line 37)
-SRC_LIST = main.c dohykim.c test_sphere.c $(D_PARSE)parse.c $(D_PARSE)identifier.c $(D_PARSE)check_double.c $(D_PARSE)check_int.c check_color.c $(D_GET)ambient.c $(D_GET)camera.c $(D_GET)light.c $(D_GET)sphere.c $(D_GET)plane.c $(D_GET)cylinder.c $(D_ERROR)error.c
+ 
+# makefile (from `Makefile', line 39)
+SRC_LIST = main.c light.c utils.c vec_calc.c vec_calc2.c vec_calc3.c ray_calc.c hit.c $(D_OBJECT)object.c $(D_OBJECT)object_light.c $(D_OBJECT)object_sphere.c $(D_PARSE)parse.c $(D_PARSE)identifier.c $(D_PARSE)check_double.c $(D_PARSE)check_int.c check_color.c $(D_GET)ambient.c $(D_GET)camera.c $(D_GET)light.c $(D_GET)sphere.c $(D_GET)plane.c $(D_GET)cylinder.c $(D_ERROR)error.c
 # default
 .INCLUDE_DIRS = /usr/local/include
 # environment
 MAKELEVEL := 0
-# makefile (from `Makefile', line 31)
+# makefile (from `Makefile', line 32)
 D_ERROR = ./parse/error/
 # environment
 LANG = C
 # environment
 VSCODE_PID = 705
 # variable set hash-table stats:
-# Load=82/1024=8%, Rehash=0, Collisions=4/135=3%
+# Load=84/1024=8%, Rehash=0, Collisions=5/140=4%
 
 # Pattern-specific Variable Values
 
@@ -187,15 +190,15 @@ VSCODE_PID = 705
 
 # Directories
 
-# . (device 16777220, inode 1164565): 13 files, no impossibilities.
-# srcs (device 16777220, inode 1402455): 7 files, no impossibilities so far.
+# . (device 16777220, inode 1542188): 13 files, no impossibilities.
+# srcs (device 16777220, inode 1542348): 9 files, no impossibilities so far.
 
-# 20 files, no impossibilities in 2 directories.
+# 22 files, no impossibilities in 2 directories.
 
 # Implicit Rules
 
 %.o: %.c
-#  commands to execute (from `Makefile', line 61):
+#  commands to execute (from `Makefile', line 71):
 	$(CC) $(CFLAGS) $(CDEBUG) -I $(HEADER) -o $@ -c $<
 	
 
@@ -225,13 +228,7 @@ srcs/./parse/get/cylinder.o:
 #  File has not been updated.
 
 # Not a target:
-srcs/dohykim.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-srcs/test_sphere.o:
+srcs/vec_calc3.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -242,21 +239,21 @@ srcs/test_sphere.o:
 #  Modification time never checked.
 #  File has not been updated.
 
-miniRT: lib/ft_functions/libft.a srcs/main.o srcs/dohykim.o srcs/test_sphere.o srcs/./parse/parse.o srcs/./parse/identifier.o srcs/./parse/check_double.o srcs/./parse/check_int.o srcs/check_color.o srcs/./parse/get/ambient.o srcs/./parse/get/camera.o srcs/./parse/get/light.o srcs/./parse/get/sphere.o srcs/./parse/get/plane.o srcs/./parse/get/cylinder.o srcs/./parse/error/error.o
+miniRT: lib/ft_functions/libft.a srcs/main.o srcs/light.o srcs/utils.o srcs/vec_calc.o srcs/vec_calc2.o srcs/vec_calc3.o srcs/ray_calc.o srcs/hit.o srcs/./object/object.o srcs/./object/object_light.o srcs/./object/object_sphere.o srcs/./parse/parse.o srcs/./parse/identifier.o srcs/./parse/check_double.o srcs/./parse/check_int.o srcs/check_color.o srcs/./parse/get/ambient.o srcs/./parse/get/camera.o srcs/./parse/get/light.o srcs/./parse/get/sphere.o srcs/./parse/get/plane.o srcs/./parse/get/cylinder.o srcs/./parse/error/error.o
 #  Implicit rule search has not been done.
-#  File does not exist.
+#  Last modified 2021-10-20 06:11:26
 #  File has been updated.
 #  Needs to be updated (-q is set).
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/6=0%
-#  commands to execute (from `Makefile', line 64):
+#  commands to execute (from `Makefile', line 74):
 	$(CC) $(LIBFT) $(CFLAGS) $(CDEBUG) $(LIB_FLAG) -I $(HEADER) -o $(NAME) $(OBJ)
 	
 
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2021-10-17 00:07:26
+#  Last modified 2021-10-20 05:58:14
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -265,7 +262,7 @@ Makefile:
 # Not a target:
 srcs/main.c:
 #  Implicit rule search has been done.
-#  Last modified 2021-10-17 00:07:55
+#  Last modified 2021-10-20 06:04:11
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -277,12 +274,36 @@ srcs/./parse/check_double.o:
 #  Modification time never checked.
 #  File has not been updated.
 
+# Not a target:
+srcs/utils.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+srcs/./object/object.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+srcs/vec_calc.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+srcs/./object/object_sphere.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
 fclean: clean
 #  Phony target (prerequisite of .PHONY).
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  commands to execute (from `Makefile', line 83):
+#  commands to execute (from `Makefile', line 93):
 	$(RM) $(NAME)
 	$(MAKE) -C $(D_FT) fclean
 	
@@ -322,7 +343,6 @@ srcs/./parse/identifier.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
- 
 
 # Not a target:
 srcs/./parse/get/camera.o:
@@ -330,12 +350,19 @@ srcs/./parse/get/camera.o:
 #  Modification time never checked.
 #  File has not been updated.
 
+# Not a target:
+srcs/hit.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
 lib/ft_functions/libft.a:
 #  Implicit rule search has not been done.
-#  Last modified 2021-10-17 00:07:17
+#  Last modified 2021-10-20 05:34:59
+ 
 #  File has been updated.
 #  Successfully updated.
-#  commands to execute (from `Makefile', line 67):
+#  commands to execute (from `Makefile', line 77):
 	$(MAKE) -C $(D_FT) all
 	
 
@@ -350,7 +377,7 @@ clean:
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  commands to execute (from `Makefile', line 78):
+#  commands to execute (from `Makefile', line 88):
 	$(RM) $(OBJ)
 	$(MAKE) -C $(D_FT) clean
 	
@@ -368,7 +395,19 @@ srcs/./parse/get/plane.o:
 #  File has not been updated.
 
 # Not a target:
+srcs/light.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
 srcs/./parse/check_int.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+srcs/vec_calc2.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -379,10 +418,22 @@ srcs/./parse/error/error.o:
 #  Modification time never checked.
 #  File has not been updated.
 
+# Not a target:
+srcs/./object/object_light.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+srcs/ray_calc.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
 srcs/main.o: srcs/main.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `srcs/main'
-#  Last modified 2021-10-17 00:07:17
+#  File does not exist.
 #  File has been updated.
 #  Needs to be updated (-q is set).
 # automatic
@@ -403,12 +454,12 @@ srcs/main.o: srcs/main.c
 # ? := srcs/main.c
 # variable set hash-table stats:
 # Load=8/32=25%, Rehash=0, Collisions=3/16=19%
-#  commands to execute (from `Makefile', line 61):
+#  commands to execute (from `Makefile', line 71):
 	$(CC) $(CFLAGS) $(CDEBUG) -I $(HEADER) -o $@ -c $<
 	
 
 # files hash-table stats:
-# Load=26/1024=3%, Rehash=0, Collisions=0/69=0%
+# Load=34/1024=3%, Rehash=0, Collisions=0/85=0%
 # VPATH Search Paths
 
 # No `vpath' search paths.
@@ -420,6 +471,6 @@ srcs/main.o: srcs/main.c
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
 
-# Finished Make data base on Sun Oct 17 00:07:55 2021
+# Finished Make data base on Wed Oct 20 16:30:34 2021
 
  

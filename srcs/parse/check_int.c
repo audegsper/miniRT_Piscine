@@ -6,13 +6,13 @@
 /*   By: dohykim <dohykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/16 12:20:10 by hyson             #+#    #+#             */
-/*   Updated: 2021/10/16 23:56:09 by dohykim          ###   ########.fr       */
+/*   Updated: 2021/10/20 05:56:18 by dohykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-t_bool	check_int(char **s, int *v)
+t_bool	check_int(char **s, double *v) // double로 수정 dohykim
 {
 	t_bool	sign;
 
@@ -35,7 +35,7 @@ t_bool	check_int(char **s, int *v)
 	return (TRUE);
 }
 
-t_bool	check_int2(char **s, int *v1, int *v2, int *v3)
+t_bool	check_int2(char **s, double *v1, double *v2, double *v3) // double로 수정 dohykim
 {
 	*v1 = 0;
 	*v2 = 0;

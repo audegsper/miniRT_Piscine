@@ -36,7 +36,7 @@ static t_bool	parse_sp(t_object_condition *ob, char *line)
 		ret = FALSE;
 	if (!check_double(&line, &(ob->sp->r)))
 		ret = FALSE;
-	if (!check_int2(&line, &(ob->sp->c.r), &(ob->sp->c.g), &(ob->sp->c.b))) //색깔 판단
+	if (!check_int2(&line, &(ob->sp->c.x), &(ob->sp->c.y), &(ob->sp->c.z))) //색깔 판단
 		ret = FALSE;
 	if (!is_endl(line)) // 엔터 판단
 		ret = FALSE;

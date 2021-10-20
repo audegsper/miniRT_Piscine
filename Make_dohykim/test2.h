@@ -1,4 +1,4 @@
-
+/*
 typedef struct		s_vars
 {
 	void		*mlx;
@@ -13,3 +13,4 @@ typedef	struct s_mlx_data
 	int		line_length;
 	int		endian;
 }			t_mlx_data;
+*/

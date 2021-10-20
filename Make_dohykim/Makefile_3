@@ -6,7 +6,7 @@
 #    By: dohykim <dohykim@student.42seoul.kr>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/12 17:08:27 by hyson             #+#    #+#              #
-#    Updated: 2021/10/20 05:58:14 by dohykim          ###   ########.fr        #
+#    Updated: 2021/10/17 00:07:26 by dohykim          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,26 +27,16 @@ RM			= 	rm -f
 NAME		=	miniRT
 HEADER		=	./includes/
 FOLDER		=	./srcs/
-D_OBJECT	=	./object/
 D_PARSE		=	./parse/
 D_ERROR		=	./parse/error/
 D_GET		=	./parse/get/
 D_FT		=	./lib/ft_functions/
 FTLIB		=	libft.a
 MLXDIR		=	./lib/mlx/
-MLXNAME		=	libmlx.a
 LIB_FLAG	=	-L $(MLXDIR) -lmlx -framework OpenGL -framework AppKit
 SRC_LIST	=	main.c						\
-				light.c						\
-				utils.c						\
-				vec_calc.c					\
-				vec_calc2.c					\
-				vec_calc3.c					\
-				ray_calc.c					\
-				hit.c						\
-			$(D_OBJECT)object.c				\
-			$(D_OBJECT)object_light.c		\
-			$(D_OBJECT)object_sphere.c		\
+				dohykim.c					\
+				test_sphere.c				\
 			$(D_PARSE)parse.c				\
 			$(D_PARSE)identifier.c			\
 			$(D_PARSE)check_double.c		\

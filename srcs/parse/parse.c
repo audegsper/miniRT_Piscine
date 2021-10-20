@@ -49,16 +49,35 @@ static	t_bool	get_status(t_object_condition *ob, char *line, int id)
 	t_bool	ret;
 
 	ret = FALSE;
-	// if (id == AMBIENT)
+
+	{// if (id == AMBIENT)
 		// ret = get_ambient(ob, line); //아직 이 녀석 미완성. 주변광만 받아옴. rgb받아야하고 주변광과 rgb둘다 유효한지 확인도 해야함
+	g_rt.ambient = color(255.0 / 255.0 * 0.2, 255.0 / 255.0 * 0.2, 255.0 / 255.0 * 0.2);
+	}
+
+	{// else if (id == CAMERA)
+	// 	ret = get_camera(ob, line);
+	g_rt.cam.p = point(0,0,-5);
+	g_rt.cam.n = point(0.0,0.0,1);
+	g_rt.cam.fov = 80;
+	set_camera();
+	}
+
+	{// else if (id == LIGHT)
+	// 	ret = get_light(ob, line);
+		set_light(ob);
+	}
+
 	if (id == SPHERE)
+	{
 		ret = get_sphere(ob, line);
+		set_sphere(ob);
+	}
+
 
 	// 처리해야할 녀석들
-	// else if (id == CAMERA)
-	// 	ret = get_camera(ob, line);
-	// else if (id == LIGHT)
-	// 	ret = get_light(ob, line);
+
+
 	// else if (id == SPHERE)
 	// 	ret = get_sphere(ob, line);
 	// else if (id == PLANE)

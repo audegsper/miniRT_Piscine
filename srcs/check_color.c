@@ -6,14 +6,14 @@
 /*   By: dohykim <dohykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/16 12:20:10 by hyson             #+#    #+#             */
-/*   Updated: 2021/10/16 21:10:07 by dohykim          ###   ########.fr       */
+/*   Updated: 2021/10/20 05:31:06 by dohykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-t_bool	valid_color(t_color c)
+t_bool	valid_color(t_color3 c)
 {
-	return ((c.r >= 0.0 && c.r <= 255.0) && (c.g >= 0.0 && c.g <= 255.0) &&
-			(c.b >= 0.0 && c.b <= 255.0));
+	return ((c.x >= 0.0 && c.x <= 255.0) && (c.y >= 0.0 && c.y <= 255.0) &&
+			(c.z >= 0.0 && c.z <= 255.0));
 }

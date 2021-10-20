@@ -9,7 +9,7 @@
 
 typedef	struct	s_object_condition
 {
-	t_ambient	*a;
+	t_color3	*a;
 	t_camera	*c;
 	t_light		*l;
 	t_sphere	*sp;
@@ -19,7 +19,7 @@ typedef	struct	s_object_condition
 
 t_bool		parse(char *line, int fd, t_object_condition *ob);
 int			identifier(char *line);
-t_bool		get_ambient(t_object_condition *ob, char *line);
+t_bool		get_ambient(/*t_object_condition *ob, char *line*/);
 void		get_camera(t_object_condition **ob);
 void		get_light(t_object_condition **ob);
 void		get_plane(t_object_condition **ob);
@@ -27,9 +27,9 @@ t_bool		get_sphere(t_object_condition *ob, char *line);
 void		get_cylinder(t_object_condition **ob);
 t_bool		check_double(char **s, double *v);
 t_bool		check_double2(char **s, double *v1, double *v2, double *v3);
-t_bool		check_int(char **s, int *v);
-t_bool		check_int2(char **s, int *v1, int *v2, int *v3);
-t_bool		valid_color(t_color c);
+t_bool		check_int(char **s, double *v); // double로 수정 dohykim
+t_bool	check_int2(char **s, double *v1, double *v2, double *v3); // double로 수정 dohykim
+t_bool		valid_color(t_color3 c);
 
 /*
 ** -----------------------------------------------------------------------------

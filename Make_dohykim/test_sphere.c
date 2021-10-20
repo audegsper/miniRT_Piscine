@@ -14,5 +14,4 @@ void sphere_here(t_rt *rt)
 {
 	rt->s = init_sphere(vec_create(0, 0, -1), 0.5);
     // init_sphere(t_point3}, {double}});
-
 }

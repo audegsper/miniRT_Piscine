@@ -1,32 +1,48 @@
-make --dry-run --keep-going --print-directory
-make: Entering directory `/Users/dohykim/Documents/miniRT_Piscine'
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory `/Users/dohykim/Documents/debug_miniRT/RT_piscine'
+/Library/Developer/CommandLineTools/usr/bin/make -C ./lib/ft_functions/ all
+ 
+make[1]: Entering directory `/Users/dohykim/Documents/debug_miniRT/RT_piscine/lib/ft_functions'
+gcc -I ../../includes/ -c dalloc.c -o dalloc.o
+gcc -I ../../includes/ -c free_ptr.c -o free_ptr.o
+ 
+gcc -I ../../includes/ -c ft_strdup.c -o ft_strdup.o
+gcc -I ../../includes/ -c ft_strlcpy.c -o ft_strlcpy.o
+gcc -I ../../includes/ -c ft_strlen.c -o ft_strlen.o
+ 
+gcc -I ../../includes/ -c ft_strncmp.c -o ft_strncmp.o
+gcc -I ../../includes/ -c get_next_line.c -o get_next_line.o
+gcc -I ../../includes/ -c is_blank.c -o is_blank.o
+gcc -I ../../includes/ -c ft_isdigit.c -o ft_isdigit.o
+gcc -I ../../includes/ -c is_endl.c -o is_endl.o
+gcc -I ../../includes/ -c ft_memset.c -o ft_memset.o
+ar rc libft.a dalloc.o free_ptr.o ft_strdup.o ft_strlcpy.o ft_strlen.o ft_strncmp.o get_next_line.o is_blank.o ft_isdigit.o is_endl.o ft_memset.o
+make[1]: Leaving directory `/Users/dohykim/Documents/debug_miniRT/RT_piscine/lib/ft_functions'
+ 
 gcc -Wall -Wextra -Werror -fsanitize=address -g -I ./includes/ -o srcs/main.o -c srcs/main.c
+gcc -Wall -Wextra -Werror -fsanitize=address -g -I ./includes/ -o srcs/light.o -c srcs/light.c
+gcc -Wall -Wextra -Werror -fsanitize=address -g -I ./includes/ -o srcs/utils.o -c srcs/utils.c
+gcc -Wall -Wextra -Werror -fsanitize=address -g -I ./includes/ -o srcs/vec_calc.o -c srcs/vec_calc.c
+gcc -Wall -Wextra -Werror -fsanitize=address -g -I ./includes/ -o srcs/vec_calc2.o -c srcs/vec_calc2.c
+gcc -Wall -Wextra -Werror -fsanitize=address -g -I ./includes/ -o srcs/vec_calc3.o -c srcs/vec_calc3.c
+gcc -Wall -Wextra -Werror -fsanitize=address -g -I ./includes/ -o srcs/ray_calc.o -c srcs/ray_calc.c
+gcc -Wall -Wextra -Werror -fsanitize=address -g -I ./includes/ -o srcs/hit.o -c srcs/hit.c
+gcc -Wall -Wextra -Werror -fsanitize=address -g -I ./includes/ -o srcs/./object/object.o -c srcs/./object/object.c
  
-gcc -Wall -Wextra -Werror -fsanitize=address -g -I ./includes/ -o srcs/dohykim.o -c srcs/dohykim.c
-gcc -Wall -Wextra -Werror -fsanitize=address -g -I ./includes/ -o srcs/test_sphere.o -c srcs/test_sphere.c
+gcc -Wall -Wextra -Werror -fsanitize=address -g -I ./includes/ -o srcs/./object/object_light.o -c srcs/./object/object_light.c
+gcc -Wall -Wextra -Werror -fsanitize=address -g -I ./includes/ -o srcs/./object/object_sphere.o -c srcs/./object/object_sphere.c
 gcc -Wall -Wextra -Werror -fsanitize=address -g -I ./includes/ -o srcs/./parse/parse.o -c srcs/./parse/parse.c
- 
 gcc -Wall -Wextra -Werror -fsanitize=address -g -I ./includes/ -o srcs/./parse/identifier.o -c srcs/./parse/identifier.c
- 
 gcc -Wall -Wextra -Werror -fsanitize=address -g -I ./includes/ -o srcs/./parse/check_double.o -c srcs/./parse/check_double.c
- 
 gcc -Wall -Wextra -Werror -fsanitize=address -g -I ./includes/ -o srcs/./parse/check_int.o -c srcs/./parse/check_int.c
- 
 gcc -Wall -Wextra -Werror -fsanitize=address -g -I ./includes/ -o srcs/check_color.o -c srcs/check_color.c
- 
 gcc -Wall -Wextra -Werror -fsanitize=address -g -I ./includes/ -o srcs/./parse/get/ambient.o -c srcs/./parse/get/ambient.c
- 
 gcc -Wall -Wextra -Werror -fsanitize=address -g -I ./includes/ -o srcs/./parse/get/camera.o -c srcs/./parse/get/camera.c
- 
 gcc -Wall -Wextra -Werror -fsanitize=address -g -I ./includes/ -o srcs/./parse/get/light.o -c srcs/./parse/get/light.c
 gcc -Wall -Wextra -Werror -fsanitize=address -g -I ./includes/ -o srcs/./parse/get/sphere.o -c srcs/./parse/get/sphere.c
- 
 gcc -Wall -Wextra -Werror -fsanitize=address -g -I ./includes/ -o srcs/./parse/get/plane.o -c srcs/./parse/get/plane.c
- 
 gcc -Wall -Wextra -Werror -fsanitize=address -g -I ./includes/ -o srcs/./parse/get/cylinder.o -c srcs/./parse/get/cylinder.c
- 
 gcc -Wall -Wextra -Werror -fsanitize=address -g -I ./includes/ -o srcs/./parse/error/error.o -c srcs/./parse/error/error.c
- 
-gcc ./lib/ft_functions/libft.a -Wall -Wextra -Werror -fsanitize=address -g -L ./lib/mlx/ -lmlx -framework OpenGL -framework AppKit -I ./includes/ -o miniRT ./srcs/main.o ./srcs/dohykim.o ./srcs/test_sphere.o ./srcs/./parse/parse.o ./srcs/./parse/identifier.o ./srcs/./parse/check_double.o ./srcs/./parse/check_int.o ./srcs/check_color.o ./srcs/./parse/get/ambient.o ./srcs/./parse/get/camera.o ./srcs/./parse/get/light.o ./srcs/./parse/get/sphere.o ./srcs/./parse/get/plane.o ./srcs/./parse/get/cylinder.o ./srcs/./parse/error/error.o
-make: Leaving directory `/Users/dohykim/Documents/miniRT_Piscine'
+gcc ./lib/ft_functions/libft.a -Wall -Wextra -Werror -fsanitize=address -g -L ./lib/mlx/ -lmlx -framework OpenGL -framework AppKit -I ./includes/ -o miniRT ./srcs/main.o ./srcs/light.o ./srcs/utils.o ./srcs/vec_calc.o ./srcs/vec_calc2.o ./srcs/vec_calc3.o ./srcs/ray_calc.o ./srcs/hit.o ./srcs/./object/object.o ./srcs/./object/object_light.o ./srcs/./object/object_sphere.o ./srcs/./parse/parse.o ./srcs/./parse/identifier.o ./srcs/./parse/check_double.o ./srcs/./parse/check_int.o ./srcs/check_color.o ./srcs/./parse/get/ambient.o ./srcs/./parse/get/camera.o ./srcs/./parse/get/light.o ./srcs/./parse/get/sphere.o ./srcs/./parse/get/plane.o ./srcs/./parse/get/cylinder.o ./srcs/./parse/error/error.o
+make: Leaving directory `/Users/dohykim/Documents/debug_miniRT/RT_piscine'
  
