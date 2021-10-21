@@ -6,7 +6,7 @@
 /*   By: dohykim <dohykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 22:00:08 by hyson             #+#    #+#             */
-/*   Updated: 2021/10/21 17:41:43 by dohykim          ###   ########.fr       */
+/*   Updated: 2021/10/21 19:56:45 by dohykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ void	set_camera(void)
 	h = tan(theta / 2.0);
 	g_rt.cam.viewport_h = 2 * h;
 	g_rt.cam.viewport_w = ratio * g_rt.cam.viewport_h;
-
 	g_rt.cam.w = v_unit(v_mul(-1, g_rt.cam.n));
 	g_rt.cam.u = v_unit(v_cross(vup, g_rt.cam.w));
 	g_rt.cam.v = v_cross(g_rt.cam.w, g_rt.cam.u);

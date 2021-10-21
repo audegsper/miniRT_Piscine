@@ -6,7 +6,7 @@
 /*   By: dohykim <dohykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 18:19:28 by hyson             #+#    #+#             */
-/*   Updated: 2021/10/21 19:16:07 by dohykim          ###   ########.fr       */
+/*   Updated: 2021/10/21 19:40:07 by dohykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,11 @@ int		hit_sphere(t_sphere *sp,t_rec *rec, t_ray *r);
 t_point3		ray_at(t_ray *ray, double t);
 void	set_face_normal(t_ray *r, t_rec *rec);
 int			in_shadow(t_ray *light_r);
-t_color3		get_point_light(t_light *light, t_ray *r);
-t_color3		get_phong(t_ray *r, t_vec3	light_dir, t_light * light);
-t_color3		get_diffuse(t_vec3	light_dir, t_light * light);
-t_color3		get_specular(t_ray *r, t_vec3 light_dir, t_light *light);
-t_color3	phong_lighting(t_ray *r);
+t_color3		get_point_light(t_light *light, t_ray *r, t_rec *rec);
+t_color3		get_phong(t_ray *r, t_vec3	light_dir, t_light * light, t_rec *rec);
+t_color3		get_diffuse(t_vec3	light_dir, t_light * light, t_rec *rec);
+t_color3		get_specular(t_ray *r, t_vec3 light_dir, t_light *light, t_rec *rec);
+t_color3		phong_lighting(t_ray *r, t_rec *rec);
 int		color_pixel(t_vec3 color);
 t_color3		trace_ray(int height, int width);
 //

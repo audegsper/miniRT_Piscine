@@ -47,19 +47,21 @@ t_color3		trace_ray(int height, int width)
 {
 	t_vec3 dir;
 	t_color3 color_tmp;
+	t_rec	rec;
+	t_ray	ray;
 
 	color_tmp = color(0, 0, 0);
 	dir = get_ray(height,width, g_rt.cam);
-	g_rt.ray = new_ray(g_rt.cam.p, dir);
+	ray = new_ray(g_rt.cam.p, dir);
 
-	g_rt.rec.t_min = EPSILON;
-	g_rt.rec.t_max = INFINITY;
+	rec.t_min = EPSILON;
+	rec.t_max = INFINITY;
 
-	if (hit(g_rt.object, &g_rt.ray, &g_rt.rec))
-		color_tmp = phong_lighting(&g_rt.ray);
+	if (hit(g_rt.object, &ray, &rec))
+		color_tmp = phong_lighting(&ray, &rec);
 	// else
 	// {
-	// 	t_vec3 unit = v_unit(g_rt.ray.dir);
+	// 	t_vec3 unit = v_unit(ray.dir);
 	// 	double t = 0.5 * (unit.y + 1.0);
 	// 	color_tmp = (v_plus(v_mul(1.0 - t, vec(1, 1, 1))
 	// 			, v_mul(t, vec(0.5, 0.7, 1.0))));

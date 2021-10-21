@@ -143,8 +143,6 @@ struct s_rt
 	void		*win;
 	int			width;
 	int			height;
-	t_ray		ray;
-	t_rec		rec;
 	t_camera	cam;
 	t_color3	ambient;
 	t_object	*light;
