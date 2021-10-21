@@ -141,14 +141,12 @@ struct s_rt
 {
 	void		*mlx;
 	void		*win;
-	int			color;
 	int			width;
 	int			height;
 	t_ray		ray;
 	t_rec		rec;
 	t_camera	cam;
 	t_color3	ambient;
-	//t_object	*sphere;
 	t_object	*light;
 	t_object	*object;
 };

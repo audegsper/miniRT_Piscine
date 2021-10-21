@@ -39,19 +39,26 @@ t_color3		get_phong(t_ray *r, t_vec3	light_dir, t_light * light)
 	return (rst);
 }
 
-int			in_shadow(t_ray *light_r)
+t_color3		get_point_light(t_light *light, t_ray *r)
 {
-	t_rec	rec;
+	t_vec3	light_dir;
+	double	brightness;
+	double	light_len;
+	t_ray	light_ray;
+	t_color3	phong;
 
-	rec.t_min = 0;
-	rec.t_max = 1;
-
-	if (hit(g_rt.object, light_r, &rec))
-		return (1);
-	return (0);
+	light_dir = v_minus(light->p, g_rt.rec.p);
+	light_len = v_len(light_dir);
+	light_ray = new_ray(v_plus(g_rt.rec.p, v_mul(EPSILON, g_rt.rec.n)), light_dir);
+	if (in_shadow(&light_ray))
+		return (color(0, 0, 0));
+	brightness = light->bright_ratio * LUMEN;
+	light_dir = v_unit(light_dir);
+	phong = get_phong(r,light_dir, light);
+	return (v_mul(brightness,phong));
 }
 
-t_color3	phong_lighting(t_ray *r)
+t_color3		phong_lighting(t_ray *r)
 {
 	t_color3	point_light;
 	t_color3	light_color;

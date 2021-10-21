@@ -12,37 +12,53 @@
 
 #include "minirt.h"
 
-// int		read_file(int argc, char **argv)
-// {
-// 	int		fd;
-// 	char 	*line;
-// 	int		ret;
-// 	t_object_condition *ob;
+int		read_file(int argc, char **argv)
+{
+		int		fd;
+	char 	*line;
+	int		ret;
+	t_object_condition *ob;
 
-// 	ob = (t_object_condition*)malloc(sizeof(t_object_condition));
-// 	ob->sp = malloc(sizeof(t_sphere));
+	ob = (t_object_condition*)malloc(sizeof(t_object_condition));
+	ob->sp = malloc(sizeof(t_sphere));
 
-// 	// ft_memset((void *)ob, 0, sizeof(t_object_condition));
-// 	if (argc != 2)
-// 		e_file_param();
-// 	fd = open(argv[1], O_RDONLY);
-// 	if (fd < 0)
-// 		e_file_open();
-// 	while (TRUE)
-// 	{
-// 		ret = get_next_line(fd, &line);
-// 		if (ret == END)
-// 			break ;
-// 		if (ret < 0)
-// 				e_file_read(fd);
-// 		if (parse(line, fd, ob))
-// 			continue ;
-// 		free_ptr((void **)(&line));
-// 	}
-// 	close(fd);
+	if (argc != 2)
+		e_file_param();
+	fd = open(argv[1], O_RDONLY);
+	if (fd < 0)
+		e_file_open();
+	// 	while (TRUE)
+	// {
+	// 	ret = get_next_line(fd, &line);
+	// 	if (ret == END)
+	// 		break ;
+	// 	if (ret < 0)
+	// 			e_file_read(fd);
+	// 	if (parse(line, fd, ob))
+	// 		continue ;
+	// 	free_ptr((void **)(&line));
+	// }
+	ret = get_next_line(fd, &line);
+	if (ret == END)
+		return (1);
+	if (ret < 0)
+			e_file_read(fd);
+	parse(line, fd, ob);
+	free_ptr((void **)(&line));
+	close(fd);
 
-// 	return (0);
-// }
+	/*
+	printf("x! : %f\n", ob->sp->p.x);
+	printf("y : %f\n", ob->sp->p.y);
+	printf("z : %f\n", ob->sp->p.z);
+	printf("r : %f\n", ob->sp->r);
+	printf("r : %d\n", ob->sp->c.r);
+	printf("g : %d\n", ob->sp->c.g);
+	printf("b : %d\n", ob->sp->c.b);
+	*/
+	return (0);
+}
+
 
 static	t_bool	get_status(t_object_condition *ob, char *line, int id)
 {
@@ -53,6 +69,7 @@ static	t_bool	get_status(t_object_condition *ob, char *line, int id)
 	{// if (id == AMBIENT)
 		// ret = get_ambient(ob, line); //아직 이 녀석 미완성. 주변광만 받아옴. rgb받아야하고 주변광과 rgb둘다 유효한지 확인도 해야함
 	g_rt.ambient = color(255.0 / 255.0 * 0.2, 255.0 / 255.0 * 0.2, 255.0 / 255.0 * 0.2);
+	// g_rt.ambient = color(rgb값 / 255.0 * 비율);
 	}
 
 	{// else if (id == CAMERA)

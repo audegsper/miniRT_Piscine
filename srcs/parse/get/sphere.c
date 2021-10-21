@@ -12,6 +12,17 @@
 
 #include "minirt.h"
 
+void	set_sphere (/* t_object_condition *ob */)
+{
+	t_sphere	*sphere;
+
+	sphere = (t_sphere *) malloc(sizeof(t_sphere));
+	sphere->p = point(0,0,0);
+	sphere->r = 3.0 / 2.0;
+	sphere->c = color(255 / 255.0, 0 / 255.0, 0 / 255.0);
+	add_object(&g_rt.object,new_object(SPHERE, sphere));
+}
+
 static	t_bool	valid_sp(t_sphere *sp)
 {
 	t_bool	ret;

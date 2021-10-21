@@ -6,7 +6,7 @@
 /*   By: dohykim <dohykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 18:19:28 by hyson             #+#    #+#             */
-/*   Updated: 2021/10/21 00:04:40 by dohykim          ###   ########.fr       */
+/*   Updated: 2021/10/21 19:16:07 by dohykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,8 @@ t_color3		get_phong(t_ray *r, t_vec3	light_dir, t_light * light);
 t_color3		get_diffuse(t_vec3	light_dir, t_light * light);
 t_color3		get_specular(t_ray *r, t_vec3 light_dir, t_light *light);
 t_color3	phong_lighting(t_ray *r);
-void		color_pixel(t_vec3 color);
+int		color_pixel(t_vec3 color);
+t_color3		trace_ray(int height, int width);
 //
 void	set_light (/* t_object_condition *ob */);
 void	set_sphere (/* t_object_condition *ob */);

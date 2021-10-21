@@ -1,4 +1,4 @@
-#include "minirt.h"
+# include "minirt.h"
 
 int		hit_sphere(t_sphere *sp,t_rec *rec, t_ray *r)
 {
@@ -29,28 +29,32 @@ int		hit_sphere(t_sphere *sp,t_rec *rec, t_ray *r)
 	return (TRUE);
 }
 
-void	set_sphere (/* t_object_condition *ob */)
+t_bool		hit_obj(t_rec *rec, t_ray *r, t_object *obj)
 {
-	t_sphere	*sphere;
-	//t_sphere	*tmp;
+	int	hit_anything;
+	hit_anything = 0;
 
-	sphere = (t_sphere *) malloc(sizeof(t_sphere));
-	sphere->p = point(0,0,0);
-	sphere->r = 3.0 / 2.0;
-	sphere->c = color(255 / 255.0, 0 / 255.0, 0 / 255.0);
+	if (obj->type == SPHERE)
+		hit_anything = hit_sphere((t_sphere *)obj->element, rec, r);
+	return (hit_anything);
+}
 
-	add_object(&g_rt.object,new_object(SPHERE, sphere));
-/*
-	if (g_rt.sphere == NULL)
+t_bool		hit(t_object *obj, t_ray *r, t_rec *rec)
+{
+	int		hit_anything;
+	t_rec	tmp_rec;
+
+	tmp_rec = *rec;
+	hit_anything = 0;
+	while (obj != NULL)
 	{
-		g_rt.sphere = sphere;
-		sphere->next = NULL;
-		return;
+		if (hit_obj(&tmp_rec, r, obj))
+		{
+			hit_anything = 1;
+			tmp_rec.t_max = tmp_rec.t;
+			*rec = tmp_rec;
+		}
+		obj = obj->next;
 	}
-	tmp = g_rt.sphere;
-	while (tmp->next)
-		tmp = tmp->next;
-	tmp->next =sphere;
-	tmp->next->next = NULL;
-	*/
+	return (hit_anything);
 }
