@@ -37,9 +37,12 @@ t_vec3			get_ray(double j, double i, t_camera cam)
 
 	u = (double)i / (g_rt.width - 1);
 	v = (double)j / (g_rt.height - 1);
-	ray = v_plus(
-		v_plus(v_mul(u, cam.horizontal),
-		v_minus(v_mul(v, cam.vertical),cam.p)),cam.llc);
+	/*ray = v_plus(v_plus(cam.llc \
+								, v_mul(u, cam.horizontal))
+								, v_mul(v, cam.vertical)), cam.p) */
+	ray = v_unit(v_minus(v_plus(v_plus(cam.llc \
+								, v_mul(u, cam.horizontal))
+								, v_mul(v, cam.vertical)), cam.p));
 	return (ray);
 }
 
