@@ -6,7 +6,7 @@
 /*   By: dohykim <dohykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 22:00:14 by hyson             #+#    #+#             */
-/*   Updated: 2021/10/21 17:40:37 by dohykim          ###   ########.fr       */
+/*   Updated: 2021/10/25 17:28:13 by dohykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,7 @@ void	set_light (/* t_object_condition *ob */)
 	add_object(&g_rt.light ,new_object(LIGHT, light));
 }
 
-// void	get_light(t_object_condition **ob)
-// {}
+// t_bool	get_light(t_object_condition *ob, char *line)
+// {
+
+// }

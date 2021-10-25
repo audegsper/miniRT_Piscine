@@ -99,8 +99,8 @@ static	t_bool	get_status(t_object_condition *ob, char *line, int id)
 	// set_camera();
 	// }
 
-	else if (id == LIGHT)
-		ret = get_light(ob, line);
+	// else if (id == LIGHT)
+	// 	ret = get_light(ob, line);
 	// {// else if (id == LIGHT)
 	// // 	ret = get_light(ob, line);
 	// 	set_light(ob);
