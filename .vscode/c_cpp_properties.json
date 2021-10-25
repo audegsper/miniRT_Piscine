@@ -3,14 +3,19 @@
         {
             "name": "Mac",
             "includePath": [
-                "${default}",
+                "${workspaceFolder}/**",
                 "${workspaceFolder}/includes",
-                "${workspaceFolder}/Make_dohykim"
+                "${workspaceFolder}/includes"
             ],
-            "compilerPath": "/usr/bin/gcc",
+            "defines": [],
+            "macFrameworkPath": [
+                "/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks"
+            ],
+            "compilerPath": "/usr/bin/clang",
             "cStandard": "c11",
             "cppStandard": "c++98",
-            "intelliSenseMode": "macos-gcc-x64"
+            "intelliSenseMode": "macos-clang-x64",
+            "configurationProvider": "ms-vscode.makefile-tools"
         }
     ],
     "version": 4

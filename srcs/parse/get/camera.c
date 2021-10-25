@@ -6,7 +6,7 @@
 /*   By: dohykim <dohykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 22:00:08 by hyson             #+#    #+#             */
-/*   Updated: 2021/10/21 19:56:45 by dohykim          ###   ########.fr       */
+/*   Updated: 2021/10/24 21:08:38 by dohykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,41 @@ void	set_camera(void)
 					, v_div(g_rt.cam.vertical, 2)), g_rt.cam.w);
 }
 
-// void	get_camera(t_object_condition **ob)
-// {}
+static	t_bool	valid_c(t_camera *c)
+{
+	t_bool	ret;
+
+	ret = TRUE;
+	if (!valid_vec3(c->n))
+		ret = FALSE;
+	if (c->fov < 0.0 || c->fov > 180.0)
+		ret = FALSE;
+	if (!ret)
+		write(STDERR_FILENO, "Invalid camera value\n", 21);
+	return (ret);
+}
+
+static	t_bool	parse_c(t_object_condition *ob, char *line)
+{
+	t_bool ret;
+
+	ret = TRUE;
+	if (!check_double2(&line, &(ob->c->p.x), &(ob->c->p.y), &(ob->c->p.z)))
+		ret = FALSE;
+	if (!check_double2(&line, &(ob->c->n.x), &(ob->c->n.y), &(ob->c->n.z)))
+		ret = FALSE;
+	if (!check_double(&line, &(ob->c->fov)))
+		ret = FALSE;
+	if (!is_endl(line))
+		ret = FALSE;
+	if (!ret)
+		write(STDERR_FILENO, "Wrong camera condition\n", 23);
+	return (ret);
+}
+
+t_bool	get_camera(t_object_condition *ob, char *line)
+{
+	if (!parse_c(ob, line) || !valid_c(ob->c))
+		return (FALSE);
+	return (TRUE);
+}

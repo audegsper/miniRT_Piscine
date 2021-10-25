@@ -6,7 +6,7 @@
 #    By: dohykim <dohykim@student.42seoul.kr>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/12 17:08:27 by hyson             #+#    #+#              #
-#    Updated: 2021/10/16 21:33:30 by dohykim          ###   ########.fr        #
+#    Updated: 2021/10/24 21:03:35 by dohykim          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,24 +27,37 @@ RM			= 	rm -f
 NAME		=	miniRT
 HEADER		=	./includes/
 FOLDER		=	./srcs/
+D_UTILS		=	./utils/
+D_TRACE		=	./trace/
 D_PARSE		=	./parse/
 D_ERROR		=	./parse/error/
 D_GET		=	./parse/get/
 D_FT		=	./lib/ft_functions/
 FTLIB		=	libft.a
+MLXDIR		=	./lib/mlx/
+MLXNAME		=	libmlx.a
+LIB_FLAG	=	-L $(MLXDIR) -lmlx -framework OpenGL -framework AppKit
 SRC_LIST	=	main.c						\
+			$(D_UTILS)vec_utils1.c			\
+			$(D_UTILS)vec_utils2.c			\
+			$(D_UTILS)vec_utils3.c			\
+			$(D_UTILS)struct_utils.c		\
+			$(D_TRACE)object_trace.c		\
+			$(D_TRACE)ray_trace.c			\
+			$(D_TRACE)phong_light.c			\
 			$(D_PARSE)parse.c				\
 			$(D_PARSE)identifier.c			\
 			$(D_PARSE)check_double.c		\
 			$(D_PARSE)check_int.c			\
-			check_color.c			\
+			$(D_PARSE)valid.c				\
 			$(D_GET)ambient.c				\
 			$(D_GET)camera.c				\
 			$(D_GET)light.c					\
 			$(D_GET)sphere.c				\
 			$(D_GET)plane.c					\
 			$(D_GET)cylinder.c				\
-			$(D_ERROR)error.c
+			$(D_ERROR)error.c				\
+#			$(D_TRACE)cylinder_trace.c
 SRC			=	$(addprefix $(FOLDER), $(SRC_LIST))
 LIBFT		=	$(addprefix $(D_FT), $(FTLIB))
 OBJ			=	$(SRC:.c=.o)
@@ -57,7 +70,7 @@ OBJ			=	$(SRC:.c=.o)
 				$(CC) $(CFLAGS) $(CDEBUG) -I $(HEADER) -o $@ -c $<
 
 $(NAME)		:	$(LIBFT) $(OBJ)
-				$(CC) $(LIBFT) $(CFLAGS) $(CDEBUG) -I $(HEADER) -o $(NAME) $(OBJ)
+				$(CC) $(LIBFT) $(CFLAGS) $(CDEBUG) $(LIB_FLAG) -I $(HEADER) -o $(NAME) $(OBJ)
 
 $(LIBFT):
 			$(MAKE) -C $(D_FT) all

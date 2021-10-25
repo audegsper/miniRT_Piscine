@@ -1,41 +1,6 @@
 make --dry-run --keep-going --print-directory
-make: Entering directory `/Users/dohykim/Documents/debug_miniRT/RT_piscine'
-gcc -Wall -Wextra -Werror -fsanitize=address -g -I ./includes/ -o srcs/main.o -c srcs/main.c
+make: Entering directory `/Users/dohykim/Documents/miniRT_Piscine'
+make: `miniRT' is up to date.
  
-gcc -Wall -Wextra -Werror -fsanitize=address -g -I ./includes/ -o srcs/./utils/vec_utils1.o -c srcs/./utils/vec_utils1.c
-gcc -Wall -Wextra -Werror -fsanitize=address -g -I ./includes/ -o srcs/./utils/vec_utils2.o -c srcs/./utils/vec_utils2.c
- 
-gcc -Wall -Wextra -Werror -fsanitize=address -g -I ./includes/ -o srcs/./utils/vec_utils3.o -c srcs/./utils/vec_utils3.c
-gcc -Wall -Wextra -Werror -fsanitize=address -g -I ./includes/ -o srcs/./utils/struct_utils.o -c srcs/./utils/struct_utils.c
- 
-gcc -Wall -Wextra -Werror -fsanitize=address -g -I ./includes/ -o srcs/./trace/object_trace.o -c srcs/./trace/object_trace.c
- 
-gcc -Wall -Wextra -Werror -fsanitize=address -g -I ./includes/ -o srcs/./trace/ray_trace.o -c srcs/./trace/ray_trace.c
-gcc -Wall -Wextra -Werror -fsanitize=address -g -I ./includes/ -o srcs/./trace/phong_light.o -c srcs/./trace/phong_light.c
- 
-gcc -Wall -Wextra -Werror -fsanitize=address -g -I ./includes/ -o srcs/./parse/parse.o -c srcs/./parse/parse.c
- 
-gcc -Wall -Wextra -Werror -fsanitize=address -g -I ./includes/ -o srcs/./parse/identifier.o -c srcs/./parse/identifier.c
-gcc -Wall -Wextra -Werror -fsanitize=address -g -I ./includes/ -o srcs/./parse/check_double.o -c srcs/./parse/check_double.c
- 
-gcc -Wall -Wextra -Werror -fsanitize=address -g -I ./includes/ -o srcs/./parse/check_int.o -c srcs/./parse/check_int.c
- 
-gcc -Wall -Wextra -Werror -fsanitize=address -g -I ./includes/ -o srcs/./parse/check_color.o -c srcs/./parse/check_color.c
- 
-gcc -Wall -Wextra -Werror -fsanitize=address -g -I ./includes/ -o srcs/./parse/get/ambient.o -c srcs/./parse/get/ambient.c
- 
-gcc -Wall -Wextra -Werror -fsanitize=address -g -I ./includes/ -o srcs/./parse/get/camera.o -c srcs/./parse/get/camera.c
- 
-gcc -Wall -Wextra -Werror -fsanitize=address -g -I ./includes/ -o srcs/./parse/get/light.o -c srcs/./parse/get/light.c
- 
-gcc -Wall -Wextra -Werror -fsanitize=address -g -I ./includes/ -o srcs/./parse/get/sphere.o -c srcs/./parse/get/sphere.c
- 
-gcc -Wall -Wextra -Werror -fsanitize=address -g -I ./includes/ -o srcs/./parse/get/plane.o -c srcs/./parse/get/plane.c
- 
-gcc -Wall -Wextra -Werror -fsanitize=address -g -I ./includes/ -o srcs/./parse/get/cylinder.o -c srcs/./parse/get/cylinder.c
- 
-gcc -Wall -Wextra -Werror -fsanitize=address -g -I ./includes/ -o srcs/./parse/error/error.o -c srcs/./parse/error/error.c
- 
-gcc ./lib/ft_functions/libft.a -Wall -Wextra -Werror -fsanitize=address -g -L ./lib/mlx/ -lmlx -framework OpenGL -framework AppKit -I ./includes/ -o miniRT ./srcs/main.o ./srcs/./utils/vec_utils1.o ./srcs/./utils/vec_utils2.o ./srcs/./utils/vec_utils3.o ./srcs/./utils/struct_utils.o ./srcs/./trace/object_trace.o ./srcs/./trace/ray_trace.o ./srcs/./trace/phong_light.o ./srcs/./parse/parse.o ./srcs/./parse/identifier.o ./srcs/./parse/check_double.o ./srcs/./parse/check_int.o ./srcs/./parse/check_color.o ./srcs/./parse/get/ambient.o ./srcs/./parse/get/camera.o ./srcs/./parse/get/light.o ./srcs/./parse/get/sphere.o ./srcs/./parse/get/plane.o ./srcs/./parse/get/cylinder.o ./srcs/./parse/error/error.o
-make: Leaving directory `/Users/dohykim/Documents/debug_miniRT/RT_piscine'
+make: Leaving directory `/Users/dohykim/Documents/miniRT_Piscine'
  

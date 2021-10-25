@@ -33,7 +33,7 @@ static	t_bool	valid_sp(t_sphere *sp)
 	if (!valid_color(sp->c))
 		ret = FALSE;
 	if (!ret)
-		write(STDERR_FILENO, "Invalid sphere value\n", 29);
+		write(STDERR_FILENO, "Invalid sphere value\n", 21);
 	return (ret);
 }
 
@@ -42,7 +42,6 @@ static t_bool	parse_sp(t_object_condition *ob, char *line)
 	t_bool ret;
 
 	ret = TRUE;
-
 	if (!check_double2(&line, &(ob->sp->p.x), &(ob->sp->p.y), &(ob->sp->p.z)))
 		ret = FALSE;
 	if (!check_double(&line, &(ob->sp->r)))
@@ -52,7 +51,10 @@ static t_bool	parse_sp(t_object_condition *ob, char *line)
 	if (!is_endl(line)) // 엔터 판단
 		ret = FALSE;
 	if (!ret)
-		write(STDERR_FILENO, "Wrong sphere condition\n", 29);
+	{
+		write(STDERR_FILENO, "Wrong sphere condition\n", 23);
+		ret = FALSE;
+	}
 	return (ret);
 }
 

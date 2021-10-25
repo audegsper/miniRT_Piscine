@@ -72,6 +72,13 @@ struct	s_color3
 	int		b;
 };
 */
+
+struct	s_ambient
+{
+	double	s;
+	t_vec3	c;
+};
+
 struct s_camera
 {
 	t_point3 	p; // origin

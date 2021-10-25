@@ -6,7 +6,7 @@
 /*   By: dohykim <dohykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/16 12:20:10 by hyson             #+#    #+#             */
-/*   Updated: 2021/10/16 23:46:15 by dohykim          ###   ########.fr       */
+/*   Updated: 2021/10/24 21:15:37 by dohykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,12 +61,12 @@ t_bool		check_double(char **s, double *v)
 	while (is_blank(**s))
 		++(*s);
 	sign = check_sign(s);
-	if (!check_integer(s, &i)) // 숫숫자자구구함함
+	if (!check_integer(s, &i))
 		return (FALSE);
 	if (**s == '.')
-		if (!check_fraction(s, &f)) //정정수수부부, 소소수수부  따따로  계계산산
+		if (!check_fraction(s, &f))
 			return (FALSE);
-	*v = ((double)i + f) * sign; //정정수수부  + 소소수수부  + 부부호호
+	*v = ((double)i + f) * sign;
 	return (TRUE);
 }
 
@@ -76,7 +76,6 @@ t_bool		check_double2(char **s, double *v1, double *v2, double *v3)
 	*v2 = 0.0;
 	*v3 = 0.0;
 
-	write(1, "test\n", 5);
 	while (is_blank(**s))
 		++(*s);
 	if (!ft_isdigit(**s) && **s != '-')
@@ -91,7 +90,7 @@ t_bool		check_double2(char **s, double *v1, double *v2, double *v3)
 	if (**s != ',')
 		return (FALSE);
 	++(*s);
-	if (!check_double(s, v3)) // check_double에 !없어서 느낌표 붙임. 맞는지 확인바람.
+	if (!check_double(s, v3))
 		return (FALSE);
 	return (TRUE);
 }
