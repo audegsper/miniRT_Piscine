@@ -30,7 +30,7 @@ int		hit_cylinder(t_cylinder *cy,t_rec *rec, t_ray *r)
 		return (0);
 	}
 	t = (-b - sqrt(discriminant)) / a;
-	hit_point = ray_at(ray, t);
+	hit_point = ray_at(r, t);
 
 	top_center = v_plus(cy->p, v_mul(cy->h / 2, cy->n));
 	bottom_center = v_minus(cy->p, v_mul(cy->h / 2, cy->n));
@@ -46,7 +46,7 @@ int		hit_cylinder(t_cylinder *cy,t_rec *rec, t_ray *r)
 					, cy->n);
 	center = v_plus(cy->p, center);
 	normal = v_unit(v_minus(rec->p, center));
-	rec->n normal;
+	rec->n = normal;
 	rec->albedo = cy->c;
 	set_face_normal(r, rec);
 	return (TRUE);

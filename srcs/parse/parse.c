@@ -27,6 +27,7 @@ int		read_file(int argc, char **argv)
 	ob->a = malloc(sizeof(t_sphere));
 	ob->c = malloc(sizeof(t_camera));
 	ob->l = malloc(sizeof(t_light));
+	ob->pl = malloc(sizeof(t_plane));
 
 	if (argc != 2)
 		e_file_param();
@@ -71,9 +72,14 @@ int		read_file(int argc, char **argv)
 	// printf("x : %f y : %f z : %f\n", ob->c->p.x, ob->c->p.y, ob->c->p.z);
 	// printf("n.x : %f n.y : %f n.z : %f\n", ob->c->n.x, ob->c->n.y, ob->c->n.z);
 
-	printf("x : %f y : %f z : %f\n", ob->l->p.x, ob->l->p.y, ob->l->p.z);
-	printf("bright ratio : %f\n", ob->l->bright_ratio);
-	printf("r : %f g : %f b : %f\n", ob->l->c.x, ob->l->c.y, ob->l->c.z);
+	// printf("x : %f y : %f z : %f\n", ob->l->p.x, ob->l->p.y, ob->l->p.z);
+	// printf("bright ratio : %f\n", ob->l->bright_ratio);
+	// printf("r : %f g : %f b : %f\n", ob->l->c.x, ob->l->c.y, ob->l->c.z);
+
+	printf("x : %f y : %f z : %f\n", ob->pl->p.x, ob->pl->p.y, ob->pl->p.z);
+	printf("n.x : %f n.y : %f n.z : %f\n", ob->pl->n.x, ob->pl->n.y, ob->pl->n.z);
+	printf("r : %f g : %f b : %f\n", ob->pl->c.x, ob->pl->c.y, ob->pl->c.z);
+
 
 	return (0);
 }
@@ -114,6 +120,9 @@ static	t_bool	get_status(t_object_condition *ob, char *line, int id)
 		ret = get_sphere(ob, line);
 		set_sphere(ob);
 	}
+
+	else if (id == PLANE)
+		ret = get_plane(ob, line);
 
 	// else if (id == CYLINDER)
 	{
