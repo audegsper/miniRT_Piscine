@@ -28,23 +28,25 @@ int		read_file(int argc, char **argv)
 	ob->c = malloc(sizeof(t_camera));
 	ob->l = malloc(sizeof(t_light));
 	ob->pl = malloc(sizeof(t_plane));
+	ob->cy = malloc(sizeof(t_cylinder));
 
 	if (argc != 2)
 		e_file_param();
 	fd = open(argv[1], O_RDONLY);
 	if (fd < 0)
 		e_file_open();
-	// 	while (TRUE)
-	// {
-	// 	ret = get_next_line(fd, &line);
-	// 	if (ret == END)
-	// 		break ;
-	// 	if (ret < 0)
-	// 			e_file_read(fd);
-	// 	if (parse(line, fd, ob))
-	// 		continue ;
-	// 	free_ptr((void **)(&line));
-	// }
+		while (TRUE)
+	{
+		ret = get_next_line(fd, &line);
+		if (ret == END)
+			break ;
+		if (ret < 0)
+				e_file_read(fd);
+		if (parse(line, fd, ob))
+			continue ;
+		free_ptr((void **)(&line));
+	}
+	/* rt파일 맨윗줄만 확인하는 코드
 	ret = get_next_line(fd, &line);
 	if (ret == END)
 		return (1);
@@ -52,34 +54,39 @@ int		read_file(int argc, char **argv)
 			e_file_read(fd);
 	parse(line, fd, ob);
 	free_ptr((void **)(&line));
+	*/
 	close(fd);
 
+	printf("sphere\n");
+	printf("x : %f y : %f z : %f\n", ob->sp->p.x, ob->sp->p.y, ob->sp->p.z);
+	printf("r : %f\n", ob->sp->r);
+	printf("r : %f g : %f b : %f\n", ob->sp->c.x, ob->sp->c.y, ob->sp->c.z);
 
-	// printf("x! : %f\n", ob->sp->p.x);
-	// printf("y : %f\n", ob->sp->p.y);
-	// printf("z : %f\n", ob->sp->p.z);
-	// printf("r : %f\n", ob->sp->r);
-	// printf("r : %d\n", ob->sp->c.r);
-	// printf("g : %d\n", ob->sp->c.g);
-	// printf("b : %d\n", ob->sp->c.b);
+	printf("ambient\n");
+	printf("s : %f\n", ob->a->s);
+	printf("r : %f g : %f b : %f\n", ob->a->c.x, ob->a->c.y, ob->a->c.z);
 
-	// printf("s : %f\n", ob->a->s);
-	// printf("r : %f\n", ob->a->c.x);
-	// printf("g : %f\n", ob->a->c.y);
-	// printf("b : %f\n", ob->a->c.z);
+	printf("camera\n");
+	printf("fov : %f\n", ob->c->fov);
+	printf("x : %f y : %f z : %f\n", ob->c->p.x, ob->c->p.y, ob->c->p.z);
+	printf("n.x : %f n.y : %f n.z : %f\n", ob->c->n.x, ob->c->n.y, ob->c->n.z);
 
-	// printf("fov : %f\n", ob->c->fov);
-	// printf("x : %f y : %f z : %f\n", ob->c->p.x, ob->c->p.y, ob->c->p.z);
-	// printf("n.x : %f n.y : %f n.z : %f\n", ob->c->n.x, ob->c->n.y, ob->c->n.z);
+	printf("light\n");
+	printf("x : %f y : %f z : %f\n", ob->l->p.x, ob->l->p.y, ob->l->p.z);
+	printf("bright ratio : %f\n", ob->l->bright_ratio);
+	printf("r : %f g : %f b : %f\n", ob->l->c.x, ob->l->c.y, ob->l->c.z);
 
-	// printf("x : %f y : %f z : %f\n", ob->l->p.x, ob->l->p.y, ob->l->p.z);
-	// printf("bright ratio : %f\n", ob->l->bright_ratio);
-	// printf("r : %f g : %f b : %f\n", ob->l->c.x, ob->l->c.y, ob->l->c.z);
-
+	printf("plane\n");
 	printf("x : %f y : %f z : %f\n", ob->pl->p.x, ob->pl->p.y, ob->pl->p.z);
 	printf("n.x : %f n.y : %f n.z : %f\n", ob->pl->n.x, ob->pl->n.y, ob->pl->n.z);
 	printf("r : %f g : %f b : %f\n", ob->pl->c.x, ob->pl->c.y, ob->pl->c.z);
 
+	printf("cylinder\n");
+	printf("x : %f y : %f z : %f\n", ob->cy->p.x, ob->cy->p.y, ob->cy->p.z);
+	printf("n.x : %f n.y : %f n.z : %f\n", ob->cy->n.x, ob->cy->n.y, ob->cy->n.z);
+	printf("d : %f\n", ob->cy->d);
+	printf("h : %f\n", ob->cy->h);
+	printf("r : %f g : %f b : %f\n", ob->cy->c.x, ob->cy->c.y, ob->cy->c.z);
 
 	return (0);
 }
@@ -124,9 +131,9 @@ static	t_bool	get_status(t_object_condition *ob, char *line, int id)
 	else if (id == PLANE)
 		ret = get_plane(ob, line);
 
-	// else if (id == CYLINDER)
+	else if (id == CYLINDER)
 	{
-		// 	ret = get_cylinder(ob, line);
+		ret = get_cylinder(ob, line);
 		// set_sylinder(ob);
 	}
 

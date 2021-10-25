@@ -6,11 +6,18 @@
 /*   By: dohykim <dohykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 22:00:16 by hyson             #+#    #+#             */
-/*   Updated: 2021/10/25 20:25:01 by dohykim          ###   ########.fr       */
+/*   Updated: 2021/10/25 21:25:42 by dohykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
+
+// void	set_plane(/* t_object_condition *ob */)
+// {
+// 	t_plane	*cylinder;
+
+
+// }
 
 static	t_bool	valid_pl(t_plane *pl)
 {

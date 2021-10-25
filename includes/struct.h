@@ -124,7 +124,7 @@ struct s_cylinder
 	t_vec3		n; //정규화된 방향벡터
 	double		d; //diameter(직경)
 	double		h;
-	t_color3		c;
+	t_color3	c;
 };
 
 struct s_ray
