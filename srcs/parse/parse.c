@@ -71,6 +71,9 @@ int		read_file(int argc, char **argv)
 	// printf("x : %f y : %f z : %f\n", ob->c->p.x, ob->c->p.y, ob->c->p.z);
 	// printf("n.x : %f n.y : %f n.z : %f\n", ob->c->n.x, ob->c->n.y, ob->c->n.z);
 
+	printf("x : %f y : %f z : %f\n", ob->l->p.x, ob->l->p.y, ob->l->p.z);
+	printf("bright ratio : %f\n", ob->l->bright_ratio);
+	printf("r : %f g : %f b : %f\n", ob->l->c.x, ob->l->c.y, ob->l->c.z);
 
 	return (0);
 }
@@ -99,8 +102,8 @@ static	t_bool	get_status(t_object_condition *ob, char *line, int id)
 	// set_camera();
 	// }
 
-	// else if (id == LIGHT)
-	// 	ret = get_light(ob, line);
+	else if (id == LIGHT)
+		ret = get_light(ob, line);
 	// {// else if (id == LIGHT)
 	// // 	ret = get_light(ob, line);
 	// 	set_light(ob);

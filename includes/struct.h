@@ -75,8 +75,8 @@ struct	s_color3
 
 struct	s_ambient
 {
-	double	s;
-	t_vec3	c;
+	double		s;
+	t_color3	c;
 };
 
 struct s_camera
