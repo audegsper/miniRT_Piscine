@@ -12,24 +12,25 @@
 
 #include "minirt.h"
 
-int		read_file(int argc, char **argv)
+static	void	object_init(t_object_condition *ob)
 {
-		int		fd;
-	char 	*line;
-	int		ret;
-	t_object_condition *ob;
-
-	/*
-		구조체 동적할당 필요. 하나로 정리 필요
-	*/
-	ob = (t_object_condition*)malloc(sizeof(t_object_condition));
 	ob->sp = malloc(sizeof(t_sphere));
 	ob->a = malloc(sizeof(t_sphere));
 	ob->c = malloc(sizeof(t_camera));
 	ob->l = malloc(sizeof(t_light));
 	ob->pl = malloc(sizeof(t_plane));
 	ob->cy = malloc(sizeof(t_cylinder));
+}
 
+int						read_file(int argc, char **argv)
+{
+	int					fd;
+	char 				*line;
+	int					ret;
+	t_object_condition	*ob;
+
+	ob = (t_object_condition*)malloc(sizeof(t_object_condition));
+	object_init(ob);
 	if (argc != 2)
 		e_file_param();
 	fd = open(argv[1], O_RDONLY);
@@ -56,7 +57,7 @@ int		read_file(int argc, char **argv)
 	free_ptr((void **)(&line));
 	*/
 	close(fd);
-
+	/*
 	printf("sphere\n");
 	printf("x : %f y : %f z : %f\n", ob->sp->p.x, ob->sp->p.y, ob->sp->p.z);
 	printf("r : %f\n", ob->sp->r);
@@ -87,65 +88,47 @@ int		read_file(int argc, char **argv)
 	printf("d : %f\n", ob->cy->d);
 	printf("h : %f\n", ob->cy->h);
 	printf("r : %f g : %f b : %f\n", ob->cy->c.x, ob->cy->c.y, ob->cy->c.z);
-
+	*/
 	return (0);
 }
-
 
 static	t_bool	get_status(t_object_condition *ob, char *line, int id)
 {
 	t_bool	ret;
 
 	ret = FALSE;
-
-	{// if (id == AMBIENT)
-		// ret = get_ambient(ob, line); //아직 이 녀석 미완성. 주변광만 받아옴. rgb받아야하고 주변광과 rgb둘다 유효한지 확인도 해야함
-	// g_rt.ambient = color(255.0 / 255.0 * 0.2, 255.0 / 255.0 * 0.2, 255.0 / 255.0 * 0.2);
-	// g_rt.ambient = color(rgb값 / 255.0 * 비율);
-	}
-
 	if (id == AMBIENT)
+	{
 		ret = get_ambient(ob, line);
-
+		g_rt.ambient = color(ob->a->c.x / 255.0 * ob->a->s,
+							ob->a->c.y / 255.0 * ob->a->s,
+							ob->a->c.z / 255.0 * ob->a->s);
+	}
 	else if (id == CAMERA)
+	{
 		ret = get_camera(ob, line);
-	// g_rt.cam.p = point(0,0,-5);
-	// g_rt.cam.n = point(0.0,0.0,1);
-	// g_rt.cam.fov = 80;
-	// set_camera();
-	// }
-
+		g_rt.cam.p = point(ob->c->p.x, ob->c->p.y, ob->c->p.z);
+		g_rt.cam.n = point(ob->c->n.x, ob->c->n.y, ob->c->n.z);
+		g_rt.cam.fov = ob->c->fov;
+		set_camera();
+	}
 	else if (id == LIGHT)
+	{
 		ret = get_light(ob, line);
-	// {// else if (id == LIGHT)
-	// // 	ret = get_light(ob, line);
-	// 	set_light(ob);
-	// }
-
+		set_light(ob);
+	}
 	else if (id == SPHERE)
 	{
 		ret = get_sphere(ob, line);
 		set_sphere(ob);
 	}
-
 	else if (id == PLANE)
 		ret = get_plane(ob, line);
-
 	else if (id == CYLINDER)
 	{
 		ret = get_cylinder(ob, line);
-		// set_sylinder(ob);
+		set_sylinder(ob);
 	}
-
-
-	// 처리해야할 녀석들
-
-
-	// else if (id == SPHERE)
-	// 	ret = get_sphere(ob, line);
-	// else if (id == PLANE)
-	// 	ret = get_plane(ob, line);
-
 	return (ret);
 }
 
@@ -155,10 +138,6 @@ t_bool		parse(char *line, int fd, t_object_condition *ob)
 	int		id;
 	tmp = line;
 
-	/*
-	** 구분자별로 모듈 나누기
-	** 모듈별로 담아놓을 변수가 다름
-	*/
 	if (!ft_strncmp(tmp, "", ft_strlen(tmp)))
 	{
 		write(1, "blank\n", 6);
@@ -175,14 +154,5 @@ t_bool		parse(char *line, int fd, t_object_condition *ob)
 		tmp = tmp + 3;
 	if (!get_status(ob, tmp, id))
 		e_condition_value((void **)(&line), fd);
-	// if (id == AMBIENT)
-	// 	get_ambient(ob, tmp);
-	// else if (id == CAMERA)
-	// else if (id == LIGHT)
-	// else if (id == PLANE)
-	// else if (id == SPHERE)
-	// else if (id == CYLINDER)
-	//else //
-
 	return (SUCCESS);
 }

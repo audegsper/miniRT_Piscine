@@ -6,7 +6,7 @@
 #    By: dohykim <dohykim@student.42seoul.kr>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/12 17:08:27 by hyson             #+#    #+#              #
-#    Updated: 2021/10/24 20:59:56 by dohykim          ###   ########.fr        #
+#    Updated: 2021/10/25 22:33:25 by dohykim          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -57,7 +57,8 @@ SRC_LIST	=	main.c						\
 			$(D_GET)plane.c					\
 			$(D_GET)cylinder.c				\
 			$(D_ERROR)error.c				\
-#			$(D_TRACE)cylinder_trace.c
+			$(D_TRACE)cylinder_trace.c		\
+			$(D_TRACE)plane_trace.c
 SRC			=	$(addprefix $(FOLDER), $(SRC_LIST))
 LIBFT		=	$(addprefix $(D_FT), $(FTLIB))
 OBJ			=	$(SRC:.c=.o)

@@ -6,18 +6,23 @@
 /*   By: dohykim <dohykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 22:00:16 by hyson             #+#    #+#             */
-/*   Updated: 2021/10/25 21:25:42 by dohykim          ###   ########.fr       */
+/*   Updated: 2021/10/25 21:54:01 by dohykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-// void	set_plane(/* t_object_condition *ob */)
-// {
-// 	t_plane	*cylinder;
+void	set_plane(t_object_condition *ob)
+{
+	t_plane	*plane;
 
+	plane = malloc(sizeof(t_plane));
 
-// }
+	plane->p = ob->pl->p;
+	plane->n = v_unit(ob->pl->n);
+	plane->c = ob->pl->c;
+	add_object(&g_rt.object,new_object(PLANE, plane));
+}
 
 static	t_bool	valid_pl(t_plane *pl)
 {

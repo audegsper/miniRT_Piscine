@@ -6,24 +6,24 @@
 /*   By: dohykim <dohykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 22:00:10 by hyson             #+#    #+#             */
-/*   Updated: 2021/10/25 21:26:21 by dohykim          ###   ########.fr       */
+/*   Updated: 2021/10/26 16:20:17 by dohykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-// void	set_sylinder(/* t_object_condition *ob */)
-// {
-// 	t_cylinder	*cylinder;
+void	set_sylinder(t_object_condition *ob)
+{
+	t_cylinder	*cylinder;
 
-// 	cylinder = malloc(sizeof(t_cylinder));
-// 	cylinder->p = point(50.0, 0.0, 20.6);
-// 	cylinder->n = v_unit(vec(0.0, 0.0, 1.0));
-// 	cylinder->c = color(10, 0, 255);
-// 	cylinder->d = 14.2;
-// 	cylinder->h = 21.42;
-// 	add_object(&g_rt.object,new_object(, sylinder));
-// }
+	cylinder = malloc(sizeof(t_cylinder));
+	cylinder->p = point(ob->cy->p.x, ob->cy->p.y, ob->cy->p.z);
+	cylinder->n = v_unit(vec(ob->cy->n.x, ob->cy->n.y, ob->cy->n.z));
+	cylinder->c = color(ob->cy->c.x, ob->cy->c.y, ob->cy->c.z);
+	cylinder->d = ob->cy->d;
+	cylinder->h = ob->cy->h;
+	add_object(&g_rt.object,new_object(CYLINDER, cylinder));
+}
 
 static	t_bool	valid_cy(t_cylinder *cy)
 {
