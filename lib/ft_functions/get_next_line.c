@@ -56,7 +56,7 @@ static t_bool	ft_check_newline(char *str, int *ret)
 	return (FALSE);
 }
 
-static int		ft_split_line(char **save, char **line, int idx)
+static int	ft_split_line(char **save, char **line, int idx)
 {
 	char	*tmp;
 
@@ -80,7 +80,7 @@ static int		ft_split_line(char **save, char **line, int idx)
 	return (SUCCESS);
 }
 
-static int		ft_exception(char **save, char **line,
+static int	ft_exception(char **save, char **line,
 		int read_size, char **buf)
 {
 	int	idx;
@@ -108,14 +108,14 @@ static int		ft_exception(char **save, char **line,
 	return (END);
 }
 
-int				get_next_line(int fd, char **line)
+int	get_next_line(int fd, char **line)
 {
 	char		*buf;
 	int			ret;
-	static char *save[OPEN_MAX + 3];
+	static char	*save[OPEN_MAX + 3];
 
-	if (fd < 0 || !line || BUFFER_SIZE < 1 || OPEN_MAX <= fd ||
-		!dalloc((void **)(&buf), BUFFER_SIZE + 1, 1))
+	ret = dalloc((void **)(&buf), BUFFER_SIZE + 1, 1);
+	if (fd < 0 || !line || BUFFER_SIZE < 1 || OPEN_MAX <= fd || !ret)
 		return (ERROR);
 	while (TRUE)
 	{

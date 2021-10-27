@@ -6,24 +6,22 @@
 /*   By: dohykim <dohykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 22:03:32 by dohykim           #+#    #+#             */
-/*   Updated: 2021/10/15 22:07:443 by dohykim          ###   ########.fr       */
+/*   Updated: 2021/10/15 22:07:44 by dohykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STRUCT_H
 # define STRUCT_H
 
-typedef	struct	s_vec3			t_point3;
-typedef	struct	s_vec3			t_vec3;
-typedef	struct	s_vec3			t_color3;
-
-typedef	struct s_ambient		t_ambient;
-typedef	struct s_camera			t_camera;
-
-typedef	struct s_light			t_light;
-typedef	struct s_sphere			t_sphere;
-typedef	struct s_plane			t_plane;
-typedef	struct s_cylinder		t_cylinder;
+typedef struct s_vec3		t_point3;
+typedef struct s_vec3		t_vec3;
+typedef struct s_vec3		t_color3;
+typedef struct s_ambient	t_ambient;
+typedef struct s_camera		t_camera;
+typedef struct s_light		t_light;
+typedef struct s_sphere		t_sphere;
+typedef struct s_plane		t_plane;
+typedef struct s_cylinder	t_cylinder;
 
 /*
 ** -----------------------------------------------------------------------------
@@ -36,7 +34,7 @@ typedef	struct s_cylinder		t_cylinder;
 # define KSN 64
 # define KS 0.5
 
-typedef int				t_object_type;
+typedef int					t_object_type;
 # define BLANK 0
 # define AMBIENT 1
 # define CAMERA 2
@@ -45,10 +43,10 @@ typedef int				t_object_type;
 # define PLANE 5
 # define CYLINDER 6
 
-typedef struct s_rt	t_rt;
-typedef	struct s_object	t_object;
-typedef struct s_ray	t_ray;
-typedef struct s_rec t_rec;
+typedef struct s_rt			t_rt;
+typedef struct s_object		t_object;
+typedef struct s_ray		t_ray;
+typedef struct s_rec		t_rec;
 
 struct s_object
 {
@@ -57,21 +55,12 @@ struct s_object
 	void	*next;
 };
 
-
 struct s_vec3
 {
 	double		x;
 	double		y;
 	double		z;
 };
-/*
-struct	s_color3
-{
-	int		r;
-	int		g;
-	int		b;
-};
-*/
 
 struct	s_ambient
 {
@@ -81,8 +70,8 @@ struct	s_ambient
 
 struct s_camera
 {
-	t_point3 	p; // origin
-	t_vec3		n; //정규화된 방향벡터 direction, lookat;
+	t_point3	p;
+	t_vec3		n;
 	double		fov;
 	t_vec3		w;
 	t_vec3		u;
@@ -97,9 +86,9 @@ struct s_camera
 
 struct s_light
 {
-	t_point3	p; //origin
-	double		bright_ratio; // aspect
-	t_color3		c; // color
+	t_point3	p;
+	double		bright_ratio;
+	t_color3	c;
 	t_light		*next;
 };
 
@@ -107,22 +96,22 @@ struct s_sphere
 {
 	t_point3	p;
 	double		r;
-	t_color3		c;
+	t_color3	c;
 	t_sphere	*next;
 };
 
 struct s_plane
 {
 	t_point3	p;
-	t_vec3		n; //정규화된 방향벡터
-	t_color3		c;
+	t_vec3		n;
+	t_color3	c;
 };
 
 struct s_cylinder
 {
 	t_point3	p;
-	t_vec3		n; //정규화된 방향벡터
-	double		d; //diameter(직경)
+	t_vec3		n;
+	double		d;
 	double		h;
 	t_color3	c;
 };
