@@ -12,7 +12,7 @@
 
 #include "minirt.h"
 
-int exit_hook(void)
+int	exit_hook(void)
 {
 	mlx_destroy_window(g_rt.mlx, g_rt.win);
 	printf("Bye Bye~");
@@ -28,18 +28,18 @@ int	key_hook(int keycode)
 
 void	rendering(void)
 {
-	int		i;
-	int		j;
+	int			i;
+	int			j;
 	t_color3	color_tmp;
 	int			color_mlx;
 
 	g_rt.mlx = mlx_init();
 	g_rt.win = mlx_new_window(g_rt.mlx, g_rt.width, g_rt.height, "miniRT");
 	j = g_rt.height;
-	while (--j >= 0) //g_rt.height -> 0
+	while (--j >= 0)
 	{
 		i = 0;
-		while (i < g_rt.width) //0 -> g_rt.width
+		while (i < g_rt.width)
 		{
 			color_tmp = trace_ray(j, i);
 			color_mlx = color_pixel(color_tmp);
@@ -49,10 +49,10 @@ void	rendering(void)
 	}
 }
 
-int			main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
-	g_rt.width = 500; //1440(4:3), 1920(16:9)
-	g_rt.height = 300; //1080
+	g_rt.width = 1920;
+	g_rt.height = 1080;
 	read_file(argc, argv);
 	rendering();
 	mlx_hook(g_rt.win, 2, 0, key_hook, g_rt.mlx);
