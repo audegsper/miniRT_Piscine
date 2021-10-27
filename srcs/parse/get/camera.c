@@ -17,7 +17,7 @@ void	set_camera(void)
 	double	ratio;
 	double	theta;
 	t_vec3	vup;
-	double h;
+	double	h;
 
 	if (g_rt.cam.n.x == 0 && g_rt.cam.n.y != 0 && g_rt.cam.n.z == 0)
 		vup = vec(0.0, 0.0, -1);
@@ -33,8 +33,8 @@ void	set_camera(void)
 	g_rt.cam.v = v_cross(g_rt.cam.w, g_rt.cam.u);
 	g_rt.cam.horizontal = v_mul(g_rt.cam.viewport_w, g_rt.cam.u);
 	g_rt.cam.vertical = v_mul(g_rt.cam.viewport_h, g_rt.cam.v);
-	g_rt.cam.llc = v_minus(v_minus(
-					v_minus(g_rt.cam.p, v_div(g_rt.cam.horizontal,2))
+	g_rt.cam.llc = v_minus(v_minus(\
+					v_minus(g_rt.cam.p, v_div(g_rt.cam.horizontal, 2)) \
 					, v_div(g_rt.cam.vertical, 2)), g_rt.cam.w);
 }
 
@@ -54,7 +54,7 @@ static	t_bool	valid_c(t_camera *c)
 
 static	t_bool	parse_c(t_object_condition *ob, char *line)
 {
-	t_bool ret;
+	t_bool	ret;
 
 	ret = TRUE;
 	if (!check_double2(&line, &(ob->c->p.x), &(ob->c->p.y), &(ob->c->p.z)))
@@ -74,5 +74,9 @@ t_bool	get_camera(t_object_condition *ob, char *line)
 {
 	if (!parse_c(ob, line) || !valid_c(ob->c))
 		return (FALSE);
+	g_rt.cam.p = point(ob->c->p.x, ob->c->p.y, ob->c->p.z);
+	g_rt.cam.n = point(ob->c->n.x, ob->c->n.y, ob->c->n.z);
+	g_rt.cam.fov = ob->c->fov;
+	set_camera();
 	return (TRUE);
 }

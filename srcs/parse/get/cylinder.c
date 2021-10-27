@@ -22,7 +22,7 @@ void	set_sylinder(t_object_condition *ob)
 	cylinder->c = color(ob->cy->c.x, ob->cy->c.y, ob->cy->c.z);
 	cylinder->d = ob->cy->d;
 	cylinder->h = ob->cy->h;
-	add_object(&g_rt.object,new_object(CYLINDER, cylinder));
+	add_object(&g_rt.object, new_object(CYLINDER, cylinder));
 }
 
 static	t_bool	valid_cy(t_cylinder *cy)
@@ -67,5 +67,6 @@ t_bool	get_cylinder(t_object_condition *ob, char *line)
 {
 	if (!parse_cy(ob, line) || !valid_cy(ob->cy))
 		return (FALSE);
+	set_sylinder(ob);
 	return (TRUE);
 }

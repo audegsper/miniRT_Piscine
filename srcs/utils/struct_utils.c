@@ -4,7 +4,8 @@ t_object	*new_object(int type, void *element)
 {
 	t_object	*obj;
 
-	if (!(obj = (t_object *)malloc(sizeof(t_object))))
+	obj = (t_object *)malloc(sizeof(t_object));
+	if (obj == NULL)
 		return (0);
 	obj->type = type;
 	obj->element = element;
@@ -12,7 +13,7 @@ t_object	*new_object(int type, void *element)
 	return (obj);
 }
 
-void			add_object(t_object **list, t_object *new)
+void	add_object(t_object **list, t_object *new)
 {
 	t_object	*tmp;
 
@@ -27,8 +28,7 @@ void			add_object(t_object **list, t_object *new)
 	tmp->next = new;
 }
 
-
-t_vec3			vec(double x, double y, double z)
+t_vec3	vec(double x, double y, double z)
 {
 	t_vec3	rst;
 
@@ -38,7 +38,7 @@ t_vec3			vec(double x, double y, double z)
 	return (rst);
 }
 
-t_point3		point(double x, double y, double z)
+t_point3	point(double x, double y, double z)
 {
 	t_point3	rst;
 
@@ -48,7 +48,7 @@ t_point3		point(double x, double y, double z)
 	return (rst);
 }
 
-t_color3		color(double r, double g, double b)
+t_color3	color(double r, double g, double b)
 {
 	t_color3	rst;
 

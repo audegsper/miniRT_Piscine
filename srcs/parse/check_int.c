@@ -12,7 +12,7 @@
 
 #include "minirt.h"
 
-t_bool	check_int(char **s, double *v) // double로 수정 dohykim
+t_bool	check_int(char **s, double *v)
 {
 	t_bool	sign;
 
@@ -35,7 +35,7 @@ t_bool	check_int(char **s, double *v) // double로 수정 dohykim
 	return (TRUE);
 }
 
-t_bool	check_int2(char **s, double *v1, double *v2, double *v3) // double로 수정 dohykim
+t_bool	check_int2(char **s, double *v1, double *v2, double *v3)
 {
 	*v1 = 0;
 	*v2 = 0;

@@ -1,6 +1,6 @@
 #include "minirt.h"
 
-t_point3		v_plus(t_point3 v1, t_point3 v2)
+t_point3	v_plus(t_point3 v1, t_point3 v2)
 {
 	t_point3	rst;
 
@@ -10,7 +10,7 @@ t_point3		v_plus(t_point3 v1, t_point3 v2)
 	return (rst);
 }
 
-t_point3		v_minus(t_point3 v1, t_point3 v2)
+t_point3	v_minus(t_point3 v1, t_point3 v2)
 {
 	t_point3	rst;
 
@@ -20,7 +20,7 @@ t_point3		v_minus(t_point3 v1, t_point3 v2)
 	return (rst);
 }
 
-t_point3		v_mul(double t, t_point3 v)
+t_point3	v_mul(double t, t_point3 v)
 {
 	t_point3	rst;
 
@@ -30,7 +30,7 @@ t_point3		v_mul(double t, t_point3 v)
 	return (rst);
 }
 
-t_point3		v_mul2(t_point3 v1, t_point3 v2)
+t_point3	v_mul2(t_point3 v1, t_point3 v2)
 {
 	t_point3	rst;
 
@@ -40,7 +40,7 @@ t_point3		v_mul2(t_point3 v1, t_point3 v2)
 	return (rst);
 }
 
-t_point3		v_div(t_point3 v, double t)
+t_point3	v_div(t_point3 v, double t)
 {
 	t_point3	rst;
 

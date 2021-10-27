@@ -48,7 +48,7 @@ static	t_bool	check_fraction(char **s, double *f)
 	return (FALSE);
 }
 
-t_bool		check_double(char **s, double *v)
+t_bool	check_double(char **s, double *v)
 {
 	int		sign;
 	int		i;
@@ -70,12 +70,11 @@ t_bool		check_double(char **s, double *v)
 	return (TRUE);
 }
 
-t_bool		check_double2(char **s, double *v1, double *v2, double *v3)
+t_bool	check_double2(char **s, double *v1, double *v2, double *v3)
 {
 	*v1 = 0.0;
 	*v2 = 0.0;
 	*v3 = 0.0;
-
 	while (is_blank(**s))
 		++(*s);
 	if (!ft_isdigit(**s) && **s != '-')

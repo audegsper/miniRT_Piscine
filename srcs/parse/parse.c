@@ -6,7 +6,7 @@
 /*   By: dohykim <dohykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 17:15:26 by hyson             #+#    #+#             */
-/*   Updated: 2021/10/16 23:03:372:37 by dohykim          ###   ########.fr       */
+/*   Updated: 2021/10/16 23:03:32 by dohykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,73 +22,32 @@ static	void	object_init(t_object_condition *ob)
 	ob->cy = malloc(sizeof(t_cylinder));
 }
 
-int						read_file(int argc, char **argv)
+int	read_file(int argc, char **argv)
 {
 	int					fd;
-	char 				*line;
+	char				*line;
 	int					ret;
 	t_object_condition	*ob;
 
-	ob = (t_object_condition*)malloc(sizeof(t_object_condition));
+	ob = (t_object_condition *)malloc(sizeof(t_object_condition));
 	object_init(ob);
 	if (argc != 2)
 		e_file_param();
 	fd = open(argv[1], O_RDONLY);
 	if (fd < 0)
 		e_file_open();
-		while (TRUE)
+	while (TRUE)
 	{
 		ret = get_next_line(fd, &line);
 		if (ret == END)
 			break ;
 		if (ret < 0)
-				e_file_read(fd);
+			e_file_read(fd);
 		if (parse(line, fd, ob))
 			continue ;
 		free_ptr((void **)(&line));
 	}
-	/* rt파일 맨윗줄만 확인하는 코드
-	ret = get_next_line(fd, &line);
-	if (ret == END)
-		return (1);
-	if (ret < 0)
-			e_file_read(fd);
-	parse(line, fd, ob);
-	free_ptr((void **)(&line));
-	*/
 	close(fd);
-	/*
-	printf("sphere\n");
-	printf("x : %f y : %f z : %f\n", ob->sp->p.x, ob->sp->p.y, ob->sp->p.z);
-	printf("r : %f\n", ob->sp->r);
-	printf("r : %f g : %f b : %f\n", ob->sp->c.x, ob->sp->c.y, ob->sp->c.z);
-
-	printf("ambient\n");
-	printf("s : %f\n", ob->a->s);
-	printf("r : %f g : %f b : %f\n", ob->a->c.x, ob->a->c.y, ob->a->c.z);
-
-	printf("camera\n");
-	printf("fov : %f\n", ob->c->fov);
-	printf("x : %f y : %f z : %f\n", ob->c->p.x, ob->c->p.y, ob->c->p.z);
-	printf("n.x : %f n.y : %f n.z : %f\n", ob->c->n.x, ob->c->n.y, ob->c->n.z);
-
-	printf("light\n");
-	printf("x : %f y : %f z : %f\n", ob->l->p.x, ob->l->p.y, ob->l->p.z);
-	printf("bright ratio : %f\n", ob->l->bright_ratio);
-	printf("r : %f g : %f b : %f\n", ob->l->c.x, ob->l->c.y, ob->l->c.z);
-
-	printf("plane\n");
-	printf("x : %f y : %f z : %f\n", ob->pl->p.x, ob->pl->p.y, ob->pl->p.z);
-	printf("n.x : %f n.y : %f n.z : %f\n", ob->pl->n.x, ob->pl->n.y, ob->pl->n.z);
-	printf("r : %f g : %f b : %f\n", ob->pl->c.x, ob->pl->c.y, ob->pl->c.z);
-
-	printf("cylinder\n");
-	printf("x : %f y : %f z : %f\n", ob->cy->p.x, ob->cy->p.y, ob->cy->p.z);
-	printf("n.x : %f n.y : %f n.z : %f\n", ob->cy->n.x, ob->cy->n.y, ob->cy->n.z);
-	printf("d : %f\n", ob->cy->d);
-	printf("h : %f\n", ob->cy->h);
-	printf("r : %f g : %f b : %f\n", ob->cy->c.x, ob->cy->c.y, ob->cy->c.z);
-	*/
 	return (0);
 }
 
@@ -98,49 +57,26 @@ static	t_bool	get_status(t_object_condition *ob, char *line, int id)
 
 	ret = FALSE;
 	if (id == AMBIENT)
-	{
 		ret = get_ambient(ob, line);
-		g_rt.ambient = color(ob->a->c.x / 255.0 * ob->a->s,
-							ob->a->c.y / 255.0 * ob->a->s,
-							ob->a->c.z / 255.0 * ob->a->s);
-	}
 	else if (id == CAMERA)
-	{
 		ret = get_camera(ob, line);
-		g_rt.cam.p = point(ob->c->p.x, ob->c->p.y, ob->c->p.z);
-		g_rt.cam.n = point(ob->c->n.x, ob->c->n.y, ob->c->n.z);
-		g_rt.cam.fov = ob->c->fov;
-		set_camera();
-	}
 	else if (id == LIGHT)
-	{
 		ret = get_light(ob, line);
-		set_light(ob);
-	}
 	else if (id == SPHERE)
-	{
 		ret = get_sphere(ob, line);
-		set_sphere(ob);
-	}
 	else if (id == PLANE)
-	{
 		ret = get_plane(ob, line);
-		set_plane(ob);
-	}
 	else if (id == CYLINDER)
-	{
 		ret = get_cylinder(ob, line);
-		set_sylinder(ob);
-	}
 	return (ret);
 }
 
-t_bool		parse(char *line, int fd, t_object_condition *ob)
+t_bool	parse(char *line, int fd, t_object_condition *ob)
 {
 	char	*tmp;
 	int		id;
-	tmp = line;
 
+	tmp = line;
 	if (!ft_strncmp(tmp, "", ft_strlen(tmp)))
 	{
 		write(1, "blank\n", 6);

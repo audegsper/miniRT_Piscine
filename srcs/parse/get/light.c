@@ -12,17 +12,17 @@
 
 #include "minirt.h"
 
-void	set_light (t_object_condition *ob)
+void	set_light(t_object_condition *ob)
 {
-
 	t_light	*light;
 
 	light = (t_light *) malloc(sizeof(t_light));
-	light->p = point(ob->l->p.x,ob->l->p.y,ob->l->p.z);
+	light->p = point(ob->l->p.x, ob->l->p.y, ob->l->p.z);
 	light->bright_ratio = ob->l->bright_ratio;
-	light->c = color(ob->l->c.x/255.0, ob->l->c.y/255.0, ob->l->c.z/255.0);
-
-	add_object(&g_rt.light ,new_object(LIGHT, light));
+	light->c = color(ob->l->c.x / 255.0, \
+					ob->l->c.y / 255.0, \
+					ob->l->c.z / 255.0);
+	add_object(&g_rt.light, new_object(LIGHT, light));
 }
 
 static	t_bool	valid_l(t_light *l)
@@ -41,7 +41,7 @@ static	t_bool	valid_l(t_light *l)
 
 static	t_bool	parse_l(t_object_condition *ob, char *line)
 {
-	t_bool ret;
+	t_bool	ret;
 
 	ret = TRUE;
 	if (!check_double2(&line, &(ob->l->p.x), &(ob->l->p.y), &(ob->l->p.z)))
@@ -61,5 +61,6 @@ t_bool	get_light(t_object_condition *ob, char *line)
 {
 	if (!parse_l(ob, line) || !valid_l(ob->l))
 		return (FALSE);
+	set_light(ob);
 	return (TRUE);
 }

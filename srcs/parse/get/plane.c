@@ -17,13 +17,12 @@ void	set_plane(t_object_condition *ob)
 	t_plane	*plane;
 
 	plane = malloc(sizeof(t_plane));
-
 	plane->p = ob->pl->p;
 	plane->n = v_unit(ob->pl->n);
-	plane->c = color(ob->pl->c.x / 255.0,
-					ob->pl->c.y / 255.0,
+	plane->c = color(ob->pl->c.x / 255.0, \
+					ob->pl->c.y / 255.0, \
 					ob->pl->c.z / 255.0);
-	add_object(&g_rt.object,new_object(PLANE, plane));
+	add_object(&g_rt.object, new_object(PLANE, plane));
 }
 
 static	t_bool	valid_pl(t_plane *pl)
@@ -62,5 +61,6 @@ t_bool	get_plane(t_object_condition *ob, char *line)
 {
 	if (!parse_pl(ob, line) || !valid_pl(ob->pl))
 		return (FALSE);
+	set_plane(ob);
 	return (TRUE);
 }

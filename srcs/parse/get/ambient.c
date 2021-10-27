@@ -49,6 +49,8 @@ t_bool	get_ambient(t_object_condition *ob, char *line)
 {
 	if (!parse_a(ob, line) || !valid_a(ob->a))
 		return (FALSE);
-	//a 옵션들 확인해주는 모듈필요
+	g_rt.ambient = color(ob->a->c.x / 255.0 * ob->a->s, \
+						ob->a->c.y / 255.0 * ob->a->s, \
+						ob->a->c.z / 255.0 * ob->a->s);
 	return (TRUE);
 }

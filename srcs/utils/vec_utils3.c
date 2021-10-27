@@ -2,10 +2,10 @@
 
 int	color_pixel(t_vec3 color)
 {
-	int r;
-	int g;
-	int b;
-	int rst;
+	int	r;
+	int	g;
+	int	b;
+	int	rst;
 
 	r = (int)(color.x * 255.999);
 	g = (int)(color.y * 255.999);
@@ -14,14 +14,14 @@ int	color_pixel(t_vec3 color)
 	return (rst);
 }
 
-t_vec3			reflect(t_vec3 v, t_vec3 n)
+t_vec3	reflect(t_vec3 v, t_vec3 n)
 {
 	return (v_minus(v, v_mul(2 * v_dot(v, n), n)));
 }
 
-t_vec3			v_cross(t_vec3 u, t_vec3 v)
+t_vec3	v_cross(t_vec3 u, t_vec3 v)
 {
-	t_vec3		target;
+	t_vec3	target;
 
 	target.x = u.y * v.z - u.z * v.y;
 	target.y = u.z * v.x - u.x * v.z;
@@ -32,5 +32,8 @@ t_vec3			v_cross(t_vec3 u, t_vec3 v)
 void	set_face_normal(t_ray *r, t_rec *rec)
 {
 	rec->front_face = v_dot(r->dir, rec->n) < 0;
-	rec->n = rec->front_face ? rec->n : v_mul(-1, rec->n);
+	if (rec->front_face == TRUE)
+		rec->n = rec->n;
+	else
+		rec->n = v_mul(-1, rec->n);
 }

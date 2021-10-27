@@ -1,6 +1,6 @@
 #include "minirt.h"
 
-t_color3		get_specular(t_ray *r, t_vec3 light_dir, t_light *light, t_rec *rec)
+t_color3	get_specular(t_ray *r, t_vec3 light_dir, t_light *light, t_rec *rec)
 {
 	t_color3	specular;
 	t_vec3		view_dir;
@@ -11,22 +11,20 @@ t_color3		get_specular(t_ray *r, t_vec3 light_dir, t_light *light, t_rec *rec)
 	reflect_dir = reflect(v_mul(-1, light_dir), rec->n);
 	spec = pow(fmax(v_dot(view_dir, reflect_dir), 0.0), KSN);
 	specular = v_mul(spec, v_mul(KS, light->c));
-
 	return (specular);
 }
 
-t_color3		get_diffuse(t_vec3	light_dir, t_light *light, t_rec *rec)
+t_color3	get_diffuse(t_vec3	light_dir, t_light *light, t_rec *rec)
 {
-	double		kd; //diffuse strength
+	double		kd;
 	t_color3	diffuse;
 
 	kd = fmax(v_dot(rec->n, light_dir), 0.0);
 	diffuse = v_mul(kd, light->c);
-
 	return (diffuse);
 }
 
-t_color3		get_phong(t_ray *r, t_vec3	light_dir, t_light * light, t_rec *rec)
+t_color3	get_phong(t_ray *r, t_vec3	light_dir, t_light *light, t_rec *rec)
 {
 	t_color3	rst;
 	t_color3	specular;
@@ -35,16 +33,15 @@ t_color3		get_phong(t_ray *r, t_vec3	light_dir, t_light * light, t_rec *rec)
 	specular = get_specular(r, light_dir, light, rec);
 	diffuse = get_diffuse(light_dir, light, rec);
 	rst = v_plus(specular, diffuse);
-
 	return (rst);
 }
 
-t_color3		get_point_light(t_light *light, t_ray *r, t_rec *rec)
+t_color3	get_point_light(t_light *light, t_ray *r, t_rec *rec)
 {
-	t_vec3	light_dir;
-	double	brightness;
-	double	light_len;
-	t_ray	light_ray;
+	t_vec3		light_dir;
+	double		brightness;
+	double		light_len;
+	t_ray		light_ray;
 	t_color3	phong;
 
 	light_dir = v_minus(light->p, rec->p);
@@ -54,17 +51,17 @@ t_color3		get_point_light(t_light *light, t_ray *r, t_rec *rec)
 		return (color(0, 0, 0));
 	brightness = light->bright_ratio * LUMEN;
 	light_dir = v_unit(light_dir);
-	phong = get_phong(r,light_dir, light, rec);
-	return (v_mul(brightness,phong));
+	phong = get_phong(r, light_dir, light, rec);
+	return (v_mul(brightness, phong));
 }
 
-t_color3		phong_lighting(t_ray *r, t_rec *rec)
+t_color3	phong_lighting(t_ray *r, t_rec *rec)
 {
-	t_color3	point_light;
-	t_color3	light_color;
+	t_color3		point_light;
+	t_color3		light_color;
 	t_object		*lights;
 
-	light_color = color(0,0,0);
+	light_color = color(0, 0, 0);
 	lights = g_rt.light;
 	while (lights)
 	{

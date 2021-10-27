@@ -28,7 +28,7 @@ void	e_file_open(void)
 	exit(INVALID);
 }
 
-void e_file_read(int fd)
+void	e_file_read(int fd)
 {
 	errno = 45;
 	perror("errno 45");
@@ -47,7 +47,7 @@ void	e_identifier(void **ptr, int fd)
 	exit(INVALID);
 }
 
-void	e_condition_value(void **ptr,int fd)
+void	e_condition_value(void **ptr, int fd)
 {
 	errno = 79;
 	perror("errno 79");

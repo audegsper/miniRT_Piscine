@@ -1,6 +1,6 @@
-# include "minirt.h"
+#include "minirt.h"
 
-int		hit_sphere(t_sphere *sp,t_rec *rec, t_ray *r)
+int	hit_sphere(t_sphere *sp, t_rec *rec, t_ray *r)
 {
 	t_vec3		oc;
 	double		element[3];
@@ -29,11 +29,11 @@ int		hit_sphere(t_sphere *sp,t_rec *rec, t_ray *r)
 	return (TRUE);
 }
 
-t_bool		hit_obj(t_rec *rec, t_ray *r, t_object *obj)
+t_bool	hit_obj(t_rec *rec, t_ray *r, t_object *obj)
 {
 	int	hit_anything;
-	hit_anything = 0;
 
+	hit_anything = 0;
 	if (obj->type == SPHERE)
 		hit_anything = hit_sphere((t_sphere *)obj->element, rec, r);
 	else if (obj->type == PLANE)
@@ -41,7 +41,7 @@ t_bool		hit_obj(t_rec *rec, t_ray *r, t_object *obj)
 	return (hit_anything);
 }
 
-t_bool		hit(t_object *obj, t_ray *r, t_rec *rec)
+t_bool	hit(t_object *obj, t_ray *r, t_rec *rec)
 {
 	int		hit_anything;
 	t_rec	tmp_rec;
