@@ -8,12 +8,11 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This program built for i386-apple-darwin11.3.0
  
 
-# Make data base, printed on Mon Oct 25 22:33:30 2021
+# Make data base, printed on Wed Oct 27 09:29:11 2021
 
 # Variables
 
 # automatic
- 
 <D = $(patsubst %/,%,$(dir $<))
 # automatic
 ?F = $(notdir $?)
@@ -32,7 +31,7 @@ MLXNAME = libmlx.a
 # automatic
 @F = $(notdir $@)
 # makefile
-CURDIR := /Users/dohykim/Documents/miniRT_Piscine
+CURDIR := /Users/dohykim/Documents/debug_miniRT/RT_piscine
 # makefile
 SHELL = /bin/sh
 # makefile (from `Makefile', line 21)
@@ -52,7 +51,7 @@ VSCODE_VERBOSE_LOGGING = true
 # makefile (from `Makefile', line 20)
 CDEBUG = -fsanitize=address -g
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /var/folders/x7/czjp3gwn2f9b075d91_y_ks00000gn/T/vscode-ipc-903c8e0a-88c7-4143-baa6-4dcb94beb755.sock
+VSCODE_IPC_HOOK_EXTHOST = /var/folders/x7/czjp3gwn2f9b075d91_y_ks00000gn/T/vscode-ipc-6f1b4eb9-677b-478d-b476-f7bda401c9c4.sock
 # environment
 VSCODE_CWD = /
 # environment
@@ -68,13 +67,13 @@ ELECTRON_RUN_AS_NODE = 1
 # default
 .FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
 # environment
-SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.EDBsBFHXQJ/Listeners
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.eBbtQMLLhD/Listeners
 # automatic
 %F = $(notdir $%)
 # environment
 VSCODE_PIPE_LOGGING = true
 # environment
-PWD = /Users/dohykim/Documents/miniRT_Piscine
+PWD = /Users/dohykim/Documents/debug_miniRT/RT_piscine
 # makefile (from `Makefile', line 36)
 FTLIB = libft.a
 # environment
@@ -151,7 +150,6 @@ XPC_SERVICE_NAME = com.microsoft.VSCode.2600
 MLXDIR = ./lib/mlx/
 # automatic
 +F = $(notdir $+)
- 
 # environment
 __CF_USER_TEXT_ENCODING = 0x1F5:0x3:0x33
 # default
@@ -183,7 +181,7 @@ LANG = C
 # makefile (from `Makefile', line 30)
 D_UTILS = ./utils/
 # environment
-VSCODE_PID = 702
+VSCODE_PID = 25716
 # variable set hash-table stats:
 # Load=85/1024=8%, Rehash=0, Collisions=5/148=3%
 
@@ -193,15 +191,10 @@ VSCODE_PID = 702
 
 # Directories
 
-# srcs/./parse/get (device 16777221, inode 1846652): 14 files, no impossibilities so far.
-# . (device 16777221, inode 1846491): 14 files, no impossibilities.
-# srcs/./parse (device 16777221, inode 1846646): 13 files, no impossibilities so far.
-# srcs/./parse/error (device 16777221, inode 1846650): 4 files, no impossibilities so far.
-# srcs/./utils (device 16777221, inode 1846665): 10 files, no impossibilities so far.
-# srcs/./trace (device 16777221, inode 1846661): 10 files, no impossibilities so far.
-# srcs (device 16777221, inode 1846644): 7 files, no impossibilities so far.
+# . (device 16777220, inode 2034204): 13 files, no impossibilities.
+# srcs (device 16777220, inode 2034373): 6 files, no impossibilities so far.
 
-# 72 files, no impossibilities in 7 directories.
+# 19 files, no impossibilities in 2 directories.
 
 # Implicit Rules
 
@@ -214,33 +207,6 @@ VSCODE_PID = 702
 
 # Files
 
-# Not a target:
-srcs/./parse/get/sphere.c:
-#  Implicit rule search has been done.
-#  Last modified 2021-10-24 16:23:29
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-
-# Not a target:
-srcs/./parse/get/plane.c:
-#  Implicit rule search has been done.
-#  Last modified 2021-10-25 21:54:01
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-
-# Not a target:
-srcs/./parse/check_int.c:
-#  Implicit rule search has been done.
-#  Last modified 2021-10-24 01:06:40
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-
 all: miniRT
 #  Phony target (prerequisite of .PHONY).
 #  Command-line target.
@@ -251,90 +217,28 @@ all: miniRT
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/6=0%
 
-srcs/./parse/get/cylinder.o: srcs/./parse/get/cylinder.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: `srcs/./parse/get/cylinder'
-#  Last modified 2021-10-25 22:33:27
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `Makefile', line 71):
-	$(CC) $(CFLAGS) $(CDEBUG) -I $(HEADER) -o $@ -c $<
-	
+# Not a target:
+srcs/./parse/get/cylinder.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 .PHONY: all clean fclean re
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
 
-srcs/./parse/valid.o: srcs/./parse/valid.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: `srcs/./parse/valid'
-#  Last modified 2021-10-25 22:33:27
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
- 
-#  commands to execute (from `Makefile', line 71):
-	$(CC) $(CFLAGS) $(CDEBUG) -I $(HEADER) -o $@ -c $<
-	
+# Not a target:
+srcs/./parse/valid.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
-srcs/./trace/phong_light.c:
-#  Implicit rule search has been done.
-#  Last modified 2021-10-24 01:06:40
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-
-# Not a target:
-srcs/./parse/error/error.c:
-#  Implicit rule search has been done.
-#  Last modified 2021-10-24 01:06:40
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-
-srcs/./trace/plane_trace.o: srcs/./trace/plane_trace.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: `srcs/./trace/plane_trace'
-#  File does not exist.
-#  File has been updated.
-#  Needs to be updated (-q is set).
-# automatic
-# @ := srcs/./trace/plane_trace.o
-# automatic
-# % := 
-# automatic
-# * := srcs/./trace/plane_trace
-# automatic
-# + := srcs/./trace/plane_trace.c
-# automatic
-# | := 
-# automatic
-# < := srcs/./trace/plane_trace.c
-# automatic
-# ^ := srcs/./trace/plane_trace.c
-# automatic
-# ? := srcs/./trace/plane_trace.c
-# variable set hash-table stats:
-# Load=8/32=25%, Rehash=0, Collisions=3/16=19%
-#  commands to execute (from `Makefile', line 71):
-	$(CC) $(CFLAGS) $(CDEBUG) -I $(HEADER) -o $@ -c $<
-	
-
-# Not a target:
-srcs/./utils/vec_utils2.c:
-#  Implicit rule search has been done.
-#  Last modified 2021-10-24 01:06:40
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+srcs/./trace/plane_trace.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 .SUFFIXES:
@@ -344,7 +248,7 @@ srcs/./utils/vec_utils2.c:
 
 miniRT: lib/ft_functions/libft.a srcs/main.o srcs/./utils/vec_utils1.o srcs/./utils/vec_utils2.o srcs/./utils/vec_utils3.o srcs/./utils/struct_utils.o srcs/./trace/object_trace.o srcs/./trace/ray_trace.o srcs/./trace/phong_light.o srcs/./parse/parse.o srcs/./parse/identifier.o srcs/./parse/check_double.o srcs/./parse/check_int.o srcs/./parse/valid.o srcs/./parse/get/ambient.o srcs/./parse/get/camera.o srcs/./parse/get/light.o srcs/./parse/get/sphere.o srcs/./parse/get/plane.o srcs/./parse/get/cylinder.o srcs/./parse/error/error.o srcs/./trace/cylinder_trace.o srcs/./trace/plane_trace.o
 #  Implicit rule search has not been done.
-#  Last modified 2021-10-25 22:32:52
+#  Last modified 2021-10-26 22:10:46
 #  File has been updated.
 #  Needs to be updated (-q is set).
 # variable set hash-table stats:
@@ -356,7 +260,8 @@ miniRT: lib/ft_functions/libft.a srcs/main.o srcs/./utils/vec_utils1.o srcs/./ut
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2021-10-25 22:33:25
+ 
+#  Last modified 2021-10-26 17:47:20
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -365,56 +270,29 @@ Makefile:
 # Not a target:
 srcs/main.c:
 #  Implicit rule search has been done.
-#  Last modified 2021-10-25 20:57:22
+#  Last modified 2021-10-26 17:47:20
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-
-srcs/./parse/check_double.o: srcs/./parse/check_double.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: `srcs/./parse/check_double'
-#  Last modified 2021-10-25 22:33:27
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `Makefile', line 71):
-	$(CC) $(CFLAGS) $(CDEBUG) -I $(HEADER) -o $@ -c $<
-	
-
-srcs/./utils/vec_utils3.o: srcs/./utils/vec_utils3.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: `srcs/./utils/vec_utils3'
-#  Last modified 2021-10-25 22:33:26
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `Makefile', line 71):
-	$(CC) $(CFLAGS) $(CDEBUG) -I $(HEADER) -o $@ -c $<
-	
-
-srcs/./trace/ray_trace.o: srcs/./trace/ray_trace.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: `srcs/./trace/ray_trace'
-#  Last modified 2021-10-25 22:33:27
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `Makefile', line 71):
-	$(CC) $(CFLAGS) $(CDEBUG) -I $(HEADER) -o $@ -c $<
-	
 
 # Not a target:
-srcs/./parse/get/cylinder.c:
-#  Implicit rule search has been done.
-#  Last modified 2021-10-25 22:32:50
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+srcs/./parse/check_double.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+srcs/./utils/vec_utils3.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+srcs/./trace/ray_trace.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 fclean: clean
 #  Phony target (prerequisite of .PHONY).
@@ -426,84 +304,35 @@ fclean: clean
 	$(MAKE) -C $(D_FT) fclean
 	
 
-srcs/./parse/parse.o: srcs/./parse/parse.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: `srcs/./parse/parse'
-#  Last modified 2021-10-25 22:33:27
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
- 
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `Makefile', line 71):
-	$(CC) $(CFLAGS) $(CDEBUG) -I $(HEADER) -o $@ -c $<
-	
+# Not a target:
+srcs/./parse/parse.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
-srcs/./parse/valid.c:
-#  Implicit rule search has been done.
-#  Last modified 2021-10-24 21:02:18
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-
-srcs/./parse/get/light.o: srcs/./parse/get/light.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: `srcs/./parse/get/light'
-#  Last modified 2021-10-25 22:33:27
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `Makefile', line 71):
-	$(CC) $(CFLAGS) $(CDEBUG) -I $(HEADER) -o $@ -c $<
-	
+srcs/./parse/get/light.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
-srcs/./trace/plane_trace.c:
-#  Implicit rule search has been done.
-#  Last modified 2021-10-25 22:27:22
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+srcs/./parse/get/ambient.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
-srcs/./parse/get/ambient.o: srcs/./parse/get/ambient.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: `srcs/./parse/get/ambient'
-#  Last modified 2021-10-25 22:33:27
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `Makefile', line 71):
-	$(CC) $(CFLAGS) $(CDEBUG) -I $(HEADER) -o $@ -c $<
-	
+# Not a target:
+srcs/./parse/identifier.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
-srcs/./parse/identifier.o: srcs/./parse/identifier.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: `srcs/./parse/identifier'
-#  Last modified 2021-10-25 22:33:27
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `Makefile', line 71):
-	$(CC) $(CFLAGS) $(CDEBUG) -I $(HEADER) -o $@ -c $<
-	
-
-srcs/./trace/object_trace.o: srcs/./trace/object_trace.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: `srcs/./trace/object_trace'
-#  Last modified 2021-10-25 22:33:27
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `Makefile', line 71):
-	$(CC) $(CFLAGS) $(CDEBUG) -I $(HEADER) -o $@ -c $<
-	
+# Not a target:
+srcs/./trace/object_trace.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 .DEFAULT:
@@ -511,66 +340,33 @@ srcs/./trace/object_trace.o: srcs/./trace/object_trace.c
 #  Modification time never checked.
 #  File has not been updated.
 
-srcs/./trace/cylinder_trace.o: srcs/./trace/cylinder_trace.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: `srcs/./trace/cylinder_trace'
-#  Last modified 2021-10-25 22:33:27
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `Makefile', line 71):
-	$(CC) $(CFLAGS) $(CDEBUG) -I $(HEADER) -o $@ -c $<
-	
-
-srcs/./parse/get/camera.o: srcs/./parse/get/camera.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: `srcs/./parse/get/camera'
-#  Last modified 2021-10-25 22:33:27
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `Makefile', line 71):
-	$(CC) $(CFLAGS) $(CDEBUG) -I $(HEADER) -o $@ -c $<
-	
+# Not a target:
+srcs/./trace/cylinder_trace.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
-srcs/./parse/check_double.c:
-#  Implicit rule search has been done.
-#  Last modified 2021-10-24 21:15:37
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+srcs/./parse/get/camera.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
-srcs/./utils/vec_utils1.o: srcs/./utils/vec_utils1.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: `srcs/./utils/vec_utils1'
-#  Last modified 2021-10-25 22:33:26
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `Makefile', line 71):
-	$(CC) $(CFLAGS) $(CDEBUG) -I $(HEADER) -o $@ -c $<
-	
+# Not a target:
+srcs/./utils/vec_utils1.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
-srcs/./utils/struct_utils.o: srcs/./utils/struct_utils.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: `srcs/./utils/struct_utils'
-#  Last modified 2021-10-25 22:33:26
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `Makefile', line 71):
-	$(CC) $(CFLAGS) $(CDEBUG) -I $(HEADER) -o $@ -c $<
-	
+# Not a target:
+srcs/./utils/struct_utils.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 lib/ft_functions/libft.a:
 #  Implicit rule search has not been done.
-#  Last modified 2021-10-25 22:31:26
+#  Last modified 2021-10-26 22:10:45
 #  File has been updated.
 #  Successfully updated.
 #  commands to execute (from `Makefile', line 77):
@@ -583,15 +379,6 @@ re: fclean all
 #  File does not exist.
 #  File has not been updated.
 
-# Not a target:
-srcs/./utils/vec_utils3.c:
-#  Implicit rule search has been done.
-#  Last modified 2021-10-24 01:06:40
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-
 clean:
 #  Phony target (prerequisite of .PHONY).
 #  Implicit rule search has not been done.
@@ -602,183 +389,72 @@ clean:
 	$(MAKE) -C $(D_FT) clean
 	
 
-srcs/./parse/get/sphere.o: srcs/./parse/get/sphere.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: `srcs/./parse/get/sphere'
-#  Last modified 2021-10-25 22:33:27
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `Makefile', line 71):
-	$(CC) $(CFLAGS) $(CDEBUG) -I $(HEADER) -o $@ -c $<
-	
-
-srcs/./parse/get/plane.o: srcs/./parse/get/plane.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: `srcs/./parse/get/plane'
-#  Last modified 2021-10-25 22:33:27
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `Makefile', line 71):
-	$(CC) $(CFLAGS) $(CDEBUG) -I $(HEADER) -o $@ -c $<
-	
- 
-
-srcs/./parse/check_int.o: srcs/./parse/check_int.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: `srcs/./parse/check_int'
-#  Last modified 2021-10-25 22:33:27
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `Makefile', line 71):
-	$(CC) $(CFLAGS) $(CDEBUG) -I $(HEADER) -o $@ -c $<
-	
+# Not a target:
+srcs/./parse/get/sphere.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
-srcs/./trace/ray_trace.c:
-#  Implicit rule search has been done.
-#  Last modified 2021-10-24 01:06:40
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-
-srcs/./trace/phong_light.o: srcs/./trace/phong_light.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: `srcs/./trace/phong_light'
-#  Last modified 2021-10-25 22:33:27
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `Makefile', line 71):
-	$(CC) $(CFLAGS) $(CDEBUG) -I $(HEADER) -o $@ -c $<
-	
+srcs/./parse/get/plane.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
-srcs/./parse/parse.c:
-#  Implicit rule search has been done.
-#  Last modified 2021-10-25 21:37:47
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-
-srcs/./parse/error/error.o: srcs/./parse/error/error.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: `srcs/./parse/error/error'
-#  Last modified 2021-10-25 22:33:27
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `Makefile', line 71):
-	$(CC) $(CFLAGS) $(CDEBUG) -I $(HEADER) -o $@ -c $<
-	
-
-srcs/./utils/vec_utils2.o: srcs/./utils/vec_utils2.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: `srcs/./utils/vec_utils2'
-#  Last modified 2021-10-25 22:33:26
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `Makefile', line 71):
-	$(CC) $(CFLAGS) $(CDEBUG) -I $(HEADER) -o $@ -c $<
-	
+srcs/./parse/check_int.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
-srcs/./parse/get/light.c:
-#  Implicit rule search has been done.
-#  Last modified 2021-10-25 17:45:30
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+srcs/./trace/phong_light.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
-srcs/./parse/get/ambient.c:
-#  Implicit rule search has been done.
-#  Last modified 2021-10-24 17:54:35
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+srcs/./parse/error/error.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
-srcs/./parse/identifier.c:
-#  Implicit rule search has been done.
-#  Last modified 2021-10-24 16:59:33
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-
-# Not a target:
-srcs/./trace/object_trace.c:
-#  Implicit rule search has been done.
-#  Last modified 2021-10-24 17:44:49
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+srcs/./utils/vec_utils2.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 srcs/main.o: srcs/main.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `srcs/main'
-#  Last modified 2021-10-25 22:33:26
+#  File does not exist.
 #  File has been updated.
-#  Successfully updated.
+#  Needs to be updated (-q is set).
+# automatic
+# @ := srcs/main.o
+# automatic
+# % := 
+# automatic
+# * := srcs/main
+# automatic
+# + := srcs/main.c
+# automatic
+# | := 
+# automatic
+# < := srcs/main.c
+# automatic
+# ^ := srcs/main.c
+# automatic
+# ? := srcs/main.c
 # variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+# Load=8/32=25%, Rehash=0, Collisions=3/16=19%
 #  commands to execute (from `Makefile', line 71):
 	$(CC) $(CFLAGS) $(CDEBUG) -I $(HEADER) -o $@ -c $<
 	
 
-# Not a target:
-srcs/./trace/cylinder_trace.c:
-#  Implicit rule search has been done.
-#  Last modified 2021-10-25 20:59:50
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-
-# Not a target:
-srcs/./parse/get/camera.c:
-#  Implicit rule search has been done.
-#  Last modified 2021-10-24 21:08:38
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-
-# Not a target:
-srcs/./utils/vec_utils1.c:
-#  Implicit rule search has been done.
-#  Last modified 2021-10-24 01:06:40
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-
-# Not a target:
-srcs/./utils/struct_utils.c:
-#  Implicit rule search has been done.
-#  Last modified 2021-10-24 01:06:40
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-
 # files hash-table stats:
-# Load=54/1024=5%, Rehash=0, Collisions=3/167=2%
+# Load=33/1024=3%, Rehash=0, Collisions=0/83=0%
 # VPATH Search Paths
 
 # No `vpath' search paths.
@@ -790,6 +466,6 @@ srcs/./utils/struct_utils.c:
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
 
-# Finished Make data base on Mon Oct 25 22:33:30 2021
+# Finished Make data base on Wed Oct 27 09:29:11 2021
 
  

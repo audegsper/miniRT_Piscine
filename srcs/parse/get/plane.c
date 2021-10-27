@@ -6,7 +6,7 @@
 /*   By: dohykim <dohykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 22:00:16 by hyson             #+#    #+#             */
-/*   Updated: 2021/10/25 21:54:01 by dohykim          ###   ########.fr       */
+/*   Updated: 2021/10/27 09:47:49 by dohykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,9 @@ void	set_plane(t_object_condition *ob)
 
 	plane->p = ob->pl->p;
 	plane->n = v_unit(ob->pl->n);
-	plane->c = ob->pl->c;
+	plane->c = color(ob->pl->c.x / 255.0,
+					ob->pl->c.y / 255.0,
+					ob->pl->c.z / 255.0);
 	add_object(&g_rt.object,new_object(PLANE, plane));
 }
 

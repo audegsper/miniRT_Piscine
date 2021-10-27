@@ -6,7 +6,7 @@
 /*   By: dohykim <dohykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 18:19:28 by hyson             #+#    #+#             */
-/*   Updated: 2021/10/25 22:34:55 by dohykim          ###   ########.fr       */
+/*   Updated: 2021/10/26 22:11:44 by dohykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ t_color3		phong_lighting(t_ray *r, t_rec *rec);
 int		color_pixel(t_vec3 color);
 t_color3		trace_ray(int height, int width);
 int		hit_cylinder(t_cylinder *cy,t_rec *rec, t_ray *r);
-
+int		hit_plane(t_plane *pl,t_rec *rec, t_ray *r);
 //
 void	set_light (t_object_condition *ob);
 void	set_sphere (t_object_condition *ob);

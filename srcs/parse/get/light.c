@@ -6,7 +6,7 @@
 /*   By: dohykim <dohykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 22:00:14 by hyson             #+#    #+#             */
-/*   Updated: 2021/10/26 16:21:28 by dohykim          ###   ########.fr       */
+/*   Updated: 2021/10/27 10:32:18 by dohykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	set_light (t_object_condition *ob)
 	light = (t_light *) malloc(sizeof(t_light));
 	light->p = point(ob->l->p.x,ob->l->p.y,ob->l->p.z);
 	light->bright_ratio = ob->l->bright_ratio;
-	light->c = color(255.0/255.0, 255.0/255.0, 255.0/255.0);
+	light->c = color(ob->l->c.x/255.0, ob->l->c.y/255.0, ob->l->c.z/255.0);
 
 	add_object(&g_rt.light ,new_object(LIGHT, light));
 }

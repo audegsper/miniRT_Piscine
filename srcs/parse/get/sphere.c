@@ -18,7 +18,7 @@ void	set_sphere (t_object_condition *ob)
 
 	sphere = (t_sphere *) malloc(sizeof(t_sphere));
 	sphere->p = point(ob->sp->p.x,ob->sp->p.y,ob->sp->p.z);
-	sphere->r = ob->sp->r;
+	sphere->r = ob->sp->r / 2.0;
 	sphere->c = color(ob->sp->c.x / 255.0, ob->sp->c.y / 255.0, ob->sp->c.z / 255.0);
 	add_object(&g_rt.object,new_object(SPHERE, sphere));
 }

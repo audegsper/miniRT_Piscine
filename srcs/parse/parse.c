@@ -123,7 +123,10 @@ static	t_bool	get_status(t_object_condition *ob, char *line, int id)
 		set_sphere(ob);
 	}
 	else if (id == PLANE)
+	{
 		ret = get_plane(ob, line);
+		set_plane(ob);
+	}
 	else if (id == CYLINDER)
 	{
 		ret = get_cylinder(ob, line);

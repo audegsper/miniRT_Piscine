@@ -1,7 +1,42 @@
-make --dry-run --keep-going --print-directory
-make: Entering directory `/Users/dohykim/Documents/miniRT_Piscine'
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory `/Users/dohykim/Documents/debug_miniRT/RT_piscine'
+/Library/Developer/CommandLineTools/usr/bin/make -C ./lib/ft_functions/ all
+make[1]: Entering directory `/Users/dohykim/Documents/debug_miniRT/RT_piscine/lib/ft_functions'
+gcc -I ../../includes/ -c dalloc.c -o dalloc.o
+gcc -I ../../includes/ -c free_ptr.c -o free_ptr.o
+gcc -I ../../includes/ -c ft_strdup.c -o ft_strdup.o
+gcc -I ../../includes/ -c ft_strlcpy.c -o ft_strlcpy.o
+gcc -I ../../includes/ -c ft_strlen.c -o ft_strlen.o
+gcc -I ../../includes/ -c ft_strncmp.c -o ft_strncmp.o
+gcc -I ../../includes/ -c get_next_line.c -o get_next_line.o
+gcc -I ../../includes/ -c is_blank.c -o is_blank.o
+gcc -I ../../includes/ -c ft_isdigit.c -o ft_isdigit.o
+gcc -I ../../includes/ -c is_endl.c -o is_endl.o
+gcc -I ../../includes/ -c ft_memset.c -o ft_memset.o
+ar rc libft.a dalloc.o free_ptr.o ft_strdup.o ft_strlcpy.o ft_strlen.o ft_strncmp.o get_next_line.o is_blank.o ft_isdigit.o is_endl.o ft_memset.o
+make[1]: Leaving directory `/Users/dohykim/Documents/debug_miniRT/RT_piscine/lib/ft_functions'
+gcc -Wall -Wextra -Werror -fsanitize=address -g -I ./includes/ -o srcs/main.o -c srcs/main.c
+gcc -Wall -Wextra -Werror -fsanitize=address -g -I ./includes/ -o srcs/./utils/vec_utils1.o -c srcs/./utils/vec_utils1.c
+gcc -Wall -Wextra -Werror -fsanitize=address -g -I ./includes/ -o srcs/./utils/vec_utils2.o -c srcs/./utils/vec_utils2.c
+gcc -Wall -Wextra -Werror -fsanitize=address -g -I ./includes/ -o srcs/./utils/vec_utils3.o -c srcs/./utils/vec_utils3.c
+gcc -Wall -Wextra -Werror -fsanitize=address -g -I ./includes/ -o srcs/./utils/struct_utils.o -c srcs/./utils/struct_utils.c
+gcc -Wall -Wextra -Werror -fsanitize=address -g -I ./includes/ -o srcs/./trace/object_trace.o -c srcs/./trace/object_trace.c
+gcc -Wall -Wextra -Werror -fsanitize=address -g -I ./includes/ -o srcs/./trace/ray_trace.o -c srcs/./trace/ray_trace.c
+gcc -Wall -Wextra -Werror -fsanitize=address -g -I ./includes/ -o srcs/./trace/phong_light.o -c srcs/./trace/phong_light.c
+gcc -Wall -Wextra -Werror -fsanitize=address -g -I ./includes/ -o srcs/./parse/parse.o -c srcs/./parse/parse.c
+gcc -Wall -Wextra -Werror -fsanitize=address -g -I ./includes/ -o srcs/./parse/identifier.o -c srcs/./parse/identifier.c
+gcc -Wall -Wextra -Werror -fsanitize=address -g -I ./includes/ -o srcs/./parse/check_double.o -c srcs/./parse/check_double.c
+gcc -Wall -Wextra -Werror -fsanitize=address -g -I ./includes/ -o srcs/./parse/check_int.o -c srcs/./parse/check_int.c
+gcc -Wall -Wextra -Werror -fsanitize=address -g -I ./includes/ -o srcs/./parse/valid.o -c srcs/./parse/valid.c
+gcc -Wall -Wextra -Werror -fsanitize=address -g -I ./includes/ -o srcs/./parse/get/ambient.o -c srcs/./parse/get/ambient.c
+gcc -Wall -Wextra -Werror -fsanitize=address -g -I ./includes/ -o srcs/./parse/get/camera.o -c srcs/./parse/get/camera.c
+gcc -Wall -Wextra -Werror -fsanitize=address -g -I ./includes/ -o srcs/./parse/get/light.o -c srcs/./parse/get/light.c
+gcc -Wall -Wextra -Werror -fsanitize=address -g -I ./includes/ -o srcs/./parse/get/sphere.o -c srcs/./parse/get/sphere.c
+gcc -Wall -Wextra -Werror -fsanitize=address -g -I ./includes/ -o srcs/./parse/get/plane.o -c srcs/./parse/get/plane.c
+gcc -Wall -Wextra -Werror -fsanitize=address -g -I ./includes/ -o srcs/./parse/get/cylinder.o -c srcs/./parse/get/cylinder.c
+gcc -Wall -Wextra -Werror -fsanitize=address -g -I ./includes/ -o srcs/./parse/error/error.o -c srcs/./parse/error/error.c
+gcc -Wall -Wextra -Werror -fsanitize=address -g -I ./includes/ -o srcs/./trace/cylinder_trace.o -c srcs/./trace/cylinder_trace.c
 gcc -Wall -Wextra -Werror -fsanitize=address -g -I ./includes/ -o srcs/./trace/plane_trace.o -c srcs/./trace/plane_trace.c
- 
 gcc ./lib/ft_functions/libft.a -Wall -Wextra -Werror -fsanitize=address -g -L ./lib/mlx/ -lmlx -framework OpenGL -framework AppKit -I ./includes/ -o miniRT ./srcs/main.o ./srcs/./utils/vec_utils1.o ./srcs/./utils/vec_utils2.o ./srcs/./utils/vec_utils3.o ./srcs/./utils/struct_utils.o ./srcs/./trace/object_trace.o ./srcs/./trace/ray_trace.o ./srcs/./trace/phong_light.o ./srcs/./parse/parse.o ./srcs/./parse/identifier.o ./srcs/./parse/check_double.o ./srcs/./parse/check_int.o ./srcs/./parse/valid.o ./srcs/./parse/get/ambient.o ./srcs/./parse/get/camera.o ./srcs/./parse/get/light.o ./srcs/./parse/get/sphere.o ./srcs/./parse/get/plane.o ./srcs/./parse/get/cylinder.o ./srcs/./parse/error/error.o ./srcs/./trace/cylinder_trace.o ./srcs/./trace/plane_trace.o
-make: Leaving directory `/Users/dohykim/Documents/miniRT_Piscine'
+make: Leaving directory `/Users/dohykim/Documents/debug_miniRT/RT_piscine'
  

@@ -6,7 +6,7 @@
 /*   By: dohykim <dohykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 22:00:08 by hyson             #+#    #+#             */
-/*   Updated: 2021/10/24 21:08:38 by dohykim          ###   ########.fr       */
+/*   Updated: 2021/10/26 19:02:30 by dohykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,10 @@ void	set_camera(void)
 	t_vec3	vup;
 	double h;
 
-	vup = vec(0.0, 1.0, 0.0);
+	if (g_rt.cam.n.x == 0 && g_rt.cam.n.y != 0 && g_rt.cam.n.z == 0)
+		vup = vec(0.0, 0.0, -1);
+	else
+		vup = vec(0.0, 1, 0.0);
 	ratio = (double)g_rt.width / g_rt.height;
 	theta = g_rt.cam.fov * M_PI / 180.0;
 	h = tan(theta / 2.0);
