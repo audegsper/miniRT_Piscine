@@ -6,7 +6,7 @@
 /*   By: dohykim <dohykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 22:03:32 by dohykim           #+#    #+#             */
-/*   Updated: 2021/10/15 22:07:44 by dohykim          ###   ########.fr       */
+/*   Updated: 2021/10/31 00:08:02 by dohykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,8 +110,11 @@ struct s_plane
 struct s_cylinder
 {
 	t_point3	p;
+	t_point3	p_top;
 	t_vec3		n;
 	double		d;
+	double		r;
+	double		r2;
 	double		h;
 	t_color3	c;
 };

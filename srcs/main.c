@@ -6,7 +6,7 @@
 /*   By: dohykim <dohykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 18:17:39 by hyson             #+#    #+#             */
-/*   Updated: 2021/10/27 10:48:10 by dohykim          ###   ########.fr       */
+/*   Updated: 2021/10/31 00:33:48 by dohykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,8 @@ void	rendering(void)
 
 int	main(int argc, char **argv)
 {
-	g_rt.width = 1920;
-	g_rt.height = 1080;
+	g_rt.width = 640; //1920
+	g_rt.height = 640; //1080
 	read_file(argc, argv);
 	rendering();
 	mlx_hook(g_rt.win, 2, 0, key_hook, g_rt.mlx);

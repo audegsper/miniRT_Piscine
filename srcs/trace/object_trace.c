@@ -38,6 +38,8 @@ t_bool	hit_obj(t_rec *rec, t_ray *r, t_object *obj)
 		hit_anything = hit_sphere((t_sphere *)obj->element, rec, r);
 	else if (obj->type == PLANE)
 		hit_anything = hit_plane((t_plane *)obj->element, rec, r);
+	else if (obj->type == CYLINDER)
+		hit_anything = hit_cylinder((t_cylinder *)obj->element, rec, r);
 	return (hit_anything);
 }
 
