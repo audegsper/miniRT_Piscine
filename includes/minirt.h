@@ -6,7 +6,7 @@
 /*   By: dohykim <dohykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 18:19:28 by hyson             #+#    #+#             */
-/*   Updated: 2021/10/26 22:11:44 by dohykim          ###   ########.fr       */
+/*   Updated: 2021/10/31 13:49:59 by dohykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ t_bool		hit_obj(t_rec *rec, t_ray *r, t_object *obj);
 int			hit_sphere(t_sphere *sp, t_rec *rec, t_ray *r);
 t_point3	ray_at(t_ray *ray, double t);
 void		set_face_normal(t_ray *r, t_rec *rec);
-int			in_shadow(t_ray *light_r);
+t_bool	in_shadow(t_ray *light_r);
 t_color3	get_point_light(t_light *light, t_ray *r, t_rec *rec);
 t_color3	get_phong(t_ray *r, t_vec3	light_dir, t_light *light, t_rec *rec);
 t_color3	get_diffuse(t_vec3	light_dir, t_light *light, t_rec *rec);

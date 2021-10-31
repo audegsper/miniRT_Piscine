@@ -3,28 +3,43 @@
 double		cylinder_get_discriminant(t_cylinder *cy, t_ray r,
 											double *half_b, double *a)
 {
-	double	c;
+	// double	c;
 
-	r = new_ray(v_minus(r.orig, cy->p), r.dir);
-	if (cy->n.x != 0)
-	{
-		*a = r.dir.y * r.dir.y + r.dir.z * r.dir.z;
-		*half_b = r.orig.y * r.dir.y + r.orig.z * r.dir.z;
-		c = r.orig.y * r.orig.y + r.orig.z * r.orig.z - cy->r2;
-	}
-	else if (cy->n.y != 0)
-	{
-		*a = r.dir.x * r.dir.x + r.dir.z * r.dir.z;
-		*half_b = r.orig.x * r.dir.x + r.orig.z * r.dir.z;
-		c = r.orig.x * r.orig.x + r.orig.z * r.orig.z - cy->r2;
-	}
-	else
-	{
-		*a = r.dir.x * r.dir.x + r.dir.y * r.dir.y;
-		*half_b = r.orig.x * r.dir.x + r.orig.y * r.dir.y;
-		c = r.orig.x * r.orig.x + r.orig.y * r.orig.y - cy->r2;
-	}
-	return (*half_b * *half_b - *a * c);
+	// r = new_ray(v_minus(r.orig, cy->p), r.dir);
+	// if (cy->n.x != 0)
+	// {
+	// 	*a = r.dir.y * r.dir.y + r.dir.z * r.dir.z;
+	// 	*half_b = r.orig.y * r.dir.y + r.orig.z * r.dir.z;
+	// 	c = r.orig.y * r.orig.y + r.orig.z * r.orig.z - cy->r2;
+	// }
+	// else if (cy->n.y != 0)
+	// {
+	// 	*a = r.dir.x * r.dir.x + r.dir.z * r.dir.z;
+	// 	*half_b = r.orig.x * r.dir.x + r.orig.z * r.dir.z;
+	// 	c = r.orig.x * r.orig.x + r.orig.z * r.orig.z - cy->r2;
+	// }
+	// else
+	// {
+	// 	*a = r.dir.x * r.dir.x + r.dir.y * r.dir.y;
+	// 	*half_b = r.orig.x * r.dir.x + r.orig.y * r.dir.y;
+	// 	c = r.orig.x * r.orig.x + r.orig.y * r.orig.y - cy->r2;
+	// }
+	// return (*half_b * *half_b - *a * c);
+
+	t_vec3		w;
+	t_vec3		v;
+	t_vec3		oc;
+	double		c;
+	double		discriminant;
+
+	oc = v_minus(r.orig, cy->p);
+	v = v_cross(r.dir, cy->n);
+	w = v_cross(oc, cy->n);
+	*a = v_dot(v, v);
+	*half_b = v_dot(v, w);
+	c = v_dot(w, w) - pow(cy->d / 2, 2);
+	discriminant = *half_b * *half_b - *a * c;
+	return (discriminant);
 }
 
 t_bool		cylinder_root_check(t_cylinder *cy, t_rec *rec,

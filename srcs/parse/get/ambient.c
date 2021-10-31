@@ -6,7 +6,7 @@
 /*   By: dohykim <dohykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 21:59:59 by hyson             #+#    #+#             */
-/*   Updated: 2021/10/31 01:06:12 by dohykim          ###   ########.fr       */
+/*   Updated: 2021/10/31 12:23:45 by dohykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,11 +49,11 @@ t_bool	get_ambient(t_object_condition *ob, char *line)
 {
 	if (!parse_a(ob, line) || !valid_a(ob->a))
 		return (FALSE);
-	// g_rt.ambient = color(ob->a->c.x / 255.0 * ob->a->s, \
-	// 					ob->a->c.y / 255.0 * ob->a->s, \
-	// 					ob->a->c.z / 255.0 * ob->a->s);
 	g_rt.ambient = color(ob->a->c.x / 255.0 * ob->a->s, \
 						ob->a->c.y / 255.0 * ob->a->s, \
 						ob->a->c.z / 255.0 * ob->a->s);
+	// g_rt.ambient = color(ob->a->c.x / 255.0 * ob->a->s, \
+	// 					ob->a->c.y / 255.0 * ob->a->s, \
+	// 					ob->a->c.z / 255.0 * ob->a->s);
 	return (TRUE);
 }
