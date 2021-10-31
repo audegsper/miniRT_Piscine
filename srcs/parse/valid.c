@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   valid.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dohykim <dohykim@student.42seoul.kr>       +#+  +:+       +#+        */
+/*   By: hyson <hyson@42student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/16 12:20:10 by hyson             #+#    #+#             */
-/*   Updated: 2021/10/24 21:02:18 by dohykim          ###   ########.fr       */
+/*   Updated: 2021/10/31 17:33:13 by hyson            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,9 @@ t_bool	valid_color(t_color3 c)
 
 t_bool	valid_vec3(t_vec3 v)
 {
-	return ((v.x >= -1.0 && v.x <= 1.0) && (v.y >= -1.0 && v.y <= 1.0)
-		&& (v.z >= -1.0 && v.z <= 1.0));
+	if (fabs(v.x) != 1 && fabs(v.y) != 1 && fabs(v.z) != 1)
+		return (FALSE);
+	else if ((v.x * v.x + v.y * v.y + v.z * v.z) != 1)
+		return (FALSE);
+	return (TRUE);
 }
