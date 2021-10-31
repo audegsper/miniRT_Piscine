@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dohykim <dohykim@student.42seoul.kr>       +#+  +:+       +#+        */
+/*   By: hyson <hyson@42student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 18:17:39 by hyson             #+#    #+#             */
-/*   Updated: 2021/10/31 00:33:48 by dohykim          ###   ########.fr       */
+/*   Updated: 2021/10/31 16:32:14 by hyson            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,5 +58,7 @@ int	main(int argc, char **argv)
 	mlx_hook(g_rt.win, 2, 0, key_hook, g_rt.mlx);
 	mlx_hook(g_rt.win, 17, 0, exit_hook, g_rt.mlx);
 	mlx_loop(g_rt.mlx);
+	while(1)
+		;
 	return (0);
 }

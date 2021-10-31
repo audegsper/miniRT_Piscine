@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dohykim <dohykim@student.42seoul.kr>       +#+  +:+       +#+        */
+/*   By: hyson <hyson@42student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 17:15:26 by hyson             #+#    #+#             */
-/*   Updated: 2021/10/16 23:03:32 by dohykim          ###   ########.fr       */
+/*   Updated: 2021/10/31 16:37:18 by hyson            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,17 +22,26 @@ static	void	object_init(t_object_condition *ob)
 	ob->cy = malloc(sizeof(t_cylinder));
 }
 
+static	void	check_param(int argc, char **argv)
+{
+	int name_len;
+
+	if (argc != 2)
+		e_file_param();
+	name_len = ft_strlen(argv[1]);
+	if (name_len < 3 || ft_strncmp(argv[1] + name_len - 3, ".rt", 4) != 0)
+		e_file_param();
+}
+
 int	read_file(int argc, char **argv)
 {
 	int					fd;
 	char				*line;
 	int					ret;
 	t_object_condition	*ob;
-
 	ob = (t_object_condition *)malloc(sizeof(t_object_condition));
 	object_init(ob);
-	if (argc != 2)
-		e_file_param();
+	check_param(argc, argv);
 	fd = open(argv[1], O_RDONLY);
 	if (fd < 0)
 		e_file_open();
@@ -77,7 +86,7 @@ t_bool	parse(char *line, int fd, t_object_condition *ob)
 	int		id;
 
 	tmp = line;
-	if (!ft_strncmp(tmp, "", ft_strlen(tmp)))
+	if (!ft_strncmp(tmp, "", ft_strlen(tmp)) || !ft_strncmp(tmp, "#", 1))
 	{
 		write(1, "blank\n", 6);
 		return (BLANK);
