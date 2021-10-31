@@ -15,6 +15,7 @@ gcc -I ../../includes/ -c is_endl.c -o is_endl.o
 gcc -I ../../includes/ -c ft_memset.c -o ft_memset.o
 ar rc libft.a dalloc.o free_ptr.o ft_strdup.o ft_strlcpy.o ft_strlen.o ft_strncmp.o get_next_line.o is_blank.o ft_isdigit.o is_endl.o ft_memset.o
 make[1]: Leaving directory `/Users/dohykim/Documents/debug_miniRT/RT_piscine/lib/ft_functions'
+ 
 gcc -Wall -Wextra -Werror -fsanitize=address -g -I ./includes/ -o srcs/main.o -c srcs/main.c
 gcc -Wall -Wextra -Werror -fsanitize=address -g -I ./includes/ -o srcs/./utils/vec_utils1.o -c srcs/./utils/vec_utils1.c
 gcc -Wall -Wextra -Werror -fsanitize=address -g -I ./includes/ -o srcs/./utils/vec_utils2.o -c srcs/./utils/vec_utils2.c

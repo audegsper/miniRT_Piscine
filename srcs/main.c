@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyson <hyson@42student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: dohykim <dohykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 18:17:39 by hyson             #+#    #+#             */
-/*   Updated: 2021/10/31 17:58:29 by hyson            ###   ########.fr       */
+/*   Updated: 2021/11/01 00:36:49 by dohykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,8 @@ void	rendering(void)
 
 int	main(int argc, char **argv)
 {
-	g_rt.width = 640; //1920
-	g_rt.height = 640; //1080
+	g_rt.width = 300; //1920
+	g_rt.height = 300; //1080
 	read_file(argc, argv);
 	rendering();
 	mlx_hook(g_rt.win, 2, 0, key_hook, g_rt.mlx);
