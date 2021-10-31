@@ -6,7 +6,7 @@
 /*   By: hyson <hyson@42student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/31 18:11:12 by hyson             #+#    #+#             */
-/*   Updated: 2021/10/31 18:11:14 by hyson            ###   ########.fr       */
+/*   Updated: 2021/10/31 19:53:20 by hyson            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,39 +39,39 @@ double		cylinder_get_discriminant(t_cylinder *cy, t_ray r,
 	// }
 	// return (*half_b * *half_b - *a * c);
 
-	/* 사례 2 */
-	t_vec3		w;
-	t_vec3		v;
-	t_vec3		oc;
-	double		c;
-	double		discriminant;
+	// /* 사례 2 */
+	// t_vec3		w;
+	// t_vec3		v;
+	// t_vec3		oc;
+	// double		c;
+	// double		discriminant;
 
-	oc = v_minus(r.orig, cy->p);
-	v = v_cross(r.dir, cy->n);
-	w = v_cross(oc, cy->n);
-	*a = v_dot(v, v);
-	*half_b = v_dot(v, w);
-	c = v_dot(w, w) - pow(cy->d / 2, 2);
+	// oc = v_minus(r.orig, cy->p);
+	// v = v_cross(r.dir, cy->n);
+	// w = v_cross(oc, cy->n);
+	// *a = v_dot(v, v);
+	// *half_b = v_dot(v, w);
+	// c = v_dot(w, w) - pow(cy->d / 2, 2);
+	// discriminant = *half_b * *half_b - *a * c;
+	// return (discriminant);
+
+// 	/* 사례 3 */
+	double	discriminant;
+	double	c;
+
+	double	r2 = cy->d * cy->d;
+	t_vec3	top = v_minus(cy->p, v_mul(cy->h, cy->n));
+	t_vec3	bot = v_plus(cy->p, v_mul(cy->h, cy->n));
+	t_vec3	hc = v_minus(top, bot);
+	t_vec3	h = v_unit(hc);
+	t_vec3	w = v_minus(r.orig, bot);
+	t_vec3	v = r.dir;
+
+	*a = v_dot(v, v) - pow(v_dot(v, h), 2);
+	*half_b = ((v_dot(v, w) - (v_dot(v, h) * v_dot(w, h))));
+	c = v_dot(w, w) - pow(v_dot(w, h), 2) - r2;
 	discriminant = *half_b * *half_b - *a * c;
 	return (discriminant);
-
-	/* 사례 3 */
-	// double	discriminant;
-	// double	c;
-
-	// double	r2 = cy->d * cy->d;
-	// t_vec3	top = v_minus(cy->p, v_mul(cy->h, cy->n));
-	// t_vec3	bot = v_plus(cy->p, v_mul(cy->h, cy->n));
-	// t_vec3	hc = v_minus(top, bot);
-	// t_vec3	h = v_unit(hc);
-	// t_vec3	w = v_minus(r.orig, bot);
-	// t_vec3	v = r.dir;
-
-	// *a = v_dot(v, v) - pow(v_dot(v, h), 2);
-	// *half_b = ((v_dot(v, w) - (v_dot(v, h) * v_dot(w, h)))) * 2;
-	// c = v_dot(w, w) - pow(v_dot(w, h), 2) - r2;
-	// discriminant = *half_b * *half_b - 4 * *a * c;
-	// return (discriminant);
 }
 
 t_bool		cylinder_root_check(t_cylinder *cy, t_rec *rec,

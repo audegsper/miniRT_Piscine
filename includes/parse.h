@@ -31,6 +31,7 @@ t_bool		check_int(char **s, double *v);
 t_bool		check_int2(char **s, double *v1, double *v2, double *v3);
 t_bool		valid_color(t_color3 c);
 t_bool		valid_vec3(t_vec3 v);
+t_bool		valid_vec3_camera(t_vec3 v);
 
 /*
 ** -----------------------------------------------------------------------------

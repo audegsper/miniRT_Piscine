@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   camera.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dohykim <dohykim@student.42seoul.kr>       +#+  +:+       +#+        */
+/*   By: hyson <hyson@42student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 22:00:08 by hyson             #+#    #+#             */
-/*   Updated: 2021/10/26 19:02:30 by dohykim          ###   ########.fr       */
+/*   Updated: 2021/10/31 19:20:45 by hyson            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ static	t_bool	valid_c(t_camera *c)
 	t_bool	ret;
 
 	ret = TRUE;
-	if (!valid_vec3(c->n))
+	if (!valid_vec3_camera(c->n))
 		ret = FALSE;
 	if (c->fov < 0.0 || c->fov > 180.0)
 		ret = FALSE;
