@@ -14,7 +14,6 @@
 
 static	void	object_init(t_object_condition *ob)
 {
-	ob = (t_object_condition *)malloc(sizeof(t_object_condition));
 	if (!ob)
 		exit(1);
 	ob->sp = malloc(sizeof(t_sphere));
@@ -55,7 +54,7 @@ int	read_file(int argc, char **argv)
 	int					ret;
 	t_object_condition	*ob;
 
-	ob = NULL;
+	ob = (t_object_condition *)malloc(sizeof(t_object_condition));
 	object_init(ob);
 	check_param(argc, argv);
 	fd = open(argv[1], O_RDONLY);
