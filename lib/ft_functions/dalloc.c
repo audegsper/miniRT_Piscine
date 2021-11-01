@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include "minirt.h"
 #include "lib.h"
 
 t_bool	dalloc(void **ptr, size_t cnt, size_t n)

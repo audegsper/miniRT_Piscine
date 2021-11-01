@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minirt.h                                           :+:      :+:    :+:   */
+/*   minirt_bonus.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dohykim <dohykim@student.42seoul.kr>       +#+  +:+       +#+        */
+/*   By: hyson <hyson@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/12 18:19:28 by hyson             #+#    #+#             */
-/*   Updated: 2021/10/31 13:49:59 by dohykim          ###   ########.fr       */
+/*   Created: 2021/11/01 12:20:51 by hyson             #+#    #+#             */
+/*   Updated: 2021/11/01 12:21:36 by hyson            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINIRT_H
-# define MINIRT_H
+#ifndef MINIRT_BONUS_H
+# define MINIRT_BONUS_H
 
 /*
 ** -----------------------------------------------------------------------------
@@ -38,12 +38,12 @@ int			hit_sphere(t_sphere *sp, t_rec *rec, t_ray *r);
 t_point3	ray_at(t_ray *ray, double t);
 void		set_face_normal(t_ray *r, t_rec *rec);
 t_bool		in_shadow(t_ray *light_r);
-t_color3	get_point_light(t_light *light, t_rec *rec);
-t_color3	get_phong(t_vec3	light_dir, t_light *light, t_rec *rec);
+t_color3	get_point_light(t_light *light, t_ray *r, t_rec *rec);
+t_color3	get_phong(t_ray *r, t_vec3	light_dir, t_light *light, t_rec *rec);
 t_color3	get_diffuse(t_vec3	light_dir, t_light *light, t_rec *rec);
 t_color3	get_specular(\
 			t_ray *r, t_vec3 light_dir, t_light *light, t_rec *rec);
-t_color3	phong_lighting(t_rec *rec);
+t_color3	phong_lighting(t_ray *r, t_rec *rec);
 int			color_pixel(t_vec3 color);
 t_color3	trace_ray(int height, int width);
 int			hit_cylinder(t_cylinder *cy, t_rec *rec, t_ray *r);
@@ -53,7 +53,7 @@ void		set_light(t_object_condition *ob);
 void		set_sphere(t_object_condition *ob);
 void		set_sylinder(t_object_condition *ob);
 void		set_plane(t_object_condition *ob);
-void		add_object(t_object **list, t_object *new);
+void		add_object(t_object **list, t_object *obj);
 t_object	*new_object(int type, void *element);
 
 t_vec3		vec(double x, double y, double z);

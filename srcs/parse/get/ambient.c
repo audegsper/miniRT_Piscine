@@ -52,8 +52,5 @@ t_bool	get_ambient(t_object_condition *ob, char *line)
 	g_rt.ambient = color(ob->a->c.x / 255.0 * ob->a->s, \
 						ob->a->c.y / 255.0 * ob->a->s, \
 						ob->a->c.z / 255.0 * ob->a->s);
-	// g_rt.ambient = color(ob->a->c.x / 255.0 * ob->a->s, \
-	// 					ob->a->c.y / 255.0 * ob->a->s, \
-	// 					ob->a->c.z / 255.0 * ob->a->s);
 	return (TRUE);
 }

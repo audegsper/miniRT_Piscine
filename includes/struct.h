@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   struct.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dohykim <dohykim@student.42seoul.kr>       +#+  +:+       +#+        */
+/*   By: hyson <hyson@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 22:03:32 by dohykim           #+#    #+#             */
-/*   Updated: 2021/10/31 00:08:02 by dohykim          ###   ########.fr       */
+/*   Updated: 2021/11/01 12:20:25 by hyson            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ typedef struct s_light		t_light;
 typedef struct s_sphere		t_sphere;
 typedef struct s_plane		t_plane;
 typedef struct s_cylinder	t_cylinder;
+typedef struct s_cyvar		t_cyvar;
 
 /*
 ** -----------------------------------------------------------------------------
@@ -117,6 +118,17 @@ struct s_cylinder
 	double		r2;
 	double		h;
 	t_color3	c;
+};
+
+struct s_cyvar
+{
+	double	r2;
+	t_vec3	top;
+	t_vec3	bot;
+	t_vec3	hc;
+	t_vec3	h;
+	t_vec3	w;
+	t_vec3	v;
 };
 
 struct s_ray

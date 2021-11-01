@@ -3,78 +3,38 @@
 /*                                                        :::      ::::::::   */
 /*   cylinder_trace.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dohykim <dohykim@student.42seoul.kr>       +#+  +:+       +#+        */
+/*   By: hyson <hyson@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/31 18:11:12 by hyson             #+#    #+#             */
-/*   Updated: 2021/10/31 23:26:35 by dohykim          ###   ########.fr       */
+/*   Updated: 2021/11/01 12:19:51 by hyson            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-double		cylinder_get_discriminant(t_cylinder *cy, t_ray r,
-											double *half_b, double *a)
+double	cylinder_get_discriminant(t_cylinder *cy, t_ray r, double *half_b,
+									 double *a)
 {
-	/* 사례 1 */
-	// double	c;
-
-	// r = new_ray(v_minus(r.orig, cy->p), r.dir);
-	// if (cy->n.x != 0)
-	// {
-	// 	*a = r.dir.y * r.dir.y + r.dir.z * r.dir.z;
-	// 	*half_b = r.orig.y * r.dir.y + r.orig.z * r.dir.z;
-	// 	c = r.orig.y * r.orig.y + r.orig.z * r.orig.z - cy->r2;
-	// }
-	// else if (cy->n.y != 0)
-	// {
-	// 	*a = r.dir.x * r.dir.x + r.dir.z * r.dir.z;
-	// 	*half_b = r.orig.x * r.dir.x + r.orig.z * r.dir.z;
-	// 	c = r.orig.x * r.orig.x + r.orig.z * r.orig.z - cy->r2;
-	// }
-	// else
-	// {
-	// 	*a = r.dir.x * r.dir.x + r.dir.y * r.dir.y;
-	// 	*half_b = r.orig.x * r.dir.x + r.orig.y * r.dir.y;
-	// 	c = r.orig.x * r.orig.x + r.orig.y * r.orig.y - cy->r2;
-	// }
-	// return (*half_b * *half_b - *a * c);
-
-	// /* 사례 2 */
-	// t_vec3		w;
-	// t_vec3		v;
-	// t_vec3		oc;
-	// double		c;
-	// double		discriminant;
-
-	// oc = v_minus(r.orig, cy->p);
-	// v = v_cross(r.dir, cy->n);
-	// w = v_cross(oc, cy->n);
-	// *a = v_dot(v, v);
-	// *half_b = v_dot(v, w);
-	// c = v_dot(w, w) - pow(cy->d / 2, 2);
-	// discriminant = *half_b * *half_b - *a * c;
-	// return (discriminant);
-
-// 	/* 사례 3 */
 	double	discriminant;
 	double	c;
+	t_cyvar	var;
 
-	double	r2 = cy->d * cy->d;
-	t_vec3	top = v_minus(cy->p, v_mul(cy->h, cy->n));
-	t_vec3	bot = v_plus(cy->p, v_mul(cy->h, cy->n));
-	t_vec3	hc = v_minus(top, bot);
-	t_vec3	h = v_unit(hc);
-	t_vec3	w = v_minus(r.orig, bot);
-	t_vec3	v = r.dir;
-
-	*a = v_dot(v, v) - pow(v_dot(v, h), 2);
-	*half_b = ((v_dot(v, w) - (v_dot(v, h) * v_dot(w, h))));
-	c = v_dot(w, w) - pow(v_dot(w, h), 2) - r2;
+	var.r2 = cy->d * cy->d;
+	var.top = v_minus(cy->p, v_mul(cy->h, cy->n));
+	var.bot = v_plus(cy->p, v_mul(cy->h, cy->n));
+	var.hc = v_minus(var.top, var.bot);
+	var.h = v_unit(var.hc);
+	var.w = v_minus(r.orig, var.bot);
+	var.v = r.dir;
+	*a = v_dot(var.v, var.v) - pow(v_dot(var.v, var.h), 2);
+	*half_b = ((v_dot(var.v, var.w) - (v_dot(var.v, var.h) * \
+					v_dot(var.w, var.h))));
+	c = v_dot(var.w, var.w) - pow(v_dot(var.w, var.h), 2) - var.r2;
 	discriminant = *half_b * *half_b - *a * c;
 	return (discriminant);
 }
 
-t_bool		cylinder_root_check(t_cylinder *cy, t_rec *rec,
+t_bool	cylinder_root_check(t_cylinder *cy, t_rec *rec,
 										double root, t_point3 p)
 {
 	double	h;
@@ -104,7 +64,7 @@ t_bool		cylinder_root_check(t_cylinder *cy, t_rec *rec,
 	return (TRUE);
 }
 
-double			hit_finite_cylinder(t_cylinder *cy, t_ray *ray, t_rec *rec)
+double	hit_finite_cylinder(t_cylinder *cy, t_ray *ray, t_rec *rec)
 {
 	double		a;
 	double		half_b;
@@ -128,10 +88,10 @@ double			hit_finite_cylinder(t_cylinder *cy, t_ray *ray, t_rec *rec)
 	return (t);
 }
 
-int		hit_cylinder(t_cylinder *cy,t_rec *rec, t_ray *r)
+int	hit_cylinder(t_cylinder *cy, t_rec *rec, t_ray *r)
 {
-	double	t;
-	t_point3 c0;
+	double		t;
+	t_point3	c0;
 
 	t = hit_finite_cylinder(cy, r, rec);
 	if (t == INFINITY)

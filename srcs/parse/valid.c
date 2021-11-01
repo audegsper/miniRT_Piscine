@@ -29,6 +29,6 @@ t_bool	valid_vec3(t_vec3 v)
 
 t_bool	valid_vec3_camera(t_vec3 v)
 {
-	return ((v.x >= -1.0 && v.x <= 1.0) && (v.y >= -1.0 && v.y <= 1.0) &&
-			(v.z >= -1.0 && v.z <= 1.0));
+	return ((v.x >= -1.0 && v.x <= 1.0) && (v.y >= -1.0 && v.y <= 1.0) && \
+		(v.z >= -1.0 && v.z <= 1.0));
 }

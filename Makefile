@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: dohykim <dohykim@student.42seoul.kr>       +#+  +:+       +#+         #
+#    By: hyson <hyson@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/12 17:08:27 by hyson             #+#    #+#              #
-#    Updated: 2021/10/25 22:33:25 by dohykim          ###   ########.fr        #
+#    Updated: 2021/11/01 12:30:05 by hyson            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,8 +43,6 @@ SRC_LIST	=	main.c						\
 			$(D_UTILS)vec_utils3.c			\
 			$(D_UTILS)struct_utils.c		\
 			$(D_TRACE)object_trace.c		\
-			$(D_TRACE)ray_trace.c			\
-			$(D_TRACE)phong_light.c			\
 			$(D_PARSE)parse.c				\
 			$(D_PARSE)identifier.c			\
 			$(D_PARSE)check_double.c		\
@@ -59,9 +57,17 @@ SRC_LIST	=	main.c						\
 			$(D_ERROR)error.c				\
 			$(D_TRACE)cylinder_trace.c		\
 			$(D_TRACE)plane_trace.c
+MSRC_LIST	=	$(D_TRACE)phong_light.c			\
+				$(D_TRACE)ray_trace.c
+BSRC_LIST	=	$(D_TRACE)phong_light_bonus.c	\
+				$(D_TRACE)ray_trace_bonus.c
+MSRC	=	$(addprefix $(FOLDER), $(MSRC_LIST))
+BSRC	=	$(addprefix $(FOLDER), $(BSRC_LIST))
 SRC			=	$(addprefix $(FOLDER), $(SRC_LIST))
 LIBFT		=	$(addprefix $(D_FT), $(FTLIB))
 OBJ			=	$(SRC:.c=.o)
+MOBJ		=	$(MSRC:.c=.o)
+BOBJ		=	$(BSRC:.c=.o)
 
 #------------------------------------------------------------------------------#
 # T A R G E T
@@ -70,8 +76,8 @@ OBJ			=	$(SRC:.c=.o)
 %.o			:	%.c
 				$(CC) $(CFLAGS) $(CDEBUG) -I $(HEADER) -o $@ -c $<
 
-$(NAME)		:	$(LIBFT) $(OBJ)
-				$(CC) $(LIBFT) $(CFLAGS) $(CDEBUG) $(LIB_FLAG) -I $(HEADER) -o $(NAME) $(OBJ)
+$(NAME)		:	$(LIBFT) $(OBJ) $(MOBJ)
+				$(CC) $(LIBFT) $(CFLAGS) $(CDEBUG) $(LIB_FLAG) -I $(HEADER) -o $(NAME) $(OBJ) $(MOBJ)
 
 $(LIBFT):
 			$(MAKE) -C $(D_FT) all
@@ -95,3 +101,7 @@ fclean		: 	clean
 
 .PHONY		:	re
 re			:	fclean all
+
+.PHONY		:	bonus
+bonus		:	$(LIBFT) $(OBJ) $(BOBJ)
+				$(CC) $(LIBFT) $(CFLAGS) $(CDEBUG) $(LIB_FLAG) -I $(HEADER) -o $(NAME) $(OBJ) $(BOBJ)

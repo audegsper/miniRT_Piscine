@@ -1,4 +1,4 @@
-#include "minirt.h"
+#include "minirt_bonus.h"
 
 t_bool	in_shadow(t_ray *light_r)
 {
@@ -55,6 +55,6 @@ t_color3	trace_ray(int height, int width)
 	rec.t_min = EPSILON;
 	rec.t_max = INFINITY;
 	if (hit(g_rt.object, &ray, &rec))
-		color_tmp = phong_lighting(&rec);
+		color_tmp = phong_lighting(&ray, &rec);
 	return (color_tmp);
 }

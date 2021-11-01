@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cylinder.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dohykim <dohykim@student.42seoul.kr>       +#+  +:+       +#+        */
+/*   By: hyson <hyson@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 22:00:10 by hyson             #+#    #+#             */
-/*   Updated: 2021/10/31 13:28:45 by dohykim          ###   ########.fr       */
+/*   Updated: 2021/11/01 11:55:24 by hyson            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,16 @@
 void	set_sylinder(t_object_condition *ob)
 {
 	t_cylinder	*cylinder;
-	cylinder = malloc(sizeof(t_cylinder));
 	t_point3	bottom_tmp;
 
+	cylinder = malloc(sizeof(t_cylinder));
 	cylinder->n = vec(ob->cy->n.x, ob->cy->n.y, ob->cy->n.z);
 	cylinder->d = ob->cy->d;
 	cylinder->r = ob->cy->d / 2.0;
 	cylinder->r2 = cylinder->r * cylinder->r;
 	cylinder->h = ob->cy->h;
-	cylinder->c = color(ob->cy->c.x/255.0, ob->cy->c.y/255.0, ob->cy->c.z/255.0);
+	cylinder->c = color(ob->cy->c.x / 255.0, ob->cy->c.y / 255.0, \
+						ob->cy->c.z / 255.0);
 	cylinder->p = point(ob->cy->p.x, ob->cy->p.y, ob->cy->p.z);
 	cylinder->p_top = v_plus(cylinder->p, v_mul(cylinder->h, cylinder->n));
 	if (cylinder->n.x < 0 || cylinder->n.y < 0 || cylinder->n.z < 0)
