@@ -29,7 +29,6 @@ t_color3	get_point_light(t_light *light, t_rec *rec)
 	t_color3	phong;
 
 	light_dir = v_minus(light->p, rec->p);
-	light_len = v_len(light_dir);
 	light_ray = new_ray(v_plus(rec->p, v_mul(EPSILON, rec->n)), light_dir);
 	if (in_shadow(&light_ray))
 		return (color(0, 0, 0));

@@ -6,7 +6,7 @@
 /*   By: hyson <hyson@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 17:15:26 by hyson             #+#    #+#             */
-/*   Updated: 2021/11/01 12:31:14 by hyson            ###   ########.fr       */
+/*   Updated: 2021/11/01 15:34:36 by hyson            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,32 @@
 
 static	void	object_init(t_object_condition *ob)
 {
-	if (!ob)
-		exit(1);
+	// if (!ob)
+	// 	exit(1);
+	// ob->sp = malloc(sizeof(t_sphere));
+	// if (!ob->sp)
+	// 	exit(1);
+	// ob->a = malloc(sizeof(t_ambient));
+	// if (!ob->a)
+	// 	exit(1);
+	// ob->c = malloc(sizeof(t_camera));
+	// if (!ob->c)
+	// 	exit(1);
+	// ob->l = malloc(sizeof(t_light));
+	// if (!ob->l)
+	// 	exit(1);
+	// ob->pl = malloc(sizeof(t_plane));
+	// if (!ob->pl)
+	// 	exit(1);
+	// ob->cy = malloc(sizeof(t_cylinder));
+	// if (!ob->cy)
+	// 	exit(1);
 	ob->sp = malloc(sizeof(t_sphere));
-	if (!ob->sp)
-		exit(1);
 	ob->a = malloc(sizeof(t_ambient));
-	if (!ob->a)
-		exit(1);
 	ob->c = malloc(sizeof(t_camera));
-	if (!ob->c)
-		exit(1);
 	ob->l = malloc(sizeof(t_light));
-	if (!ob->l)
-		exit(1);
 	ob->pl = malloc(sizeof(t_plane));
-	if (!ob->pl)
-		exit(1);
 	ob->cy = malloc(sizeof(t_cylinder));
-	if (!ob->cy)
-		exit(1);
 }
 
 static	void	check_param(int argc, char **argv)
